@@ -27,12 +27,11 @@ public class Disney {
     class SpotAssigned{
         Vehicle vehicle;
         int spotNumber;
-
         long startTime;
 
     }
 
-    class ParkingGarage{
+   public  class ParkingGarage{
         int capacity;
         double costInSeconds=0.0;
         int vehiclesParked=0;
@@ -46,7 +45,8 @@ public class Disney {
         }
 
         // Randomly assign SPOT
-        private boolean park(Vehicle v){
+        // anyMath filter
+        public boolean park(Vehicle v){
                     if(capacity-vehiclesParked>=0){
                         return false;
                     }
@@ -69,7 +69,7 @@ public class Disney {
         }
 
         //Charge the customer when they exit
-        private void exit(Vehicle v){
+        public void exit(Vehicle v){
 
             if(spotAssignedMap.get(v.getId())==null){
                 //exit
@@ -89,14 +89,13 @@ public class Disney {
                 hashMap.put(exitTime, cost);
             }
 
-
             spotAssignedMap.remove(v.getId());
             this.vehiclesParked--;
 
         }
        // 10 thi 11
         // Inclusive
-        private Double getEarnings(long startTime, long endTime){
+       public Double getEarnings(long startTime, long endTime){
             double totalEarnings=0.0;
             for(Map.Entry<Long,Double> hs:hashMap.entrySet()){
 

@@ -6,19 +6,25 @@
  * Vestibulum commodo. Ut rhoncus gravida arcu.
  */
 
-package com.ishan.practice.lamda;
+package com.ishan.leetcode.tree;
+
+public class TreeNode {
 
 
+    int val;
+    TreeNode left;
+    TreeNode right;
 
-import static com.ishan.practice.lamda.LambdaFactorialBlock.numericFunc;
+    TreeNode() {
+    }
 
-public class LambdaFactorialBlockTest {
+    TreeNode(int val) {
+        this.val = val;
+    }
 
-    LambdaFactorialBlock lambdaFactorialBlock;
-
-    //@Test
-    public void factorialTest(){
-      //  Assert.assertEquals(120,numericFunc.func(4));
-
+    TreeNode(int val, TreeNode left, TreeNode right) {
+        this.val = val;
+        this.left = left;
+        this.right = right;
     }
 }
