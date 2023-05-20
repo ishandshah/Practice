@@ -17,8 +17,8 @@ import java.util.PriorityQueue;
 public class PriorityQueueColorExample implements Comparable<PriorityQueueColorExample>{
 
 
-    private int value;
-    private String color;
+    private final int value;
+    private final String color;
 
     public PriorityQueueColorExample(int value, String color) {
         this.value = value;

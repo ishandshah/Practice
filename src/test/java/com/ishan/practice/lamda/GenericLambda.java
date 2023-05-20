@@ -18,7 +18,7 @@ import java.util.List;
 public class GenericLambda {
 
 
-    public static void main(String args[])
+    public static void main(String[] args)
     {
         // Use a String-based version of SomeFunc.
         SomeFunc<String> reverse = (str) -> {

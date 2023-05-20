@@ -11,7 +11,7 @@ package com.ishan.practice.lamda;
 //TODO Uncomment line on 19 and 20 and 35
 // Book Java 8 , line 394 (429 of 1313)
 public class ExceptionLambda {
-    public static void main(String args[]) throws EmptyArrayException
+    public static void main(String[] args) throws EmptyArrayException
     {
         double[] values = { 1.0, 2.0, 3.0, 4.0 };
 // This block lambda computes the average of an array of doubles.
