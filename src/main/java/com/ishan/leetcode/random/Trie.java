@@ -8,6 +8,11 @@
 
 package com.ishan.leetcode.random;
 
+import com.ishan.leetcode.tree.TreeNode;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class Trie {
 
 
@@ -17,12 +22,12 @@ public class Trie {
     public static void main(String[] args) {
         // Input keys (use only 'a' through 'z' and lower case)
         String[] keys = {"the", "a", "there", "answer", "any",
-                "by", "bye", "their"};
+                "by", "bye", "theirs"};
 
         String[] output = {"Not present in trie", "Present in trie"};
 
 
-        root = new TrieNode();
+        root = new TrieNode(' ');
 
         // Construct trie
         int i;
@@ -46,6 +51,9 @@ public class Trie {
             System.out.println("thaw --- " + output[1]);
         else System.out.println("thaw --- " + output[0]);
 
+
+        System.out.println(suggest("the",100));
+        System.out.println(suggest("there",100));
     }
 
     private static boolean search(String thaw) {
@@ -76,22 +84,51 @@ public class Trie {
             index = word.charAt(i) - 'a';
 
             if (crawl.children[index] == null) {
-                crawl.children[index] = new TrieNode();
+                crawl.children[index] = new TrieNode(word.charAt(i));
             }
             crawl = crawl.children[index];
         }
 
         crawl.isEndOfWord = true;
     }
+    private static List<String> suggest(String thaw, int suggestionLimit) {
+        TrieNode crawl = root;
+        int index;
+        for (int i = 0; i < thaw.length(); i++) {
+            index = thaw.charAt(i) - 'a';
 
+            if (crawl.children[index] == null)
+                return null;
+
+            crawl = crawl.children[index];
+        }
+        List<String> suggestedWords=new ArrayList<>();
+            // crawl
+
+            if (crawl.children.length==0)
+                return null;
+
+
+            for(TrieNode child: crawl.children){
+               // suggestionLimit--;
+                if(child!=null)
+                    suggestedWords.add(thaw + child.c);
+            }
+
+
+
+        return suggestedWords;
+    }
     static class TrieNode {
         //ASCII characters
         int ALPHABET_SIZE = 128;
         TrieNode[] children = new TrieNode[ALPHABET_SIZE];
         boolean isEndOfWord;
 
-        TrieNode() {
+        char c;
+        TrieNode(char c) {
             isEndOfWord = false;
+            this.c=c;
             for (int i = 0; i < ALPHABET_SIZE; i++)
                 children[i] = null;
         }
