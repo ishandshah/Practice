@@ -115,8 +115,6 @@ public class Trie {
                     suggestedWords.add(thaw + child.c);
             }
 
-
-
         return suggestedWords;
     }
     static class TrieNode {

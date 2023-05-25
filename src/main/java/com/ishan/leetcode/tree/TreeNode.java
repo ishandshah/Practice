@@ -27,4 +27,18 @@ public class TreeNode {
         this.left = left;
         this.right = right;
     }
+
+
+    public TreeNode populateTree(){
+        TreeNode root;
+        root = new TreeNode(10);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(7);
+        root.left.left = new TreeNode(8);
+        root.left.right = new TreeNode(4);
+        root.right.right = new TreeNode(13);
+        root.right.left = new TreeNode(14);
+
+        return root;
+    }
 }
