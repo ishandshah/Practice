@@ -16,6 +16,7 @@ public class SlidingWindowRateLimiter {
     private final int capacity;
 
     private final int rateLimit;
+
     // Time after which the requests can be thrown
     private final long windowSize;
     private final Queue<Long> requestTimes;
