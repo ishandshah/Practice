@@ -13,7 +13,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-
 /*
 
 Design a ranked choice voting system.
@@ -26,8 +25,11 @@ Part 2 In the event of a tie, return the candidate who reached the winning point
 public class RankedChoiceVoting {
 
 
+    static Map<String, Integer> countMap = new HashMap<>();
+    static int[] points = {3, 2, 1, 0};
+
     public static void main(String[] args) {
-        String[][] votes={
+        String[][] votes = {
                 {"alice", "bob", "charlie", "dan"},
                 {"alice", "bob", "charlie", "dan"},
                 {"alice", "bob", "charlie", "dan"},
@@ -38,38 +40,38 @@ public class RankedChoiceVoting {
 
         countPoints(votes);
     }
-    static Map<String,Integer> countMap=new HashMap<>();
-    static int[] points={3,2,1,0};
+
     private static void countPoints(String[][] votes) {
         var ref = new Object() {
             int max = 0;
             String personName;
         };
 
-            for(String[] input:votes){
-                    for(int i=0;i<input.length;i++){
+        for (String[] input : votes) {
+            for (int i = 0; i < input.length; i++) {
 
-                        String name=input[i];
+                String name = input[i];
 
-                        int finalI = i;
-                        countMap.compute(name, (k, v) -> {
+                int finalI = i;
+                countMap.compute(name, (k, v) -> {
 
-                            if(v != null) {
-                                if(ref.max < v+points[finalI]){
-                                    ref.max =v+points[finalI];
-                                    ref.personName=name;
-                                }
-                                return v+points[finalI];
-                            } else {
-                                if(ref.max < points[finalI]){
-                                    ref.max =points[finalI];
-                                    ref.personName=name;
-                                }
-                                return points[finalI];
-                            }});
+                    if (v != null) {
+                        if (ref.max < v + points[finalI]) {
+                            ref.max = v + points[finalI];
+                            ref.personName = name;
+                        }
+                        return v + points[finalI];
+                    } else {
+                        if (ref.max < points[finalI]) {
+                            ref.max = points[finalI];
+                            ref.personName = name;
+                        }
+                        return points[finalI];
                     }
-
+                });
             }
+
+        }
 
         countMap.entrySet().stream().
                 sorted(Map.Entry.comparingByValue(Comparator.reverseOrder())).

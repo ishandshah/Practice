@@ -13,9 +13,10 @@ import java.util.Stack;
 public class DecodeString {
 
     public static void main(String[] args) {
-        DecodeString ds=new DecodeString();
+        DecodeString ds = new DecodeString();
         System.out.println(ds.decodeString("3[ab2[c]]"));
     }
+
     public String decodeString(String s) {
         String res = "";
         Stack<Integer> countStack = new Stack<>();
@@ -43,15 +44,14 @@ public class DecodeString {
             else if (s.charAt(idx) == ']') {
                 //abcc
                 //""
-                StringBuilder temp = new StringBuilder (resStack.pop());
+                StringBuilder temp = new StringBuilder(resStack.pop());
                 int repeatTimes = countStack.pop();
                 for (int i = 0; i < repeatTimes; i++) {
                     temp.append(res);
                 }
                 res = temp.toString();
                 idx++;
-            }
-            else {
+            } else {
                 // Just keep on appending the characters
                 res += s.charAt(idx++);
             }

@@ -12,24 +12,24 @@ public class NearestDistanceToZero {
 
 
     public static void main(String[] args) {
-        int[][] matrix={{0,0,0},{0,1,0},{0,0,0}};
+        int[][] matrix = {{0, 0, 0}, {0, 1, 0}, {0, 0, 0}};
         findDistance(matrix);
 
 
     }
 
     private static int[][] findDistance(int[][] matrix) {
-        if(matrix==null || matrix.length==0)
-                return null;
+        if (matrix == null || matrix.length == 0)
+            return null;
 
-        int[][] answer=new int[matrix.length][matrix[0].length];
+        int[][] answer = new int[matrix.length][matrix[0].length];
 
-        for(int i=0;i<matrix.length;i++){
-            for(int j=0;j<matrix[0].length;j++){
-                if(matrix[i][j]==0){
-                    answer[i][j]=0;
-                }else{
-                    answer[i][j]= checkNeighbors(i,j,matrix);
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[0].length; j++) {
+                if (matrix[i][j] == 0) {
+                    answer[i][j] = 0;
+                } else {
+                    answer[i][j] = checkNeighbors(i, j, matrix);
                 }
 
             }
@@ -40,10 +40,10 @@ public class NearestDistanceToZero {
     }
 
     private static int checkNeighbors(int i, int j, int[][] matrix) {
-        int distance=0;
-        while(matrix[i][j]!=0){
+        int distance = 0;
+        while (matrix[i][j] != 0) {
             distance++;
-            callNeighbors(i,j,matrix);
+            callNeighbors(i, j, matrix);
 
         }
         return distance;
@@ -51,8 +51,8 @@ public class NearestDistanceToZero {
 
     private static void callNeighbors(int i, int j, int[][] matrix) {
 
-        int[][] dirs = {{0,1},{0,-1},{1,0},{-1,0}};
-        for(int[] dir : dirs){
+        int[][] dirs = {{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
+        for (int[] dir : dirs) {
 //            int x = matrix[0] + dir[0];
 //            int y = matrix[1] + dir[1];
 //            if(x >= 0 && x < r && y >= 0 && y < c && visited[x][y] == 0){

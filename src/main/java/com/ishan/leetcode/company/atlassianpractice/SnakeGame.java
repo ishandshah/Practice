@@ -10,26 +10,57 @@ package com.ishan.leetcode.company.atlassianpractice;
 
 import java.util.LinkedList;
 import java.util.Objects;
-//todo atlassian
+import java.util.Random;
+
+
 public class SnakeGame {
     private static final int BOARD_SIZE = 10;
-
+    Point food;
     private LinkedList<Point> snake;
     private Direction currentDirection;
     private boolean gameOver;
-    Point food;
+
     public SnakeGame() {
         initialize();
     }
 
+    public static void main(String[] args) {
+        SnakeGame game = new SnakeGame();
+        Direction[] directions = {Direction.UP, Direction.DOWN, Direction.LEFT, Direction.RIGHT};
+
+
+        // Move the snake
+ /*      game.moveSnake(Direction.RIGHT);
+        game.moveSnake(Direction.RIGHT);
+        game.moveSnake(Direction.DOWN);
+        game.moveSnake(Direction.LEFT);*/
+
+        // Check if game is over
+        while (!game.isGameOver()) {
+            int i = new Random().nextInt(0, 3);
+            game.moveSnake(directions[i]);
+        }
+    }
+
+    private void initialize() {
+        snake = new LinkedList<>();
+        snake.add(new Point(BOARD_SIZE / 2, BOARD_SIZE / 2));
+        currentDirection = Direction.RIGHT;
+        generateFood();
+        gameOver = false;
+    }
+
     public void moveSnake(Direction direction) {
         if (gameOver) {
-            System.out.println("Game over! Start a new game.");
+            System.out.println("Game over! Start a new game." + snake.size());
             return;
         }
 
         Point head = snake.getFirst();
-        Point newHead = getNextHeadPosition(head, direction);
+        Point newHead = getNextHeadPosition(head, direction, food);
+        System.out.println(newHead);
+
+        System.out.println("food" + food);
 
         if (isCollision(newHead) || isOutOfBounds(newHead)) {
             gameOver = true;
@@ -51,23 +82,24 @@ public class SnakeGame {
         return gameOver;
     }
 
-    private void initialize() {
-        snake = new LinkedList<>();
-        snake.add(new Point(BOARD_SIZE / 2, BOARD_SIZE / 2));
-        currentDirection = Direction.RIGHT;
-        generateFood();
-        gameOver = false;
-    }
-
     private void generateFood() {
         int x = (int) (Math.random() * BOARD_SIZE);
         int y = (int) (Math.random() * BOARD_SIZE);
         food = new Point(x, y);
     }
 
-    private Point getNextHeadPosition(Point head, Direction direction) {
+    private Point getNextHeadPosition(Point head, Direction direction, Point food) {
         int x = head.x;
         int y = head.y;
+        if (food.x > x) {
+            direction = Direction.RIGHT;
+        } else if (food.x < x) {
+            direction = Direction.LEFT;
+        } else if (food.y < y) {
+            direction = Direction.UP;
+        } else if (food.y > y) {
+            direction = Direction.DOWN;
+        }
 
         switch (direction) {
             case UP:
@@ -123,25 +155,16 @@ public class SnakeGame {
         }
 
         @Override
+        public String toString() {
+            return "Point{" +
+                    "x=" + x +
+                    ", y=" + y +
+                    '}';
+        }
+
+        @Override
         public int hashCode() {
             return Objects.hash(x, y);
-        }
-    }
-
-    public static void main(String[] args) {
-        SnakeGame game = new SnakeGame();
-
-        // Move the snake
-        game.moveSnake(Direction.RIGHT);
-        game.moveSnake(Direction.RIGHT);
-        game.moveSnake(Direction.DOWN);
-        game.moveSnake(Direction.LEFT);
-
-        // Check if game is over
-        if (game.isGameOver()) {
-            System.out.println("Game over!");
-        } else {
-            System.out.println("Game still in progress...");
         }
     }
 }

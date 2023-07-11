@@ -57,7 +57,8 @@ class Node {
         //       this.next=next;
 
     }
-     static void print(Node head) {
+
+    static void print(Node head) {
 
         //Node current=head;
 

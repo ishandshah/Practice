@@ -15,12 +15,12 @@ public class SocialMediaMap {
         List<List<String>> levels = new ArrayList<>();
         Set<String> visited = new HashSet<>();
         Queue<Pair> queue = new LinkedList<>();
-      
-        queue.add(new Pair(person,0));
+
+        queue.add(new Pair(person, 0));
         while (!queue.isEmpty()) {
             Pair poll = queue.poll();
-            String currentPerson=poll.getPersonName();
-            int level=poll.getLevel();
+            String currentPerson = poll.getPersonName();
+            int level = poll.getLevel();
             if (!visited.contains(currentPerson)) {
                 visited.add(currentPerson);
 
@@ -40,8 +40,9 @@ public class SocialMediaMap {
 
         }
 
-            return levels;
+        return levels;
     }
+
     public static void main(String[] args) {
         // Example social media map
         Map<String, List<String>> personMap = new HashMap<>();

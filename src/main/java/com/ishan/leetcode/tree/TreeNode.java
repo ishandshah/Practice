@@ -29,7 +29,7 @@ public class TreeNode {
     }
 
 
-    public TreeNode populateTree(){
+    public TreeNode populateTree() {
         TreeNode root;
         root = new TreeNode(10);
         root.left = new TreeNode(2);

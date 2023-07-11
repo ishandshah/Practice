@@ -12,19 +12,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+interface SomeFunc<T> {
+
+    T func(T t);
+}
+
 //TODO RUN URGENTLY
 //TODO ADDED OWN LAMBDA TO FILTER DATA
 //TODO ADD TEST CASE
 public class GenericLambda {
 
 
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
         // Use a String-based version of SomeFunc.
         SomeFunc<String> reverse = (str) -> {
             String result = "";
             int i;
-            for(i = str.length()-1; i >= 0; i--)
+            for (i = str.length() - 1; i >= 0; i--)
                 result += str.charAt(i);
             return result;
         };
@@ -35,7 +39,7 @@ public class GenericLambda {
 // Now, use an Integer-based version of SomeFunc.
         SomeFunc<Integer> factorial = (n) -> {
             int result = 1;
-            for(int i=1; i <= n; i++)
+            for (int i = 1; i <= n; i++)
                 result = i * result;
             return result;
         };
@@ -45,13 +49,10 @@ public class GenericLambda {
         System.out.println("The factoral of 5 is " + factorial.func(5));
 
 
-
-
-
-        SomeFunc<ApplyFilters> applyFiltersSomeFunc=(applyObj) -> {
+        SomeFunc<ApplyFilters> applyFiltersSomeFunc = (applyObj) -> {
 
             for (ApplyFilters.People people : applyObj.peopleList) {
-                if(people.age<10){
+                if (people.age < 10) {
                     applyObj.peopleList.remove(people);
                 }
             }
@@ -63,46 +64,38 @@ public class GenericLambda {
 
         //Test data
 
-        ApplyFilters app=new ApplyFilters();
-        app.peopleList=new ArrayList<>(){{
-            add(new ApplyFilters.People("ishan",1,'F',1000));
-            add(new ApplyFilters.People("shah",100,'F',1000));
-            add(new ApplyFilters.People("ishani",11,'F',1000));
-            add(new ApplyFilters.People("isha",12,'F',100000));
-            add(new ApplyFilters.People("ishane",19,'M',1000));
-            add(new ApplyFilters.People("is",9,'F',1000));
+        ApplyFilters app = new ApplyFilters();
+        app.peopleList = new ArrayList<>() {{
+            add(new ApplyFilters.People("ishan", 1, 'F', 1000));
+            add(new ApplyFilters.People("shah", 100, 'F', 1000));
+            add(new ApplyFilters.People("ishani", 11, 'F', 1000));
+            add(new ApplyFilters.People("isha", 12, 'F', 100000));
+            add(new ApplyFilters.People("ishane", 19, 'M', 1000));
+            add(new ApplyFilters.People("is", 9, 'F', 1000));
         }};
         ApplyFilters func = applyFiltersSomeFunc.func(app);
 
-        System.out.println("THIS HAS TO BE TRUE " + (func.peopleList.size()==4));
+        System.out.println("THIS HAS TO BE TRUE " + (func.peopleList.size() == 4));
     }
 
 }
 
-
-interface SomeFunc<T>{
-
-    T func(T t);
-}
-
-class ApplyFilters{
+class ApplyFilters {
 
     List<People> peopleList;
 
 
     static class People {
+        String name;
+        int age;
+        char sex;
+        int money;
         public People(String name, int age, char sex, int money) {
             this.name = name;
             this.age = age;
             this.sex = sex;
             this.money = money;
         }
-
-        String name;
-        int age;
-        char sex;
-        int money;
-
 
         public String getName() {
             return name;

@@ -9,9 +9,15 @@
 package com.ishan.leetcode.array;
 
 public class CircularHouseRobbery {
+    public static void main(String[] args) {
+        int[] arr = {1, 3, 1, 4};
+        int rob = new CircularHouseRobbery().rob(arr);
+        System.out.println(rob);
+    }
+
     public int rob(int[] nums) {
         if (nums.length == 1) return nums[0];
-        if (nums.length == 2) return Math.max(nums[0],nums[1]);
+        if (nums.length == 2) return Math.max(nums[0], nums[1]);
         return Math.max(rob(nums, 0, nums.length - 2), rob(nums, 1, nums.length - 1));
     }
 
@@ -23,13 +29,6 @@ public class CircularHouseRobbery {
             exclude = Math.max(e, i);
         }
         return Math.max(include, exclude);
-    }
-
-
-    public static void main(String[] args) {
-        int[] arr={1,3,1,4};
-        int rob = new CircularHouseRobbery().rob(arr);
-        System.out.println(rob);
     }
 
 }

@@ -8,11 +8,14 @@
 
 package com.ishan.leetcode.company;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Random;
+import java.util.TreeMap;
 
 public class Disney {
 
-    static  class Vehicle{
+    static class Vehicle {
         String id;
 
         public Vehicle(String id) {
@@ -24,68 +27,70 @@ public class Disney {
         }
 
     }
-    class SpotAssigned{
+
+    class SpotAssigned {
         Vehicle vehicle;
         int spotNumber;
         long startTime;
 
     }
 
-   public  class ParkingGarage{
+    public class ParkingGarage {
         int capacity;
-        double costInSeconds=0.0;
-        int vehiclesParked=0;
+        double costInSeconds = 0.0;
+        int vehiclesParked = 0;
         boolean[] isOccupied;
-        Map<Long,Double> hashMap=new TreeMap<>();
-        Map<String,SpotAssigned> spotAssignedMap=new HashMap<>();
-        public ParkingGarage(int capacity,double costInSeconds) {
-            this.capacity=capacity;
-            this.costInSeconds=costInSeconds;
-            isOccupied=new boolean[capacity];
+        Map<Long, Double> hashMap = new TreeMap<>();
+        Map<String, SpotAssigned> spotAssignedMap = new HashMap<>();
+
+        public ParkingGarage(int capacity, double costInSeconds) {
+            this.capacity = capacity;
+            this.costInSeconds = costInSeconds;
+            isOccupied = new boolean[capacity];
         }
 
         // Randomly assign SPOT
         // anyMath filter
-        public boolean park(Vehicle v){
-                    if(capacity-vehiclesParked>=0){
-                        return false;
-                    }
-                    //Spot assign
+        public boolean park(Vehicle v) {
+            if (capacity - vehiclesParked >= 0) {
+                return false;
+            }
+            //Spot assign
 
-                int randomNumber = 0;
-                while(isOccupied[randomNumber]!=Boolean.FALSE){
-                    randomNumber=new Random().nextInt(0, capacity);
-                }
-                isOccupied[randomNumber]=Boolean.TRUE;
-                this.vehiclesParked++;
+            int randomNumber = 0;
+            while (isOccupied[randomNumber] != Boolean.FALSE) {
+                randomNumber = new Random().nextInt(0, capacity);
+            }
+            isOccupied[randomNumber] = Boolean.TRUE;
+            this.vehiclesParked++;
 
 
-                SpotAssigned spotAssigned=new SpotAssigned();
-                spotAssigned.spotNumber=randomNumber;
-                spotAssigned.vehicle=v;
-                spotAssigned.startTime=System.currentTimeMillis();
+            SpotAssigned spotAssigned = new SpotAssigned();
+            spotAssigned.spotNumber = randomNumber;
+            spotAssigned.vehicle = v;
+            spotAssigned.startTime = System.currentTimeMillis();
 
-                return true;
+            return true;
         }
 
         //Charge the customer when they exit
-        public void exit(Vehicle v){
+        public void exit(Vehicle v) {
 
-            if(spotAssignedMap.get(v.getId())==null){
+            if (spotAssignedMap.get(v.getId()) == null) {
                 //exit
                 return;
             }
 
             SpotAssigned spotAssigned = spotAssignedMap.get(v.getId());
 
-            long exitTime=System.currentTimeMillis();
+            long exitTime = System.currentTimeMillis();
 
 
-            double cost=this.costInSeconds * (exitTime-spotAssigned.startTime);
+            double cost = this.costInSeconds * (exitTime - spotAssigned.startTime);
 
-            if(hashMap.containsKey(exitTime)){
+            if (hashMap.containsKey(exitTime)) {
                 hashMap.put(exitTime, hashMap.get(exitTime) + cost);
-            }else{
+            } else {
                 hashMap.put(exitTime, cost);
             }
 
@@ -93,14 +98,15 @@ public class Disney {
             this.vehiclesParked--;
 
         }
-       // 10 thi 11
-        // Inclusive
-       public Double getEarnings(long startTime, long endTime){
-            double totalEarnings=0.0;
-            for(Map.Entry<Long,Double> hs:hashMap.entrySet()){
 
-                if(hs.getKey()>=startTime && hs.getKey()<=endTime){
-                    totalEarnings+=hs.getValue();
+        // 10 thi 11
+        // Inclusive
+        public Double getEarnings(long startTime, long endTime) {
+            double totalEarnings = 0.0;
+            for (Map.Entry<Long, Double> hs : hashMap.entrySet()) {
+
+                if (hs.getKey() >= startTime && hs.getKey() <= endTime) {
+                    totalEarnings += hs.getValue();
                 }
             }
 

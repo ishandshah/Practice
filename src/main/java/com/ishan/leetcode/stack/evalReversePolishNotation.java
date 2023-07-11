@@ -14,29 +14,29 @@ public class evalReversePolishNotation {
 
 
     public static void main(String[] args) {
-        String[] tokens = {"2","1","+","3","*"};
+        String[] tokens = {"2", "1", "+", "3", "*"};
         System.out.println(evalRPN(tokens));
     }
-    public static String evalRPN(String[] input){
+
+    public static String evalRPN(String[] input) {
 
 
         String operators = "+-*/";
-        Stack<String> characterStack=new Stack<>();
+        Stack<String> characterStack = new Stack<>();
 
-        for(int i=0;i<input.length;i++){
-            String in=input[i];
-            if(!operators.contains(in)){
+        for (int i = 0; i < input.length; i++) {
+            String in = input[i];
+            if (!operators.contains(in)) {
                 characterStack.push(in);
-            }else{
+            } else {
                 int a = Integer.valueOf(characterStack.pop());
                 int b = Integer.valueOf(characterStack.pop());
-                switch (in)
-                {
+                switch (in) {
                     case "+":
                         characterStack.push(String.valueOf(a + b));
                         break;
                     case "/":
-                        characterStack.push(String.valueOf(a/b));
+                        characterStack.push(String.valueOf(a / b));
                         break;
                     case "-":
                         characterStack.push(String.valueOf(b - a));
@@ -48,7 +48,6 @@ public class evalReversePolishNotation {
                 }
 
             }
-
 
 
         }

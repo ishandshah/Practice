@@ -12,12 +12,13 @@ import java.util.Arrays;
 
 public class Quadrapulet {
     public static void main(String[] args) {
-        int[] quadrapulet = findQuadruplet(new int[]{4, 1, 0, 1,2,2,2,3,3,0,1}, 7);
+        int[] quadrapulet = findQuadruplet(new int[]{4, 1, 0, 1, 2, 2, 2, 3, 3, 0, 1}, 7);
         System.out.println(quadrapulet[0]);
         System.out.println(quadrapulet[1]);
         System.out.println(quadrapulet[2]);
         System.out.println(quadrapulet[3]);
     }
+
     public static int[] findQuadruplet(int[] arr, int s) {
 
         int n = arr.length;
@@ -29,8 +30,8 @@ public class Quadrapulet {
 
         for (int i = 0; i <= n - 4; i++) {
 
-                for (int j = i + 1; j <= n - 3; j++) {
-                    int r = s - (arr[i] + arr[j]);
+            for (int j = i + 1; j <= n - 3; j++) {
+                int r = s - (arr[i] + arr[j]);
 
                 // check for sum r in sub-array arr[j+1…n-1]
                 int low = j + 1, high = n - 1;
@@ -46,5 +47,5 @@ public class Quadrapulet {
             }
         }
         return new int[]{};
-}
+    }
 }

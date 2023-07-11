@@ -8,7 +8,10 @@
 
 package com.ishan.leetcode.company.oracle;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Stack;
 
 /*
 * There are a total of n courses you have to take labelled from 0 to n - 1.
@@ -27,9 +30,9 @@ If there are many valid answers, return any of them. If it is impossible to fini
 public class TopologicalSort {
 
     public static void main(String[] args) {
-        int[][] prerequisites = {{1,0},{2,0},{3,1},{3,2}};
+        int[][] prerequisites = {{1, 0}, {2, 0}, {3, 1}, {3, 2}};
         // {1,0},{2,0},{3,1},{3,2}
-        int[] output=findOrder(prerequisites,4);
+        int[] output = findOrder(prerequisites, 4);
         System.out.println(Arrays.toString(output));
 
         // [0,1],[1,0]
@@ -37,33 +40,33 @@ public class TopologicalSort {
 
     private static int[] findOrder(int[][] prerequisites, int courses) {
 
-        boolean[] visited=new boolean[courses];
-        Stack<Integer> integerStack=new Stack<>();
+        boolean[] visited = new boolean[courses];
+        Stack<Integer> integerStack = new Stack<>();
 
         //Build cycle
-         List<List<Integer>> adjList=new ArrayList<>();
+        List<List<Integer>> adjList = new ArrayList<>();
 
-         for(int i=0;i<courses;i++){
-             adjList.add(new ArrayList<>());
-         }
-         for(int[] a: prerequisites){
-             adjList.get(a[1]).add(a[0]);
-         }
+        for (int i = 0; i < courses; i++) {
+            adjList.add(new ArrayList<>());
+        }
+        for (int[] a : prerequisites) {
+            adjList.get(a[1]).add(a[0]);
+        }
 
         System.out.println(adjList);
 
         for (int i = 0; i < courses; i++) {
-            if (visited[i]!=true) {
-             //   visited[i]=true;
-                dfs(i,adjList,visited,integerStack);
-              //  visited[i]=false;
+            if (visited[i] != true) {
+                //   visited[i]=true;
+                dfs(i, adjList, visited, integerStack);
+                //  visited[i]=false;
             }
         }
-         int[] answer=new int[courses];
-        int j=0;
-        while(!integerStack.isEmpty()){
+        int[] answer = new int[courses];
+        int j = 0;
+        while (!integerStack.isEmpty()) {
             System.out.println(integerStack);
-            answer[j++]=integerStack.pop();
+            answer[j++] = integerStack.pop();
             System.out.println(j);
         }
 
@@ -73,14 +76,14 @@ public class TopologicalSort {
     private static void dfs(int i, List<List<Integer>> adjList, boolean[] visited, Stack<Integer> integerStack) {
         // Traverse on neighboring vertices
         for (Integer neighbor : adjList.get(i)) {
-            if (visited[neighbor]!=true) {
+            if (visited[neighbor] != true) {
                 dfs(neighbor, adjList, visited, integerStack);
             }
         }
 
-        if(visited[i]!=true)
+        if (visited[i] != true)
             integerStack.add(i);
-        visited[i]=true;
+        visited[i] = true;
 
     }
 

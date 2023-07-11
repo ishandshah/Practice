@@ -8,14 +8,11 @@
 
 package com.ishan.leetcode.company.atlassianpractice.tag;
 
-import java.util.List;
-
-public class Document extends Entity{
+public class Document extends Entity {
 
     public Document(int entityId, String entityName) {
         super(entityId, entityName, EntityType.DOCUMENT);
     }
-
 
 
 }

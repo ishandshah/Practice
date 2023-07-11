@@ -8,12 +8,12 @@
 
 package com.ishan.leetcode.company.atlassianpractice.tag;
 
-public class Tagger{
+public class Tagger {
 
     public static void main(String[] args) {
-        TaggingServiceImpl tmp=new TaggingServiceImpl();
-        String[] tags={"ishan","shah","jsk", "fam"};
-        tmp.tagContent("ishan",tags);
+        TaggingServiceImpl tmp = new TaggingServiceImpl();
+        String[] tags = {"ishan", "shah", "jsk", "fam"};
+        tmp.tagContent("ishan", tags);
         System.out.println(TaggingServiceImpl.contentTagsMap.entrySet());
 
         System.out.println(tmp.getPopularTags(2));
@@ -26,13 +26,13 @@ public class Tagger{
         System.out.println(TaggingServiceImpl.contentTagsMap.entrySet());
 
 
-        Tag t1=new Tag(1,"john", "john");
-        Tag t2=new Tag(2,"john cena", "john");
-        Tag t3=new Tag(3,"john abraham", "john");
+        Tag t1 = new Tag(1, "john", "john");
+        Tag t2 = new Tag(2, "john cena", "john");
+        Tag t3 = new Tag(3, "john abraham", "john");
 
 
-        Tag[] tagArray={t1,t2,t3};
-        tmp.tagContent("ishan shah",tagArray);
+        Tag[] tagArray = {t1, t2, t3};
+        tmp.tagContent("ishan shah", tagArray);
         System.out.println(TaggingServiceImpl.contentTagsMap.entrySet());
     }
 }

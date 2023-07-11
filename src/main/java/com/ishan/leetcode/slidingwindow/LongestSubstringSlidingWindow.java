@@ -8,7 +8,6 @@
 
 package com.ishan.leetcode.slidingwindow;
 
-import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
@@ -16,39 +15,39 @@ public class LongestSubstringSlidingWindow {
 
 
     public static void main(String[] args) {
-        String test="ishandfshah";
+        String test = "ishandfshah";
 
 
         System.out.println(slidingWindowFindLen(test));
-        
+
     }
 
     private static String slidingWindowFindLen(String input) {
 
-        Set<Character> distinctSet=new LinkedHashSet<>();
+        Set<Character> distinctSet = new LinkedHashSet<>();
 
-       // if(input.length()<1)
-           // return 0;
+        // if(input.length()<1)
+        // return 0;
 
-       // if(input.length()==1)
-                //return 1;
+        // if(input.length()==1)
+        //return 1;
 
-        int left=0,right=0,max=0;
-        String output="";
+        int left = 0, right = 0, max = 0;
+        String output = "";
 
-        while(right<input.length()){
-                if(distinctSet.contains(input.charAt(right))){
-                    distinctSet.remove(input.charAt(left++));
-                }else{
-                    distinctSet.add(input.charAt(right++));
-                    if(max< right-left){
-                        output=input.substring(left,right);
-                    }
-                    max=Math.max(max,right-left);
-                    // Same
-                    //max=Math.max(max,distinctSet.size());
-
+        while (right < input.length()) {
+            if (distinctSet.contains(input.charAt(right))) {
+                distinctSet.remove(input.charAt(left++));
+            } else {
+                distinctSet.add(input.charAt(right++));
+                if (max < right - left) {
+                    output = input.substring(left, right);
                 }
+                max = Math.max(max, right - left);
+                // Same
+                //max=Math.max(max,distinctSet.size());
+
+            }
 
         }
 

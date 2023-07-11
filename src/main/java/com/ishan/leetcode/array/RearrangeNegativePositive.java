@@ -11,9 +11,8 @@ package com.ishan.leetcode.array;
 //https://www.geeksforgeeks.org/rearrange-positive-and-negative-numbers/#
 //Approach 4: Using Sliding Window with two pointer technique
 public class RearrangeNegativePositive {
-    public static void main(String[] args)
-    {
-        int arr[] = { -12, 11, -13, -5, 6, -7, 5, -3, -6 };
+    public static void main(String[] args) {
+        int arr[] = {-12, 11, -13, -5, 6, -7, 5, -3, -6};
 
         rearrangePosNegWithOrder(arr);
 
@@ -21,6 +20,7 @@ public class RearrangeNegativePositive {
             System.out.print(i + " ");
         }
     }
+
     // Here the size of window increases as it encounters
     // positive numbers
     private static void rearrangePosNegWithOrder(int[] arr) {
@@ -31,7 +31,7 @@ public class RearrangeNegativePositive {
                 j++;
             }
             // negative integer
-            else{
+            else {
                 for (int k = j; k > i; k--) {
                     int temp = arr[k];
                     arr[k] = arr[k - 1];

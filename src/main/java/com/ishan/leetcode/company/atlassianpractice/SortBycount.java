@@ -14,26 +14,29 @@ import java.util.Map;
 import java.util.TreeMap;
 
 public class SortBycount {
+    static Map<Character, Integer> countMap = new HashMap<>();
+    static Map<String, String> count = new TreeMap();
+
     public static void main(String[] args) {
-        String text="ishan shah is a sr engineer at Nordstrom";
+        String text = "ishan shah is a sr engineer at Nordstrom";
 
         sortByCount(text);
     }
-    static Map<Character,Integer> countMap=new HashMap<>();
-    static Map<String,String> count =new TreeMap();
+
     private static void sortByCount(String text) {
 
-        char[] input=text.toLowerCase().toCharArray();
-       // count.put("ishan","shah");
+        char[] input = text.toLowerCase().toCharArray();
+        // count.put("ishan","shah");
 
-        for(Character c: input){
+        for (Character c : input) {
 
-            countMap.compute(c, (k,v) -> {
-                if(v != null) {
-                    return v+1;
+            countMap.compute(c, (k, v) -> {
+                if (v != null) {
+                    return v + 1;
                 } else {
                     return 1;
-                }});
+                }
+            });
         }
 
         countMap.entrySet()

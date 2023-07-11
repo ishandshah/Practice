@@ -15,34 +15,31 @@ public class LongestSubstringWORepeatingCharacters {
 
 
     public static void main(String[] args) {
-        String input="abcdeabfg";
+        String input = "abcdeabfg";
         System.out.println(findLongestSubstring(input));
     }
 
     private static int findLongestSubstring(String input) {
-        Set<Character> distinctSet=new HashSet<>();
+        Set<Character> distinctSet = new HashSet<>();
 
 
-        int left=0,right=0;
+        int left = 0, right = 0;
 
-        int max=0;
+        int max = 0;
 
-        while(right<input.length()){
+        while (right < input.length()) {
 
-            if(distinctSet.contains(input.charAt(right))){
+            if (distinctSet.contains(input.charAt(right))) {
                 distinctSet.remove(input.charAt(left++));
-            }else{
+            } else {
                 distinctSet.add(input.charAt(right));
                 right++;
-                max=Math.max(max, right - left);
+                max = Math.max(max, right - left);
             }
 
         }
 
         return max;
-
-
-
 
 
     }

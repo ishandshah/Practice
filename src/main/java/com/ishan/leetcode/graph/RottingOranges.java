@@ -19,38 +19,27 @@ public class RottingOranges {
     //Input: grid = [[2,1,1],[0,1,1],[1,0,1]]
 
 
-    // store the position of rotten orange
-    static class Position {
-        int x;
-        int y;
-
-        Position(int x, int y) {
-            this.x = x;
-            this.y = y;
-        }
-    }
-
     public int orangesRotting(int[][] grid) {
         Queue<Position> q = new LinkedList<>();
         int total = 0, rotten = 0, time = 0;
 
-        for(int i=0;i<grid.length;i++){
-            for(int j=0;j<grid[0].length;j++){
+        for (int i = 0; i < grid.length; i++) {
+            for (int j = 0; j < grid[0].length; j++) {
 
-                if(grid[i][j]==2){
-                    q.offer(new Position(i,j));
+                if (grid[i][j] == 2) {
+                    q.offer(new Position(i, j));
                 }
-                if(grid[i][j]==1 || grid[i][j]==2 ){
+                if (grid[i][j] == 1 || grid[i][j] == 2) {
                     total++;
                 }
             }
         }
 
 
-        if(total==0)
+        if (total == 0)
             return 0;
 
-        while(!q.isEmpty() && rotten<total){
+        while (!q.isEmpty() && rotten < total) {
             // size is the num of rotten oranges of the last round
             int size = q.size();
 
@@ -88,5 +77,16 @@ public class RottingOranges {
         }
 
         return -1;
+    }
+
+    // store the position of rotten orange
+    static class Position {
+        int x;
+        int y;
+
+        Position(int x, int y) {
+            this.x = x;
+            this.y = y;
+        }
     }
 }

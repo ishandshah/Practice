@@ -22,43 +22,48 @@ public class HitCounter {
 
     //
 
-    Queue<Integer> q;
-    /** Initialize your data structure here. */
+    /**
+     * Initialize your data structure here.
+     */
     private final int THIRTY_SECONDS = 10;
+    Queue<Integer> q;
+
     public HitCounter() {
         q = new LinkedList<Integer>();
     }
 
+    // Time Complexity : O(n)
+    public static void main(String[] args) throws InterruptedException {
+        HitCounter obj = new HitCounter();
+        for (int i = 0; i < 100000; i++)
+            obj.hit(i);
+        obj.getHits(0);
+        Thread.sleep(150000); // 150
+        obj.getHits(0);
+    }
 
-    /** Record a hit.
-     @param timestamp - The current timestamp  (in seconds granularity).
+    /**
+     * Record a hit.
+     *
+     * @param timestamp - The current timestamp  (in seconds granularity).
      */
-    public void hit(int timestamp)
-    {
+    public void hit(int timestamp) {
         q.offer(timestamp);
     }    // Time Complexity : O(1)
 
-    /** Return the number of hits in the past 5 minutes.
-     @param timestamp - The current timestamp (in seconds
-     granularity).
+    /**
+     * Return the number of hits in the past 5 minutes.
+     *
+     * @param timestamp - The current timestamp (in seconds
+     *                  granularity).
      */
-    public int getHits(int timestamp)
-    {
+    public int getHits(int timestamp) {
         // 10 - 0 >
         while (!q.isEmpty() && (timestamp - q.peek() >= THIRTY_SECONDS)) {
             q.poll();
         }
         System.out.println(q.size());
         return q.size();
-    }
-    // Time Complexity : O(n)
-    public static void main(String[] args) throws InterruptedException {
-        HitCounter obj = new HitCounter();
-        for(int i=0;i<100000;i++)
-            obj.hit(i);
-        obj.getHits(0);
-        Thread.sleep(150000); // 150
-        obj.getHits(0);
     }
 }
 

@@ -16,12 +16,38 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class RouterService {
-    private Map<Pattern, String> routeMap;
     List<String> servers;
+    private Map<Pattern, String> routeMap;
+
     public RouterService() {
         routeMap = new HashMap<>();
-        servers=new ArrayList<>();
+        servers = new ArrayList<>();
     }
+
+    public static void main(String[] args) {
+        RouterService router = new RouterService();
+        router.addRoute("/bar/*/ert", "Matched Server 1");
+        router.addRoute("/bar/qw/ert", "Matched Server 2");
+        router.addRoute("/nordstrom/*/*", "Matched Server 5");
+
+        String input1 = "/bar/qw/ert";
+        String result1 = router.routeRequest(input1);
+        System.out.println("Input: " + input1 + " --> Result: " + result1);
+
+        String input2 = "/bar/abc/ert";
+        String result2 = router.routeRequest(input2);
+        System.out.println("Input: " + input2 + " --> Result: " + result2);
+
+
+        String input12 = "/bar/ishan/ert";
+        String result12 = router.routeRequest(input12);
+        System.out.println("Input: " + input12 + " --> Result: " + result12);
+
+        String input123 = "/nordstrom/ishan/shah";
+        String result123 = router.routeRequest(input123);
+        System.out.println("Input: " + input123 + " --> Result: " + result123);
+    }
+
     public void addRoute(String pattern, String server) {
         Pattern compiledPattern = Pattern.compile(convertPatternToRegex(pattern));
         routeMap.put(compiledPattern, server);
@@ -41,30 +67,5 @@ public class RouterService {
             }
         }
         return "No matching route found.";
-    }
-
-    public static void main(String[] args) {
-        RouterService router = new RouterService();
-        router.addRoute("/bar/*/ert", "Matched Server 1");
-        router.addRoute("/bar/qw/ert", "Matched Server 2");
-        router.addRoute("/nordstrom/*/*", "Matched Server 5");
-
-        String input1 = "/bar/qw/ert";
-        String result1 = router.routeRequest(input1);
-        System.out.println("Input: " + input1 + " --> Result: " + result1);
-
-        String input2 = "/bar/abc/ert";
-        String result2 = router.routeRequest(input2);
-        System.out.println("Input: " + input2 + " --> Result: " + result2);
-
-
-
-        String input12 = "/bar/ishan/ert";
-        String result12 = router.routeRequest(input12);
-        System.out.println("Input: " + input12 + " --> Result: " + result12);
-
-        String input123 = "/nordstrom/ishan/shah";
-        String result123 = router.routeRequest(input123);
-        System.out.println("Input: " + input123 + " --> Result: " + result123);
     }
 }

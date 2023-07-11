@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    // id 'com.diffplug.spotless' version '5.14.2'
 }
 
 group 'org.example'
@@ -11,6 +12,7 @@ repositories {
 
 dependencies {
     implementation 'org.jsoup:jsoup:1.15.4'
+    //  implementation 'com.google.googlejavaformat:google-java-format:1.10.0'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
     testImplementation group: 'org.mockito', name: 'mockito-core', version: '2.1.0'
@@ -19,3 +21,14 @@ dependencies {
 test {
     useJUnitPlatform()
 }
+
+
+//spotless {
+//    java {
+//        // Configure the formatting rules for Java source files
+//        // Example: Apply Google Java Style
+//        format 'googleJavaFormat'
+//    }
+//
+//    // Add additional blocks for other file types (e.g., Kotlin, XML, etc.) as needed
+//}

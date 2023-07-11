@@ -9,16 +9,16 @@
 package com.ishan.leetcode.array;
 
 import java.util.ArrayDeque;
-import java.util.Arrays;
 import java.util.Queue;
 import java.util.Random;
 
 //Given an m x n binary matrix mat, return the distance of the nearest 0 for each cell.
 public class ZeroOneMatrix {
 
-    static int[][] directions={ {-1,0} ,{0,1},{1,0},{0,-1}};
+    static int[][] directions = {{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
+
     public static int[][] updateMatrix(int[][] mat) {
-        int[][] res= new int[mat.length][mat[0].length];
+        int[][] res = new int[mat.length][mat[0].length];
         int m = mat.length, n = mat[0].length; // The distance of cells is up to (M+N)
         Queue<int[]> q = new ArrayDeque<>();
 
@@ -29,19 +29,19 @@ public class ZeroOneMatrix {
                 else mat[r][c] = -1; // Marked as not processed yet!
 
 
-        while(!q.isEmpty()){
-                int[] curr=q.poll();
-                int r = curr[0], c = curr[1];
+        while (!q.isEmpty()) {
+            int[] curr = q.poll();
+            int r = curr[0], c = curr[1];
             for (int i = 0; i < 4; ++i) {
-                    int nr=r+directions[i][0];
-                    int nc=c+directions[i][1];
-                    if (nr < 0 || nr == m || nc < 0 || nc == n || mat[nr][nc] != -1) continue;
-                    mat[nr][nc] = mat[r][c] + 1;
-                    q.offer(new int[]{nr, nc});
+                int nr = r + directions[i][0];
+                int nc = c + directions[i][1];
+                if (nr < 0 || nr == m || nc < 0 || nc == n || mat[nr][nc] != -1) continue;
+                mat[nr][nc] = mat[r][c] + 1;
+                q.offer(new int[]{nr, nc});
 
             }
 
-            }
+        }
         return mat;
     }
 

@@ -13,7 +13,10 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import java.io.*;
+import java.io.BufferedInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 import java.util.HashSet;
 import java.util.Set;
@@ -23,7 +26,7 @@ public class Scraper {
     private static Set<String> visitedUrls = new HashSet<>();
 
     public static void main(String[] args) {
-        String[] urls = { "https://www.google.com" };
+        String[] urls = {"https://www.google.com"};
         for (String url : urls) {
             scrapeImages(url);
         }

@@ -20,21 +20,21 @@ public class GenerateCalendar {
 
         List<Integer> modifiableList = new ArrayList<>(List.of(1, 2, 3, 4, 5));
         List<Integer> modifiableList2 = new ArrayList<>(List.of(1, 2, 3, 4, 5));
-        modifiableList2.removeIf(n -> n == 4|| n==5);
+        modifiableList2.removeIf(n -> n == 4 || n == 5);
         List<Integer> modifiableList3 = new ArrayList<>(List.of(1, 2, 3, 4, 5));
-        modifiableList3.removeIf(n -> n == 1|| n==2);
+        modifiableList3.removeIf(n -> n == 1 || n == 2);
         interviewers.add(new Interviewer("John", modifiableList));
-        interviewers.add(new Interviewer("Alice",modifiableList2 ));
+        interviewers.add(new Interviewer("Alice", modifiableList2));
         interviewers.add(new Interviewer("Bob", modifiableList3));
-       // interviewers.add(new Interviewer("Ishan", List.of(3, 4, 5)));
-      //  interviewers.add(new Interviewer("Shah", List.of(1,3, 4, 5,7,8)));
+        // interviewers.add(new Interviewer("Ishan", List.of(3, 4, 5)));
+        //  interviewers.add(new Interviewer("Shah", List.of(1,3, 4, 5,7,8)));
 
 
         List<Integer> cmodifiableList = new ArrayList<>(List.of(1, 2, 3));
         List<Integer> cmodifiableList2 = new ArrayList<>(List.of(1, 2, 3, 4, 5));
-        cmodifiableList2.removeIf(n -> n == 1|| n==2 || n==5);
+        cmodifiableList2.removeIf(n -> n == 1 || n == 2 || n == 5);
         List<Integer> cmodifiableList3 = new ArrayList<>(List.of(1, 2, 3, 4, 5));
-        cmodifiableList3.removeIf(n -> n == 1|| n==2);
+        cmodifiableList3.removeIf(n -> n == 1 || n == 2);
 
 
         List<Candidate> candidates = new ArrayList<>();
@@ -43,7 +43,7 @@ public class GenerateCalendar {
         candidates.add(new Candidate("Candidate3", cmodifiableList3));
         //candidates.add(new Candidate("Candidate4", List.of(4, 5,7,8)));
 
-        Map<String, Map<String,Integer>> calendar = generateCalendar(interviewers, candidates);
+        Map<String, Map<String, Integer>> calendar = generateCalendar(interviewers, candidates);
 
         for (String interviewer : calendar.keySet()) {
             System.out.println("Interviewer: " + interviewer);
@@ -52,10 +52,10 @@ public class GenerateCalendar {
         }
     }
 
-    private static Map<String, Map<String,Integer>> generateCalendar(List<Interviewer> interviewers, List<Candidate> candidates) {
-        Map<String, Map<String,Integer>> calendar = new HashMap<>();
+    private static Map<String, Map<String, Integer>> generateCalendar(List<Interviewer> interviewers, List<Candidate> candidates) {
+        Map<String, Map<String, Integer>> calendar = new HashMap<>();
 
-        for (int i=0;i< interviewers.size() ;i++) {
+        for (int i = 0; i < interviewers.size(); i++) {
             calendar.put(interviewers.get(i).name, new HashMap<>());
             for (Candidate candidate : candidates) {
                 boolean isAvailable = true;
@@ -63,8 +63,8 @@ public class GenerateCalendar {
                     if (!interviewers.get(i).availability.contains(preference)) {
                         //isAvailable = false;
 
-                    }else{
-                        calendar.get(interviewers.get(i).name).put(candidate.name,preference);
+                    } else {
+                        calendar.get(interviewers.get(i).name).put(candidate.name, preference);
                         List<Integer> availability = interviewers.get(i).availability;
 
 
@@ -85,6 +85,7 @@ public class GenerateCalendar {
 
 
 }
+
 class Interviewer {
     String name;
     List<Integer> availability;
@@ -93,7 +94,7 @@ class Interviewer {
 
     Interviewer(String name, List<Integer> availability) {
         this.name = name;
-        this.availability =  availability;
+        this.availability = availability;
     }
 }
 
@@ -101,7 +102,8 @@ class Candidate {
     String name;
     List<Integer> preferences;
 
-    int scheduledFor=0;
+    int scheduledFor = 0;
+
     Candidate(String name, List<Integer> preferences) {
         this.name = name;
         this.preferences = preferences;

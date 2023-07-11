@@ -8,7 +8,7 @@
 
 package com.ishan.practice.designPattern.factory;
 
-public class ConcreteProduct2 implements Product{
+public class ConcreteProduct2 implements Product {
     @Override
     public void operation() {
         System.out.println("ConcreteProduct2");

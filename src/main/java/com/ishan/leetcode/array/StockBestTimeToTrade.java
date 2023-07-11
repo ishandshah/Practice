@@ -10,56 +10,56 @@ package com.ishan.leetcode.array;
 
 public class StockBestTimeToTrade {
 
-    public int maxProfitSingleTransaction(int[] prices) {
+    public static void main(String[] args) {
+        int[] prices = {11, 1, 2, 3, 4, 9, 6, 7, 2, 11};
+        StockBestTimeToTrade sts = new StockBestTimeToTrade();
+        System.out.println(sts.maxProfitSingleTransaction(prices));
 
-        if(prices==null || prices.length<2){
-            return 0;
-        }
-        int maxProfit=0,profit=0;
-        //11
-        int initialValue=prices[0];
-        for(int i=1;i<prices.length;i++){
-                if(prices[i] > initialValue){
-                    profit=Math.max(profit,prices[i]-initialValue);
-                    maxProfit=Math.max(profit,maxProfit);
 
-                }else{
-                    initialValue=prices[i];
-                }
-
-        }
-        return maxProfit;
+        System.out.println(sts.maxProfitMultipleTransaction(prices));
     }
 
+    public int maxProfitSingleTransaction(int[] prices) {
 
-    private int maxProfitMultipleTransaction(int[] prices) {
-
-        if(prices==null || prices.length<2){
+        if (prices == null || prices.length < 2) {
             return 0;
         }
-        int maxProfit=0,profit=0,profitSoFar=0;
+        int maxProfit = 0, profit = 0;
         //11
-        int initialValue=prices[0];
-        for(int i=1;i<prices.length;i++){
-            if(prices[i] > initialValue){
-                profit=Math.max(profit,prices[i]-initialValue);
-                maxProfit=Math.max(profit,maxProfit);
-                profitSoFar=Math.max(profitSoFar,maxProfit);
+        int initialValue = prices[0];
+        for (int i = 1; i < prices.length; i++) {
+            if (prices[i] > initialValue) {
+                profit = Math.max(profit, prices[i] - initialValue);
+                maxProfit = Math.max(profit, maxProfit);
 
-            }else{
-                initialValue=prices[i];
+            } else {
+                initialValue = prices[i];
             }
 
         }
         return maxProfit;
     }
-    public static void main(String[] args) {
-        int[] prices={11,1,2,3,4,9,6,7,2,11};
-        StockBestTimeToTrade sts=new StockBestTimeToTrade();
-        System.out.println(sts.maxProfitSingleTransaction(prices));
 
+    private int maxProfitMultipleTransaction(int[] prices) {
 
-        System.out.println(sts.maxProfitMultipleTransaction(prices));
+        if (prices == null || prices.length < 2) {
+            return 0;
+        }
+        int maxProfit = 0, profit = 0, profitSoFar = 0;
+        //11
+        int initialValue = prices[0];
+        for (int i = 1; i < prices.length; i++) {
+            if (prices[i] > initialValue) {
+                profit = Math.max(profit, prices[i] - initialValue);
+                maxProfit = Math.max(profit, maxProfit);
+                profitSoFar = Math.max(profitSoFar, maxProfit);
+
+            } else {
+                initialValue = prices[i];
+            }
+
+        }
+        return maxProfit;
     }
 
 

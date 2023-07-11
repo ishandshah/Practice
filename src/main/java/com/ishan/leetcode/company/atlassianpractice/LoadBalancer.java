@@ -13,24 +13,12 @@ import java.util.List;
 
 public class LoadBalancer {
 
-    List<String> servers=new ArrayList<>();
-    int currentIndex=0;
+    List<String> servers = new ArrayList<>();
+    int currentIndex = 0;
+
     public LoadBalancer() {
         this.servers = new ArrayList<>();
         this.currentIndex = 0;
-    }
-    public void addServer(String server) {
-        servers.add(server);
-    }
-
-    public String getNextServer() {
-        if (servers.isEmpty()) {
-            throw new IllegalStateException("No servers available.");
-        }
-
-        String server = servers.get(currentIndex);
-        currentIndex = (currentIndex + 1) % servers.size();
-        return server;
     }
 
     public static void main(String[] args) {
@@ -45,5 +33,19 @@ public class LoadBalancer {
                 System.out.println("Request " + (i + 1) + " directed to " + server);
             }
         }
+    }
+
+    public void addServer(String server) {
+        servers.add(server);
+    }
+
+    public String getNextServer() {
+        if (servers.isEmpty()) {
+            throw new IllegalStateException("No servers available.");
+        }
+
+        String server = servers.get(currentIndex);
+        currentIndex = (currentIndex + 1) % servers.size();
+        return server;
     }
 }

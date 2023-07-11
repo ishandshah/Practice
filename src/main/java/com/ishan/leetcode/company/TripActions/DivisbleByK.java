@@ -19,19 +19,19 @@ find unique number in A of length k that is divisible by A.
 public class DivisbleByK {
 
     public static void main(String[] args) {
-        int a=555;
-        int k=2;
+        int a = 555;
+        int k = 2;
 
 
-        double i = pow(10, k-1);
+        double i = pow(10, k - 1);
         // int i=Integer.parseInt(String.valueOf(x));
-        for(;i<a;i++){
-            if(i>Math.pow(10,k)){
+        for (; i < a; i++) {
+            if (i > Math.pow(10, k)) {
                 break;
             }
-            if(a % i==0){
-                System.out.println("hello " + (int)i);
-               break;
+            if (a % i == 0) {
+                System.out.println("hello " + (int) i);
+                break;
             }
         }
 

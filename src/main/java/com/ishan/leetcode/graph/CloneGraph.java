@@ -48,9 +48,9 @@ public class CloneGraph {
         System.out.println(node.val + "");
         visited.add(node);
 
-        for(Node child:node.neighbors){
-            if(!visited.contains(child)){
-                dfsTraversal(child,visited);
+        for (Node child : node.neighbors) {
+            if (!visited.contains(child)) {
+                dfsTraversal(child, visited);
             }
         }
     }
@@ -86,6 +86,7 @@ public class CloneGraph {
         return clone;
     }
 }
+
 class Node {
     int val;
     List<Node> neighbors;

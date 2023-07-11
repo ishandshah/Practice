@@ -26,23 +26,23 @@ public class StringPermutations {
     }
 
     private static void backtrack(char[] toCharArray, int start, List<String> permutations) {
-            if(toCharArray.length -1 == start){
-                permutations.add(new String(toCharArray));
-            }
+        if (toCharArray.length - 1 == start) {
+            permutations.add(new String(toCharArray));
+        }
 
-            for(int i=start;i<toCharArray.length;i++){
+        for (int i = start; i < toCharArray.length; i++) {
 
-                swap(toCharArray, start, i);
-                backtrack(toCharArray,start+1,permutations);
-                swap(toCharArray, start, i);
-            }
+            swap(toCharArray, start, i);
+            backtrack(toCharArray, start + 1, permutations);
+            swap(toCharArray, start, i);
+        }
 
     }
 
     private static void swap(char[] toCharArray, int start, int i) {
 
-        char temp=toCharArray[start];
-        toCharArray[start]=toCharArray[i];
-        toCharArray[i]=temp;
+        char temp = toCharArray[start];
+        toCharArray[start] = toCharArray[i];
+        toCharArray[i] = temp;
     }
 }

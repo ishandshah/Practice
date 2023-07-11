@@ -14,7 +14,7 @@ import java.util.PriorityQueue;
 
 
  */
-public class PriorityQueueColorExample implements Comparable<PriorityQueueColorExample>{
+public class PriorityQueueColorExample implements Comparable<PriorityQueueColorExample> {
 
 
     private final int value;
@@ -32,16 +32,14 @@ public class PriorityQueueColorExample implements Comparable<PriorityQueueColorE
         PriorityQueue<PriorityQueueColorExample> queue = new PriorityQueue<>();
 
 
-        queue.add(new PriorityQueueColorExample(1,"black"));
-        queue.add(new PriorityQueueColorExample(2,"redish"));
-        queue.add(new PriorityQueueColorExample(3,"bluek"));
-        queue.add(new PriorityQueueColorExample(4,"redol"));
-        queue.add(new PriorityQueueColorExample(5,"RED"));
+        queue.add(new PriorityQueueColorExample(1, "black"));
+        queue.add(new PriorityQueueColorExample(2, "redish"));
+        queue.add(new PriorityQueueColorExample(3, "bluek"));
+        queue.add(new PriorityQueueColorExample(4, "redol"));
+        queue.add(new PriorityQueueColorExample(5, "RED"));
 
         System.out.println(queue.peek().color + queue.peek().value);
     }
-
-
 
 
     @Override
@@ -49,11 +47,9 @@ public class PriorityQueueColorExample implements Comparable<PriorityQueueColorE
         if ((this.color.equals("red") && o.color.equals("red")) ||
                 (!this.color.equals("red") && !o.color.equals("red"))) {
             return Integer.compare(this.value, o.value);
-        }
-        else if (this.color.equals("red")) {
+        } else if (this.color.equals("red")) {
             return -1;
-        }
-        else {
+        } else {
             return 1;
         }
     }

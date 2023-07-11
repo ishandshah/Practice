@@ -11,11 +11,12 @@ package com.ishan.leetcode.company.atlassianpractice.tag;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class TaggingServiceImpl implements TagInterface{
+public class TaggingServiceImpl implements TagInterface {
 
 
     //contentId to tagId
     public static Map<String, Set<String>> contentTagsMap;
+
     public TaggingServiceImpl() {
         contentTagsMap = new HashMap<>();
     }
@@ -34,7 +35,7 @@ public class TaggingServiceImpl implements TagInterface{
 
         existingTags.addAll(
                 Arrays.stream(tags)
-                .map(Tag::getTagName)
+                        .map(Tag::getTagName)
                         .collect(Collectors.toSet())
         );
         contentTagsMap.put(contentId, existingTags);
@@ -47,7 +48,7 @@ public class TaggingServiceImpl implements TagInterface{
 
     @Override
     public List<String> getPopularTags(int limit) {
-        Map<String,Integer> tagCountMap=new HashMap<>();
+        Map<String, Integer> tagCountMap = new HashMap<>();
         for (Set<String> tags : contentTagsMap.values()) {
             for (String tag : tags) {
                 tagCountMap.put(tag, tagCountMap.getOrDefault(tag, 0) + 1);
@@ -76,7 +77,7 @@ public class TaggingServiceImpl implements TagInterface{
     @Override
     public void removeTag(String tag) {
         for (Map.Entry<String, Set<String>> entry : contentTagsMap.entrySet()) {
-            if(entry.getValue().contains(tag)){
+            if (entry.getValue().contains(tag)) {
                 entry.getValue().remove(tag);
             }
         }

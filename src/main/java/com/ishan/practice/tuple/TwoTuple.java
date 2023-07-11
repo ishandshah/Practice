@@ -10,6 +10,6 @@ package com.ishan.practice.tuple;
 
 public class TwoTuple {
 
-  //  Tuple
+    //  Tuple
 
 }

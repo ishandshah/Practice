@@ -12,31 +12,31 @@ package com.ishan.leetcode.tree;
 public class SymmetricTrees {
 
     public static void main(String[] args) {
-        TreeNode node=new TreeNode(1);
-        node.left=new TreeNode(12);
-        node.right=new TreeNode(12);
-        node.left.left=new TreeNode(121);
-        node.right.right=new TreeNode(121);
-        node.left.right=new TreeNode(123);
-        node.right.left=new TreeNode(123);
+        TreeNode node = new TreeNode(1);
+        node.left = new TreeNode(12);
+        node.right = new TreeNode(12);
+        node.left.left = new TreeNode(121);
+        node.right.right = new TreeNode(121);
+        node.left.right = new TreeNode(123);
+        node.right.left = new TreeNode(123);
         System.out.println(isSymmetric(node));
 
     }
 
-    public static boolean isSymmetric(TreeNode node){
-        return node==null || checkSymmetric(node.left,node.right);
+    public static boolean isSymmetric(TreeNode node) {
+        return node == null || checkSymmetric(node.left, node.right);
     }
 
     private static boolean checkSymmetric(TreeNode left, TreeNode right) {
 
-        if(left==null && right==null)
+        if (left == null && right == null)
             return true;
 
-        else if(left!=null && right!=null && left.val== right.val){
-            return checkSymmetric(left.left,right.right) &&  checkSymmetric(left.right,right.left) ;
+        else if (left != null && right != null && left.val == right.val) {
+            return checkSymmetric(left.left, right.right) && checkSymmetric(left.right, right.left);
 
         }
 
-            return false;
+        return false;
     }
 }

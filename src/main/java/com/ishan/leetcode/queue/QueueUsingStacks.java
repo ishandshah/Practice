@@ -8,7 +8,6 @@
 
 package com.ishan.leetcode.queue;
 
-import java.util.Iterator;
 import java.util.Stack;
 
 public class QueueUsingStacks {
@@ -18,8 +17,17 @@ public class QueueUsingStacks {
     Stack<Integer> stack2;
 
     public QueueUsingStacks() {
-        stack1=new Stack<>();
-        stack2=new Stack<>();
+        stack1 = new Stack<>();
+        stack2 = new Stack<>();
+    }
+
+    public static void main(String[] args) {
+        QueueUsingStacks myQueue = new QueueUsingStacks();
+        myQueue.push(1); // queue is: [1]
+        myQueue.push(2); // queue is: [1, 2] (leftmost is front of the queue)
+        myQueue.peek(); // return 1
+        myQueue.pop(); // return 1, queue is [2]
+        myQueue.empty(); // return false
     }
 
     public void push(int x) {
@@ -33,22 +41,13 @@ public class QueueUsingStacks {
 
     public int peek() {
 
-        while(!stack1.isEmpty()){
+        while (!stack1.isEmpty()) {
             stack2.push(stack1.pop());
         }
         return stack2.peek();
     }
 
     public boolean empty() {
-            return stack2.isEmpty();
-    }
-
-    public static void main(String[] args) {
-        QueueUsingStacks myQueue = new QueueUsingStacks();
-        myQueue.push(1); // queue is: [1]
-        myQueue.push(2); // queue is: [1, 2] (leftmost is front of the queue)
-        myQueue.peek(); // return 1
-        myQueue.pop(); // return 1, queue is [2]
-        myQueue.empty(); // return false
+        return stack2.isEmpty();
     }
 }

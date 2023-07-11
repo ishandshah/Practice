@@ -15,30 +15,31 @@ public class BuyTokenCard {
 
 
     public static void main(String[] args) {
-        BuyTokenCard btc=new BuyTokenCard();
-        Token greenToken=btc.new Token("green");
-        Token redToken=btc.new Token("Red");
-        Token blueToken=btc.new Token("Blue");
-        Token blackToken=btc.new Token("Black");
+        BuyTokenCard btc = new BuyTokenCard();
+        Token greenToken = btc.new Token("green");
+        Token redToken = btc.new Token("Red");
+        Token blueToken = btc.new Token("Blue");
+        Token blackToken = btc.new Token("Black");
 
-        Map<Token,Integer> hash=new HashMap<>(){{
-           put(greenToken,5);
-            put(redToken,15);
-            put(blueToken,1);
-            put(blackToken,2);
+        Map<Token, Integer> hash = new HashMap<>() {{
+            put(greenToken, 5);
+            put(redToken, 15);
+            put(blueToken, 1);
+            put(blackToken, 2);
         }};
 
-        Player ishan=btc.new Player(hash);
+        Player ishan = btc.new Player(hash);
 
-        Card cardCost=btc.new Card(new HashMap<>(){{
-            put(greenToken,5);
-            put(redToken,11);
-            put(blueToken,1);
-            put(blackToken,2);
+        Card cardCost = btc.new Card(new HashMap<>() {{
+            put(greenToken, 5);
+            put(redToken, 11);
+            put(blueToken, 1);
+            put(blackToken, 2);
         }});
 
         System.out.println(ishan.canBuyCard(cardCost));
     }
+
     class Token {
         private String name;
 

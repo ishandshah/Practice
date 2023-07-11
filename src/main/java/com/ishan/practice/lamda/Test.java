@@ -8,27 +8,51 @@
 
 package com.ishan.practice.lamda;
 
-import java.security.PrivilegedAction;
 import java.util.HashSet;
 import java.util.Set;
+
+interface MyNumber {
+    double getValue();
+
+}
+
+interface NumericTest {
+
+    // Integer input boolean output
+    // like x % 2 ==0 or x > 1000
+    boolean test(int n);
+}
+
+
+// Demonstrate a lambda expression that takes two parameters.
+interface NumericTest2 {
+
+    boolean test(int n, int d);
+}
+
+interface TwoParameterSetString {
+
+    boolean test(Set<String> hashSet, String s1);
+}
 
 public class Test {
     static MyNumber myNum;
     static NumericTest numericTest;
 
     static NumericTest2 numericTest2;
+
     public static void main(String[] args) {
         //new Runa
         // Use a lambda in an assignment context.
 
         // Default value
         myNum = () -> 123.45;
-        if(false) {
+        if (false) {
             System.out.println(myNum.getValue());
         }
         // Single paramter
-        numericTest= (n)->n % 3 == 0;
-        if(false) {
+        numericTest = (n) -> n % 3 == 0;
+        if (false) {
             if (numericTest.test(12)) System.out.println("10 is even");
             if (!numericTest.test(10)) System.out.println("9 is not even");
 // Now, use a lambda expression that tests if a number
@@ -40,44 +64,19 @@ public class Test {
         }
 
         // 2 parameter
-        numericTest2=(x,y)-> x / y!=0 && x%y==0;
+        numericTest2 = (x, y) -> x / y != 0 && x % y == 0;
 
-        if(numericTest2.test(10,5)){
+        if (numericTest2.test(10, 5)) {
             System.out.println("ALOHA");
         }
-        Set<String> hashSet2=new HashSet<>(){{
-          add("ishan");
-          add("shah");
-          add("ishani");
+        Set<String> hashSet2 = new HashSet<>() {{
+            add("ishan");
+            add("shah");
+            add("ishani");
         }};
 
-        String is="ishan";
-        TwoParameterSetString twoParameterSetString=(hashSet,x)-> hashSet.contains(x);
-        System.out.println(twoParameterSetString.test(hashSet2,is));
+        String is = "ishan";
+        TwoParameterSetString twoParameterSetString = (hashSet, x) -> hashSet.contains(x);
+        System.out.println(twoParameterSetString.test(hashSet2, is));
     }
-}
-
-interface MyNumber {
-    double getValue();
-
-}
-
-
-interface NumericTest {
-
-    // Integer input boolean output
-    // like x % 2 ==0 or x > 1000
-    boolean test(int n);
-}
-
-// Demonstrate a lambda expression that takes two parameters.
-interface NumericTest2 {
-
-    boolean test(int n, int d);
-}
-
-
-interface TwoParameterSetString{
-
-    boolean test(Set<String> hashSet, String s1);
 }

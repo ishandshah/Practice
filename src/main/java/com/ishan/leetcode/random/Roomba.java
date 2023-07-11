@@ -8,8 +8,6 @@
 
 package com.ishan.leetcode.random;
 
-import com.ishan.practice.tuple.TwoTuple;
-
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Random;
@@ -48,25 +46,24 @@ public class Roomba {
     }
 
     private static void cleanTheRoom(int[][] grid) {
-        Set<Pair> visited=new HashSet<>();
-        int[][] directions={ {-1,0} ,{0,1},{1,0},{0,-1}};
+        Set<Pair> visited = new HashSet<>();
+        int[][] directions = {{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
 
-        dfs(grid,visited,0,0,directions);
+        dfs(grid, visited, 0, 0, directions);
 
     }
 
-    private static void dfs(int[][] grid, Set<Pair> visited, int iRow, int jColumn,int[][] directions) {
+    private static void dfs(int[][] grid, Set<Pair> visited, int iRow, int jColumn, int[][] directions) {
 
 
-
-        if(checkBoundaryConditions(grid,visited,iRow,jColumn)){
-            visited.add(new Pair(iRow,jColumn));
+        if (checkBoundaryConditions(grid, visited, iRow, jColumn)) {
+            visited.add(new Pair(iRow, jColumn));
             //cleaning
             System.out.println("Cleaning" + iRow + "Column" + jColumn);
-            for(int i=0;i<directions.length;i++){
-                    int newRow=iRow+ directions[i][0];
-                    int newCol=jColumn+ directions[i][1];
-                    dfs(grid,visited,newRow,newCol,directions);
+            for (int i = 0; i < directions.length; i++) {
+                int newRow = iRow + directions[i][0];
+                int newCol = jColumn + directions[i][1];
+                dfs(grid, visited, newRow, newCol, directions);
             }
 
         }
@@ -76,13 +73,14 @@ public class Roomba {
 
     private static boolean checkBoundaryConditions(int[][] grid, Set<Pair> visited, int iRow, int jColumn) {
 
-        return iRow>=0 && jColumn >=0 && iRow< grid.length && jColumn< grid[0].length && !visited.contains(new Pair(iRow,jColumn)) && grid[iRow][jColumn]!=0;
+        return iRow >= 0 && jColumn >= 0 && iRow < grid.length && jColumn < grid[0].length && !visited.contains(new Pair(iRow, jColumn)) && grid[iRow][jColumn] != 0;
     }
 
     private static class Pair {
         int xRow;
 
         int yCol;
+
         public Pair(int xRow, int yCol) {
             this.xRow = xRow;
             this.yCol = yCol;

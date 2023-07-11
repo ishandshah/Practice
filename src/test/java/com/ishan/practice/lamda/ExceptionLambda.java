@@ -8,18 +8,23 @@
 
 package com.ishan.practice.lamda;
 
+interface DoubleNumericArrayFunc {
+
+    double func(double[] input);
+    // throws EmptyArrayException
+}
+
 //TODO Uncomment line on 19 and 20 and 35
 // Book Java 8 , line 394 (429 of 1313)
 public class ExceptionLambda {
-    public static void main(String[] args) throws EmptyArrayException
-    {
-        double[] values = { 1.0, 2.0, 3.0, 4.0 };
+    public static void main(String[] args) throws EmptyArrayException {
+        double[] values = {1.0, 2.0, 3.0, 4.0};
 // This block lambda computes the average of an array of doubles.
         DoubleNumericArrayFunc average = (n) -> {
             double sum = 0;
 //            if(n.length == 0)
 //                throw new EmptyArrayException();
-            for(int i=0; i < n.length; i++)
+            for (int i = 0; i < n.length; i++)
                 sum += n[i];
             return sum / n.length;
         };
@@ -27,13 +32,6 @@ public class ExceptionLambda {
 // This causes an exception to be thrown.
         System.out.println("The average is " + average.func(new double[0]));
     }
-}
-
-
-interface DoubleNumericArrayFunc{
-
-    double func(double[] input) ;
-    // throws EmptyArrayException
 }
 
 class EmptyArrayException extends Exception {

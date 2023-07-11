@@ -8,8 +8,6 @@
 
 package com.ishan.leetcode.random;
 
-import com.ishan.leetcode.tree.TreeNode;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -52,8 +50,8 @@ public class Trie {
         else System.out.println("thaw --- " + output[0]);
 
 
-        System.out.println(suggest("the",100));
-        System.out.println(suggest("there",100));
+        System.out.println(suggest("the", 100));
+        System.out.println(suggest("there", 100));
     }
 
     private static boolean search(String thaw) {
@@ -91,6 +89,7 @@ public class Trie {
 
         crawl.isEndOfWord = true;
     }
+
     private static List<String> suggest(String thaw, int suggestionLimit) {
         TrieNode crawl = root;
         int index;
@@ -102,21 +101,22 @@ public class Trie {
 
             crawl = crawl.children[index];
         }
-        List<String> suggestedWords=new ArrayList<>();
-            // crawl
+        List<String> suggestedWords = new ArrayList<>();
+        // crawl
 
-            if (crawl.children.length==0)
-                return null;
+        if (crawl.children.length == 0)
+            return null;
 
 
-            for(TrieNode child: crawl.children){
-               // suggestionLimit--;
-                if(child!=null)
-                    suggestedWords.add(thaw + child.c);
-            }
+        for (TrieNode child : crawl.children) {
+            // suggestionLimit--;
+            if (child != null)
+                suggestedWords.add(thaw + child.c);
+        }
 
         return suggestedWords;
     }
+
     static class TrieNode {
         //ASCII characters
         int ALPHABET_SIZE = 128;
@@ -124,9 +124,10 @@ public class Trie {
         boolean isEndOfWord;
 
         char c;
+
         TrieNode(char c) {
             isEndOfWord = false;
-            this.c=c;
+            this.c = c;
             for (int i = 0; i < ALPHABET_SIZE; i++)
                 children[i] = null;
         }

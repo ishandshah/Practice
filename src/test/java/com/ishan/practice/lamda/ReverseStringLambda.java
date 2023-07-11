@@ -9,33 +9,32 @@
 package com.ishan.practice.lamda;
 
 
+interface ReverseString {
+
+    String reverseString(String x);
+
+}
+
 //todo Run once Maven is fixed
 public class ReverseStringLambda {
 
 
-
     public static void main(String[] args) {
 
-        ReverseString reverseString =  (x) -> {
+        ReverseString reverseString = (x) -> {
 
             String result = "";
             int i;
-            for(i = x.length()-1; i >= 0; i--)
+            for (i = x.length() - 1; i >= 0; i--)
                 result += x.charAt(i);
 
             return result;
 
             // return null;
         };
-        String ishan =reverseString.reverseString("ishan");
+        String ishan = reverseString.reverseString("ishan");
         System.out.println(ishan);
 
 
     }
-}
-
-interface ReverseString{
-
-    String reverseString(String x);
-
 }

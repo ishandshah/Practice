@@ -11,7 +11,7 @@ package com.ishan.leetcode.graph;
 //https://leetcode.com/problems/accounts-merge/description/
 
 
-import java.util.*;
+import java.util.List;
 
 // todo Graph
 public class AccountsMerge {

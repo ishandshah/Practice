@@ -23,35 +23,36 @@ import java.util.*;
 //[["Spanish","English"],["French","English"],["Spanish","French"],["French","Russian"]]
 public class Turvo {
 
-    public static Map<String, List<String>> translationMap=new HashMap<>();
+    public static Map<String, List<String>> translationMap = new HashMap<>();
+
     public static void main(String[] args) {
-        String[][] translators={{"Spanish","English"},{"French","English"},{"Spanish","French"},{"French","Russian"},{"Russian","Hindi"},{"French","Hindi"}};
+        String[][] translators = {{"Spanish", "English"}, {"French", "English"}, {"Spanish", "French"}, {"French", "Russian"}, {"Russian", "Hindi"}, {"French", "Hindi"}};
         populateMap(translators);
         System.out.println(findNo("English", "French"));
     }
 
     private static void populateMap(String[][] translators) {
 
-        for(String[] input:translators){
-               if(translationMap.containsKey(input[0])){
-                   List<String> inputList=translationMap.get(input[0]);
-                   inputList.add(input[1]);
-                   translationMap.put(input[0],inputList);
-               }else{
-                   List<String> inputList=new ArrayList<>();
-                   inputList.add(input[1]);
-                   translationMap.put(input[0],inputList);
+        for (String[] input : translators) {
+            if (translationMap.containsKey(input[0])) {
+                List<String> inputList = translationMap.get(input[0]);
+                inputList.add(input[1]);
+                translationMap.put(input[0], inputList);
+            } else {
+                List<String> inputList = new ArrayList<>();
+                inputList.add(input[1]);
+                translationMap.put(input[0], inputList);
 
-               }
+            }
 
-            if(translationMap.containsKey(input[1])){
-                List<String> inputList=translationMap.get(input[1]);
+            if (translationMap.containsKey(input[1])) {
+                List<String> inputList = translationMap.get(input[1]);
                 inputList.add(input[0]);
-                translationMap.put(input[1],inputList);
-            }else{
-                List<String> inputList=new ArrayList<>();
+                translationMap.put(input[1], inputList);
+            } else {
+                List<String> inputList = new ArrayList<>();
                 inputList.add(input[0]);
-                translationMap.put(input[1],inputList);
+                translationMap.put(input[1], inputList);
 
             }
 
@@ -60,33 +61,33 @@ public class Turvo {
     }
 
     private static int findNo(String sourceLanguage, String destinationLanguage) {
-        int steps=0;
-        int currentSteps=0;
-        Set<String> visitedNodes=new HashSet<>();
-        if(translationMap.containsKey(sourceLanguage) && translationMap.containsKey(destinationLanguage)){
+        int steps = 0;
+        int currentSteps = 0;
+        Set<String> visitedNodes = new HashSet<>();
+        if (translationMap.containsKey(sourceLanguage) && translationMap.containsKey(destinationLanguage)) {
 
-            List<String> firstTranslation=translationMap.get(destinationLanguage);
+            List<String> firstTranslation = translationMap.get(destinationLanguage);
             visitedNodes.add(destinationLanguage);
             // HINDI -> RUSSIAN _. French -> SPANISH,ENGLISH
-            Stack<String> translationQueue=new Stack<>();
+            Stack<String> translationQueue = new Stack<>();
 
             translationQueue.addAll(firstTranslation);
 
-            while(!translationQueue.isEmpty()){
-            // BCD
-                String currentDestination=translationQueue.pop();
-                if(visitedNodes.contains(currentDestination)){
+            while (!translationQueue.isEmpty()) {
+                // BCD
+                String currentDestination = translationQueue.pop();
+                if (visitedNodes.contains(currentDestination)) {
                     continue;
                 }
                 visitedNodes.add(currentDestination);
-                if(sourceLanguage.equals(currentDestination)){
+                if (sourceLanguage.equals(currentDestination)) {
                     //
                     currentSteps++;
                     steps++;
-                     if(currentSteps<steps){
-                         steps=currentSteps;
-                     }
-                }else {
+                    if (currentSteps < steps) {
+                        steps = currentSteps;
+                    }
+                } else {
 
                     translationQueue.addAll(translationMap.get(currentDestination));
                     currentSteps++;
@@ -95,8 +96,7 @@ public class Turvo {
             }
 
 
-
-        }else{
+        } else {
 
             System.out.println("No translator available");
             return -1;

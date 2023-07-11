@@ -27,6 +27,13 @@ public class SlidingWindowRateLimiter {
         this.requestTimes = new ArrayDeque<>(capacity);
     }
 
+    public static void main(String[] args) {
+        SlidingWindowRateLimiter sdr = new SlidingWindowRateLimiter(100, 1, 10);
+        for (int i = 0; i < 100; i++) {
+            System.out.println(sdr.allowRequest());
+        }
+    }
+
     public synchronized boolean allowRequest() {
         long currentTime = Instant.now().getEpochSecond();
         evictExpiredRequests(currentTime);
@@ -48,13 +55,6 @@ public class SlidingWindowRateLimiter {
     private void evictExpiredRequests(long currentTime) {
         while (!requestTimes.isEmpty() && currentTime - requestTimes.peek() >= windowSize) {
             requestTimes.poll();
-        }
-    }
-
-    public static void main(String[] args) {
-        SlidingWindowRateLimiter sdr=new SlidingWindowRateLimiter(100,1,10);
-        for(int i=0;i<100;i++){
-            System.out.println(sdr.allowRequest());
         }
     }
 }

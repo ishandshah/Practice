@@ -9,16 +9,13 @@
 package com.ishan.practice.lamda;
 
 
-
-import static com.ishan.practice.lamda.LambdaFactorialBlock.numericFunc;
-
 public class LambdaFactorialBlockTest {
 
     LambdaFactorialBlock lambdaFactorialBlock;
 
     //@Test
-    public void factorialTest(){
-      //  Assert.assertEquals(120,numericFunc.func(4));
+    public void factorialTest() {
+        //  Assert.assertEquals(120,numericFunc.func(4));
 
     }
 }

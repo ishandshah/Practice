@@ -14,53 +14,35 @@ import java.util.ArrayList;
 // todo
 public class DistanceBetweenLeafNodes {
 
-    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-        ArrayList<TreeNode> path1 = new ArrayList<>();
-        ArrayList<TreeNode> path2 = new ArrayList<>();
-
-        getPath(root, p, path1);
-        getPath(root, q, path2);
-
-        int i=0;
-        int counter=0;
-        for(; i<path1.size() && i<path2.size();i++){
-            if(path1.get(i) != path2.get(i)){
-                break;
-            }
-        }
-            return path1.get(i-1);
-    }
-
-    public static boolean getPath(TreeNode root, TreeNode n, ArrayList<TreeNode> list){
-        if(root == null){
+    public static boolean getPath(TreeNode root, TreeNode n, ArrayList<TreeNode> list) {
+        if (root == null) {
             return false;
         }
 
         list.add(root);
 
-        if(root.val == n.val){
+        if (root.val == n.val) {
             return true;
         }
-        boolean foundLeft = getPath(root.left,n,list);
-        boolean foundRight = getPath(root.right,n,list);
+        boolean foundLeft = getPath(root.left, n, list);
+        boolean foundRight = getPath(root.right, n, list);
 
-        if(foundLeft || foundRight){
+        if (foundLeft || foundRight) {
             return true;
         }
-        list.remove(list.size()-1);
+        list.remove(list.size() - 1);
         return false;
     }
 
     public static void main(String[] args) {
-        TreeNode node=new TreeNode().populateTree();
+        TreeNode node = new TreeNode().populateTree();
         TreeNode lcaNode = new DistanceBetweenLeafNodes().lowestCommonAncestor(node, new TreeNode(8), new TreeNode(14));
-        findDistance(lcaNode,8,14);
+        findDistance(lcaNode, 8, 14);
     }
 
     // Returns level of key k if it is present in
     // tree, otherwise returns -1
-    public static int findLevel(TreeNode root, int a, int level)
-    {
+    public static int findLevel(TreeNode root, int a, int level) {
         if (root == null)
             return -1;
         if (root.val == a)
@@ -71,12 +53,28 @@ public class DistanceBetweenLeafNodes {
         return left;
     }
 
-    public static int findDistance(TreeNode lca, int a, int b)
-    {
+    public static int findDistance(TreeNode lca, int a, int b) {
 
         int d1 = findLevel(lca, a, 0);
         int d2 = findLevel(lca, b, 0);
 
         return d1 + d2;
+    }
+
+    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+        ArrayList<TreeNode> path1 = new ArrayList<>();
+        ArrayList<TreeNode> path2 = new ArrayList<>();
+
+        getPath(root, p, path1);
+        getPath(root, q, path2);
+
+        int i = 0;
+        int counter = 0;
+        for (; i < path1.size() && i < path2.size(); i++) {
+            if (path1.get(i) != path2.get(i)) {
+                break;
+            }
+        }
+        return path1.get(i - 1);
     }
 }

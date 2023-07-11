@@ -15,6 +15,6 @@ public class GooglePractice {
     // KLongest decreasing subsequence
     public static void main(String[] args) {
         //
-        String[][] inputs={{ "store","gym","school"}};
+        String[][] inputs = {{"store", "gym", "school"}};
     }
 }

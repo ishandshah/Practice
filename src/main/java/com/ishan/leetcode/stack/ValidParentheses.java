@@ -16,35 +16,36 @@ public class ValidParentheses {
 
     public static boolean isValid(String s) {
 
-        if(s==null){
+        if (s == null) {
             return true;
         }
-        if(s.length() % 2!=0){
+        if (s.length() % 2 != 0) {
             return false;
         }
-        Map<Character,Character> parenthesesMap=new HashMap<>(){{
-            put(')','(');
-            put(']','[');
-            put('}','{');
+        Map<Character, Character> parenthesesMap = new HashMap<>() {{
+            put(')', '(');
+            put(']', '[');
+            put('}', '{');
         }};
-        Stack<Character> characterStack=new Stack<>();
+        Stack<Character> characterStack = new Stack<>();
 
 
-        char[] charArray=s.toCharArray();
+        char[] charArray = s.toCharArray();
 
-        for(Character c:charArray){
+        for (Character c : charArray) {
 
-            if(parenthesesMap.containsKey(c) && !characterStack.isEmpty() && characterStack.peek().equals(parenthesesMap.get(c))){
+            if (parenthesesMap.containsKey(c) && !characterStack.isEmpty() && characterStack.peek().equals(parenthesesMap.get(c))) {
                 characterStack.pop();
-            }else{
+            } else {
                 characterStack.push(c);
             }
         }
 
         return characterStack.isEmpty();
     }
+
     public static void main(String[] args) {
-        String s="()";
+        String s = "()";
         System.out.println(isValid(s));
     }
 }

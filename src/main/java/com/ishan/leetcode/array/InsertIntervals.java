@@ -18,69 +18,70 @@ import java.util.List;
 public class InsertIntervals {
 
 
-    public static List<List<Integer>> mergeIntervals(int[][] actual, int[] merge){
-        List<List<Integer>> outputList=new ArrayList<>();
+    public static List<List<Integer>> mergeIntervals(int[][] actual, int[] merge) {
+        List<List<Integer>> outputList = new ArrayList<>();
 
-        int begin=merge[0];
-        int end=merge[1];
-        boolean add=true;
+        int begin = merge[0];
+        int end = merge[1];
+        boolean add = true;
 
         // 1, 3 6,9
         // 2,5
-        int holdStart=Integer.MAX_VALUE;
-        int holdend=Integer.MIN_VALUE;
+        int holdStart = Integer.MAX_VALUE;
+        int holdend = Integer.MIN_VALUE;
 
-        for(int[] actualArray:actual){
+        for (int[] actualArray : actual) {
 
-                if(begin> actualArray[0] && begin <= actualArray[1] && end >=actualArray[1]) {
+            if (begin > actualArray[0] && begin <= actualArray[1] && end >= actualArray[1]) {
 
-                    holdStart=Math.min(holdStart,actualArray[0]);
-                    holdend=Math.max(holdend,actualArray[1]);
-                    add=false;
-                }
-                 if(!add && actualArray[0] > end){
-                    //add
+                holdStart = Math.min(holdStart, actualArray[0]);
+                holdend = Math.max(holdend, actualArray[1]);
+                add = false;
+            }
+            if (!add && actualArray[0] > end) {
+                //add
 
-                    if(!add){
+                if (!add) {
 
-                        List temp=new ArrayList<>();
-                        ArrayList<Integer> objects = new ArrayList<>();
-                        objects.add(holdStart);
-                        objects.add(holdend);
-                        outputList.add(objects);
-                    }
-
-                    holdStart=actualArray[0];
-                    holdend=actualArray[1];
-                    add=true;
-                }else{
-                    holdStart=Math.min(holdStart,actualArray[0]);
-                    holdend=Math.max(holdend,actualArray[1]);
-                    continue;
-                }
-
-
-                if(add){
-
-                    List temp=new ArrayList<>();
+                    List temp = new ArrayList<>();
                     ArrayList<Integer> objects = new ArrayList<>();
                     objects.add(holdStart);
                     objects.add(holdend);
                     outputList.add(objects);
                 }
 
+                holdStart = actualArray[0];
+                holdend = actualArray[1];
+                add = true;
+            } else {
+                holdStart = Math.min(holdStart, actualArray[0]);
+                holdend = Math.max(holdend, actualArray[1]);
+                continue;
+            }
+
+
+            if (add) {
+
+                List temp = new ArrayList<>();
+                ArrayList<Integer> objects = new ArrayList<>();
+                objects.add(holdStart);
+                objects.add(holdend);
+                outputList.add(objects);
+            }
+
 
         }
 
 
-            return outputList;
+        return outputList;
 
     }
-    public static void main(String[] args) {
-            int[][] input={{1,2},{3,5},{6,7},{8,10},{12,16}};
 
-            // {{[[}}1,2},{3,5},{[}6,7},{8,10},{12,16}}
-            int[] merge={4,8};
+    public static void main(String[] args) {
+        int[][] input = {{1, 2}, {3, 5}, {6, 7}, {8, 10}, {12, 16}};
+
+        // {{[[}}1,2},{3,5},{[}6,7},{8,10},{12,16}}
+        int[] merge = {4, 8};
 
         List<List<Integer>> listList = mergeIntervals(input, merge);
 

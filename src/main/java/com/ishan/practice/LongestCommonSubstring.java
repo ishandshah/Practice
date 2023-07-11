@@ -16,7 +16,7 @@ public class LongestCommonSubstring {
 
     public static void main(String[] args) {
 
-        String input1="abcabcbb";
+        String input1 = "abcabcbb";
         System.out.println(LongestCommonSubstring.fingLongestSubString(input1));
         System.out.println(fingLongestSubString("aaaaa") + " : 1");
         System.out.println(fingLongestSubString("abcacdef") + " : 5");
@@ -29,62 +29,61 @@ public class LongestCommonSubstring {
 
     }
 
-    public static Integer fingLongestSubString(String inString){
+    public static Integer fingLongestSubString(String inString) {
 
-        if(inString==null || inString.length()==0){
+        if (inString == null || inString.length() == 0) {
             return 0;
-        }else if(inString.length()==1){
+        } else if (inString.length() == 1) {
             return 1;
         }
 
 
-        int startIndex=0;
-        int endIndex=0;
-        int stringlength=inString.length();
-        int maxLength=0;
+        int startIndex = 0;
+        int endIndex = 0;
+        int stringlength = inString.length();
+        int maxLength = 0;
 
-        Set<Character> characterSet=new HashSet<>();
+        Set<Character> characterSet = new HashSet<>();
         // 0 1.2 .
         //abcabc
 
 
-    //abcacdef
+        //abcacdef
         //i n t e r v i e w
         /**
          0, 5
          1, 6
          4,7
          4,8
-
          **/
-        while(endIndex < stringlength){
+        while (endIndex < stringlength) {
             //0 1 2 3 4 5 6 7
             //a b c c c d e f
-            if(characterSet.contains(inString.charAt(endIndex))){
-                if(endIndex-startIndex>maxLength ){
-                    maxLength=endIndex-startIndex;
-                    System.out.println(inString.substring(startIndex,endIndex));
+            if (characterSet.contains(inString.charAt(endIndex))) {
+                if (endIndex - startIndex > maxLength) {
+                    maxLength = endIndex - startIndex;
+                    System.out.println(inString.substring(startIndex, endIndex));
                 }
-              //  maxLength=Math.max(maxLength, endIndex-startIndex);
+                //  maxLength=Math.max(maxLength, endIndex-startIndex);
                 characterSet.remove(inString.charAt(startIndex));
                 startIndex++;
-            }else{
+            } else {
                 characterSet.add(inString.charAt(endIndex));
                 endIndex++;
 
             }
 
-          //  maxLength=Math.max(maxLength, endIndex-startIndex);
-            if(endIndex-startIndex>maxLength ){
-                maxLength=endIndex-startIndex;
-                System.out.println(inString.substring(startIndex,endIndex));
+            //  maxLength=Math.max(maxLength, endIndex-startIndex);
+            if (endIndex - startIndex > maxLength) {
+                maxLength = endIndex - startIndex;
+                System.out.println(inString.substring(startIndex, endIndex));
             }
-             }
-
-
-            return maxLength;
-
         }
 
+
+        return maxLength;
+
     }
+
+}
 

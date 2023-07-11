@@ -15,7 +15,7 @@ public class ExcelColumnNames {
         while (n > 0) {
             int remainder = (n - 1) % 26; // Calculate the remainder
             char ch = (char) ('A' + remainder); // Convert the remainder to a character
-           // columnName.insert(0, ch); // Insert the character at the beginning of the string
+            // columnName.insert(0, ch); // Insert the character at the beginning of the string
             columnName.append(ch);
             n = (n - 1) / 26; // Update the value of n
         }

@@ -21,27 +21,21 @@ class LRUCache {
 
     int totalItemsInCache;
     int maxCapacity;
-    private class ListNode {
-        int key;
-        int value;
 
-        ListNode prev;
-        ListNode next;
-    }
     public LRUCache(int capacity) {
-        maxCapacity=capacity;
-        totalItemsInCache=0;
-        head=new ListNode();
-        tail=new ListNode();
+        maxCapacity = capacity;
+        totalItemsInCache = 0;
+        head = new ListNode();
+        tail = new ListNode();
 
         // Wire the head and tail together
-        head.next=tail;
-        tail.prev=head;
+        head.next = tail;
+        tail.prev = head;
     }
 
     public int get(int key) {
 
-        if(hashtable.containsKey(key)){
+        if (hashtable.containsKey(key)) {
             moveToHead(hashtable.get(key));
             return hashtable.get(key).value;
         }
@@ -50,21 +44,21 @@ class LRUCache {
     }
 
     public void put(int key, int value) {
-        ListNode node=hashtable.get(key);
+        ListNode node = hashtable.get(key);
 
-        if(node==null){
-            ListNode newNode=new ListNode();
-            newNode.key=key;
-            newNode.value=value;
+        if (node == null) {
+            ListNode newNode = new ListNode();
+            newNode.key = key;
+            newNode.value = value;
 
-            if(totalItemsInCache>=maxCapacity){
+            if (totalItemsInCache >= maxCapacity) {
                 removeLast();
             }
             totalItemsInCache++;
-            hashtable.put(key,newNode);
+            hashtable.put(key, newNode);
             addToFront(newNode);
-        }else{
-            node.value=value;
+        } else {
+            node.value = value;
             moveToHead(node);
         }
     }
@@ -114,5 +108,13 @@ class LRUCache {
     */
         head.next.prev = node;
         head.next = node;
+    }
+
+    private class ListNode {
+        int key;
+        int value;
+
+        ListNode prev;
+        ListNode next;
     }
 }

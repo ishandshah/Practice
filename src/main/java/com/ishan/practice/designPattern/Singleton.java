@@ -8,37 +8,38 @@
 
 package com.ishan.practice.designPattern;
 
-public class Singleton implements Cloneable{
+public class Singleton implements Cloneable {
 
     private volatile static Singleton singleton;
 
     private Singleton() throws Exception {
-        if(singleton!=null){
+        if (singleton != null) {
             System.out.println(("Singleton already created"));
         }
     }
 
+    public static void main(String[] args) throws Exception {
+        Singleton singleton = new Singleton();
+        singleton.getSingleton();
+        Singleton singleton1 = new Singleton();
+        Singleton singleton2 = (Singleton) singleton1.clone();
+        System.out.println(singleton2);
+    }
+
     public Singleton getSingleton() throws Exception {
-        if(singleton==null){
-            synchronized (Singleton.class){
-                if(singleton==null)
-                    singleton=new Singleton();
+        if (singleton == null) {
+            synchronized (Singleton.class) {
+                if (singleton == null)
+                    singleton = new Singleton();
             }
         }
         return singleton;
     }
+
     @Override
-    public Object clone(){
+    public Object clone() {
         System.out.println(("Singleton already created"));
 
         return null;
-    }
-
-    public static void main(String[] args) throws Exception {
-        Singleton singleton=new Singleton();
-        singleton.getSingleton();
-        Singleton singleton1=new Singleton();
-        Singleton singleton2= (Singleton) singleton1.clone();
-        System.out.println(singleton2);
     }
 }

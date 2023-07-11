@@ -13,10 +13,12 @@ import java.util.List;
 public interface TagInterface {
 
 
-
     void tagContent(String contentId, String[] tags);
+
     List<String> getTagsForContent(String contentId);
+
     List<String> getPopularTags(int limit);
+
     List<String> searchContentByTag(String tag);
 
 

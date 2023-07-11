@@ -36,8 +36,7 @@ public class Leakybucket {
 
             if (input_pkt_size <= (size_left)) {
                 storage += input_pkt_size;
-            }
-            else {
+            } else {
                 System.out.println("Packet loss = "
                         + input_pkt_size);
             }

@@ -11,7 +11,7 @@ package com.ishan.practice.designPattern.factory;
 public class FactoryDesign {
     public static void main(String[] args) {
         // Create a Concrete Factory 1
-        String factory="factory2";
+        String factory = "factory2";
         switch (factory) {
             case "factory1":
 

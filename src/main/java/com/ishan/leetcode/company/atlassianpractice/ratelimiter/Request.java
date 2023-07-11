@@ -12,14 +12,15 @@ import java.time.Instant;
 
 public class Request {
 
-        String clientId;
-        int refillRate;
+    String clientId;
+    int refillRate;
 
-        Instant lastRefillTime;
-    public Request(String clientId,int refillRate,Instant time) {
+    Instant lastRefillTime;
+
+    public Request(String clientId, int refillRate, Instant time) {
         this.clientId = clientId;
-        this.refillRate=refillRate;
-        this.lastRefillTime=time;
+        this.refillRate = refillRate;
+        this.lastRefillTime = time;
     }
 //  int tokensUsed;
 

@@ -24,7 +24,7 @@ public class PackageDependency {
 
     public static void main(String[] args) {
         GFG.Graph g = new GFG.Graph(5);
-        Set<Integer> vertices=new HashSet<>();
+        Set<Integer> vertices = new HashSet<>();
         g.addEdge(0, 1);
 
         vertices.add(3);
@@ -34,42 +34,42 @@ public class PackageDependency {
         vertices.add(2);
         g.addEdge(0, 2);
         g.addEdge(1, 2);
-     //   g.addEdge(2, 0);
+        //   g.addEdge(2, 0);
         g.addEdge(2, 3);
         g.addEdge(3, 0);
 
-        scheduleTasks(g,vertices);
+        scheduleTasks(g, vertices);
     }
 
 
-    public static List<Integer> scheduleTasks(GFG.Graph g, Set<Integer> vertices){
-        Set<Integer> visited=new HashSet<>();
-        Stack<Integer> stackedValues=new Stack<>();
+    public static List<Integer> scheduleTasks(GFG.Graph g, Set<Integer> vertices) {
+        Set<Integer> visited = new HashSet<>();
+        Stack<Integer> stackedValues = new Stack<>();
 
-        for(Integer s:vertices){
+        for (Integer s : vertices) {
             System.out.println("vertice" + s);
-                if(!visited.contains(s)){
-                    visited.add(s);
-                    scheduleTasksUtil(visited,s,stackedValues,g);
-                }
+            if (!visited.contains(s)) {
+                visited.add(s);
+                scheduleTasksUtil(visited, s, stackedValues, g);
+            }
 
         }
 
-      //  System.out.println(stackedValues.size());
-        while(!stackedValues.isEmpty()){
+        //  System.out.println(stackedValues.size());
+        while (!stackedValues.isEmpty()) {
             System.out.println(stackedValues.pop());
         }
 
         return null;
     }
 
-    private static void scheduleTasksUtil(Set<Integer> visited, Integer s, Stack<Integer> stackedValues,GFG.Graph G) {
+    private static void scheduleTasksUtil(Set<Integer> visited, Integer s, Stack<Integer> stackedValues, GFG.Graph G) {
 
 
-        for(Integer child:G.adj[s]){
-            if(!visited.contains(child)){
+        for (Integer child : G.adj[s]) {
+            if (!visited.contains(child)) {
                 visited.add(child);
-                scheduleTasksUtil(visited,child,stackedValues,G);
+                scheduleTasksUtil(visited, child, stackedValues, G);
             }
 
         }

@@ -10,14 +10,6 @@ package com.ishan.leetcode.company;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
-import org.mockito.Mockito;
-
-import javax.swing.*;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.ArgumentMatchers.anyLong;
-import static org.mockito.Mockito.when;
 
 public class DisneyTest {
 
@@ -25,22 +17,23 @@ public class DisneyTest {
 
     Disney.ParkingGarage parkingGarage;
     Disney.Vehicle vehicle;
+
     @BeforeEach
-    public void populateVehicle(){
-        disney=new Disney();
-        parkingGarage=new Disney().new ParkingGarage(10,0.05);
-        vehicle=new Disney.Vehicle("Tesla");
+    public void populateVehicle() {
+        disney = new Disney();
+        parkingGarage = new Disney().new ParkingGarage(10, 0.05);
+        vehicle = new Disney.Vehicle("Tesla");
 
     }
 
     @Test
-    public void park(){
+    public void park() {
 //        assertEquals(Boolean.TRUE,parkingGarage.park(vehicle));
 //        when(parkingGarage.park(vehicle)).thenReturn(Boolean.TRUE);
     }
 
     @Test
-    public void exit(){
+    public void exit() {
 
         //assertEquals(Boolean.TRUE,parkingGarage.park(vehicle));
         parkingGarage.park(vehicle);

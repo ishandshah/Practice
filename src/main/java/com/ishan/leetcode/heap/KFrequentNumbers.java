@@ -13,20 +13,20 @@ import java.util.*;
 public class KFrequentNumbers {
 
     public static void main(String[] args) {
-        int[] input={1,1,1,2,2,3,4,5,6,1,2,2,2,6,6,6,6,6};
-        int k=2;
-        findKFrequentUsingPQ(input,k);
+        int[] input = {1, 1, 1, 2, 2, 3, 4, 5, 6, 1, 2, 2, 2, 6, 6, 6, 6, 6};
+        int k = 2;
+        findKFrequentUsingPQ(input, k);
         //only works for Single value based sort
-        findKFrequentUsingTreeMap(input,k);
+        findKFrequentUsingTreeMap(input, k);
 
-        findKFrequentUsingMap(input,k);
+        findKFrequentUsingMap(input, k);
     }
 
     private static void findKFrequentUsingMap(int[] input, int k) {
-        Map<Integer,Integer> countMap=new HashMap<>();
+        Map<Integer, Integer> countMap = new HashMap<>();
 
-        for(int i:input){
-            countMap.put(i,countMap.getOrDefault(i,0) + 1);
+        for (int i : input) {
+            countMap.put(i, countMap.getOrDefault(i, 0) + 1);
 
         }
         // 1. Convert Map to List of Map
@@ -34,21 +34,21 @@ public class KFrequentNumbers {
                 new LinkedList<>(countMap.entrySet());
 
         Collections.sort(list,
-                (o1, o2) -> o1.getValue()==o2.getValue()?
-                            Integer.compare(o2.getKey(),o1.getKey()):
-                            Integer.compare(o2.getValue(),o1.getValue()));
+                (o1, o2) -> o1.getValue() == o2.getValue() ?
+                        Integer.compare(o2.getKey(), o1.getKey()) :
+                        Integer.compare(o2.getValue(), o1.getValue()));
 
-        for(int i=0;i<k;i++){
+        for (int i = 0; i < k; i++) {
             System.out.print(list.get(i).getKey());
         }
         System.out.println();
     }
 
     private static void findKFrequentUsingTreeMap(int[] input, int k) {
-        Map<Integer,Integer> countMap=new HashMap<>();
+        Map<Integer, Integer> countMap = new HashMap<>();
 
-        for(int i:input){
-            countMap.put(i,countMap.getOrDefault(i,0) + 1);
+        for (int i : input) {
+            countMap.put(i, countMap.getOrDefault(i, 0) + 1);
 
         }
 
@@ -63,9 +63,9 @@ public class KFrequentNumbers {
         );
         treeMap.putAll(countMap);
         //
-        int i=0;
-        for(Map.Entry<Integer,Integer> hs: treeMap.entrySet()){
-            while(i<k){
+        int i = 0;
+        for (Map.Entry<Integer, Integer> hs : treeMap.entrySet()) {
+            while (i < k) {
                 System.out.print(hs.getKey());
                 i++;
             }
@@ -75,21 +75,21 @@ public class KFrequentNumbers {
     }
 
     private static void findKFrequentUsingPQ(int[] input, int k) {
-        Map<Integer,Integer> countMap=new HashMap<>();
+        Map<Integer, Integer> countMap = new HashMap<>();
 
-        for(int i:input){
-            countMap.put(i,countMap.getOrDefault(i,0) + 1);
+        for (int i : input) {
+            countMap.put(i, countMap.getOrDefault(i, 0) + 1);
 
         }
 
-        PriorityQueue<Map.Entry<Integer,Integer>> mapPriorityQueue=new PriorityQueue<>(
-                (a,b)-> a.getValue().equals(b.getValue())?Integer.compare(b.getKey(),
+        PriorityQueue<Map.Entry<Integer, Integer>> mapPriorityQueue = new PriorityQueue<>(
+                (a, b) -> a.getValue().equals(b.getValue()) ? Integer.compare(b.getKey(),
                         a.getKey()) : Integer.compare(b.getValue(),
                         a.getValue())
         );
 
         for (Map.Entry<Integer, Integer> entry :
-                countMap.entrySet()){
+                countMap.entrySet()) {
             mapPriorityQueue.offer(entry);
         }
 

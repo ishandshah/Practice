@@ -8,7 +8,7 @@
 
 package com.ishan.leetcode.company.atlassianpractice;
 
-public class LocalClass{
+public class LocalClass {
 
 
     long size;

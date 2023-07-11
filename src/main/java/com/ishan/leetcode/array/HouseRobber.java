@@ -12,21 +12,21 @@ public class HouseRobber {
 
 
     public static void main(String[] args) {
-        int[] nums = {11,12,3,1};
+        int[] nums = {11, 12, 3, 1};
         System.out.println(findMaxProfit(nums));
     }
 
     private static int findMaxProfit(int[] nums) {
-        int prev1=0;
-        int prev2=0;
+        int prev1 = 0;
+        int prev2 = 0;
 
-        for(int current:nums){
-            int max=Math.max(prev1,prev2 + current);
-            prev2=prev1;
-            prev1=max;
+        for (int current : nums) {
+            int max = Math.max(prev1, prev2 + current);
+            prev2 = prev1;
+            prev1 = max;
 
         }
-    return prev1;
+        return prev1;
     }
 
 }

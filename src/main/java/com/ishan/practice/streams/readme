@@ -1,0 +1,49 @@
+Java Streams is a powerful feature introduced in Java 8 that allows you to perform functional-style operations on collections or sequences of data. Streams provide a concise and expressive way to process and manipulate data in a declarative manner.
+
+Key characteristics of Java Streams:
+
+Sequence of Elements: A stream represents a sequence of elements. It can be created from various data sources, such as collections, arrays, or I/O channels.
+
+Functional Operations: Streams support a wide range of operations, including filtering, mapping, sorting, reducing, and more. These operations are performed on the elements of the stream in a lazy and on-demand manner.
+
+Pipeline of Operations: Multiple operations can be chained together to form a pipeline. Each operation in the pipeline modifies the stream or produces a new stream. The operations are processed in a lazy manner, meaning they are executed only when a terminal operation is invoked.
+
+Immutable Data: Streams do not modify the underlying data source. Instead, they produce new streams or transformed views of the original data.
+
+Lazy Evaluation: Streams employ lazy evaluation, meaning the elements of the stream are processed on-demand, as required by subsequent operations. This can lead to improved performance and efficiency.
+
+Parallel Processing: Streams can be executed in parallel, leveraging the multicore capabilities of modern processors. Parallel streams enable concurrent processing and can enhance performance for computationally intensive tasks.
+
+Here's a simple example demonstrating the usage of Java Streams:
+
+java
+Copy code
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
+public class StreamExample {
+    public static void main(String[] args) {
+        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+
+        List<Integer> evenSquares = numbers.stream()
+                .filter(n -> n % 2 == 0)
+                .map(n -> n * n)
+                .collect(Collectors.toList());
+
+        System.out.println(evenSquares);
+    }
+}
+In this example, we have a list of numbers. We create a stream from the list using the stream() method. Then, we apply a series of stream operations using the dot notation:
+
+filter(n -> n % 2 == 0) filters out the odd numbers.
+map(n -> n * n) squares each remaining number.
+collect(Collectors.toList()) collects the resulting elements into a new list.
+The output of the code will be:
+
+csharp
+Copy code
+[4, 16, 36, 64, 100]
+This example demonstrates the power and simplicity of streams, allowing you to perform complex operations on data with minimal code.
+
+Streams provide a rich set of operations and can be used in various scenarios, including data processing, filtering, mapping, aggregating, and more. By leveraging streams, you can write more concise and readable code while benefiting from the inherent performance optimizations offered by streams, such as lazy evaluation and parallel processing.

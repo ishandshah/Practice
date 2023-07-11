@@ -8,13 +8,18 @@
 
 package com.ishan.practice.lamda;
 
+// A block lambda that computes the factorial of an int value.
+interface NumericFunc {
+    int func(int n);
+}
+
 public class LambdaFactorialBlock {
     static NumericFunc numericFunc;
 
     public static void main(String[] args) {
-         numericFunc=(n) -> {
+        numericFunc = (n) -> {
             int result = 1;
-            for(int i=1; i <= n; i++)
+            for (int i = 1; i <= n; i++)
                 result = i * result;
             return result;
         };
@@ -24,11 +29,4 @@ public class LambdaFactorialBlock {
     }
 
 
-
-}
-
-
-// A block lambda that computes the factorial of an int value.
-interface NumericFunc {
-    int func(int n);
 }
