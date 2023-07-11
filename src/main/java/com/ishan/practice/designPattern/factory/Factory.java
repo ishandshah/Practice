@@ -6,10 +6,8 @@
  * Vestibulum commodo. Ut rhoncus gravida arcu.
  */
 
-package com.ishan.practice.tuple;
+package com.ishan.practice.designPattern.factory;
 
-public class TwoTuple {
-
-  //  Tuple
-
+public interface Factory {
+    Product createProduct();
 }

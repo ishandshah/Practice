@@ -6,10 +6,23 @@
  * Vestibulum commodo. Ut rhoncus gravida arcu.
  */
 
-package com.ishan.practice.tuple;
+package com.ishan.leetcode.company.atlassianpractice;
 
-public class TwoTuple {
+public class LocalClass{
 
-  //  Tuple
+
+    long size;
+
+    public LocalClass(long size) {
+        this.size = size;
+    }
+
+    public long getSize() {
+        return size;
+    }
+
+    public void setSize(long size) {
+        this.size = size;
+    }
 
 }

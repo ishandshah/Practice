@@ -6,10 +6,11 @@
  * Vestibulum commodo. Ut rhoncus gravida arcu.
  */
 
-package com.ishan.practice.tuple;
+package com.ishan.practice.designPattern.factory;
 
-public class TwoTuple {
-
-  //  Tuple
-
+public class ConcreteFactory1 implements Factory{
+    @Override
+    public Product createProduct() {
+        return new ConcreteProduct1();
+    }
 }

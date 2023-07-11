@@ -6,10 +6,18 @@
  * Vestibulum commodo. Ut rhoncus gravida arcu.
  */
 
-package com.ishan.practice.tuple;
+package com.ishan.leetcode.graph;
 
-public class TwoTuple {
+//https://leetcode.com/problems/accounts-merge/description/
 
-  //  Tuple
 
+import java.util.*;
+
+// todo Graph
+public class AccountsMerge {
+
+    public List<List<String>> accountsMerge(List<List<String>> accounts) {
+
+        return null;
+    }
 }

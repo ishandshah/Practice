@@ -9,50 +9,59 @@
 package com.ishan.leetcode.random;
 
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
-
+import java.util.*;
+// Doesn't check for cyclic course
+//todo
 // https://leetcode.com/problems/course-schedule/description/
 public class CourseSchedule {
 
-    public boolean canFinish(int numCourses, int[][] prerequisites) {
-        List[] graph = new ArrayList[numCourses];
-        int[] degree = new int[numCourses];
-        Queue queue = new LinkedList();
-        int count=0;
 
-        for(int i=0;i<numCourses;i++)
-            graph[i] = new ArrayList();
+    boolean canFinish(int courses,int[][] prerequisites) {
+    boolean[] visited=new boolean[courses];
+    Stack<Integer> integerStack=new Stack<>();
 
-        for(int i=0; i<prerequisites.length;i++){
-            degree[prerequisites[i][1]]++;
-            graph[prerequisites[i][0]].add(prerequisites[i][1]);
+    //Build cycle
+    List<List<Integer>> adjList=new ArrayList<>();
+
+         for(int i=0;i<courses;i++){
+                adjList.add(new ArrayList<>());
+         }
+
+         for(int[] a: prerequisites){
+               adjList.get(a[1]).add(a[0]);
+          }
+
+        System.out.println(adjList);
+
+        for (int i = 0; i < courses; i++) {
+        if (visited[i]!=true) {
+            //   visited[i]=true;
+            dfs(i,adjList,visited,integerStack);
+            //  visited[i]=false;
         }
-        for(int i=0; i<degree.length;i++){
-            if(degree[i] == 0){
-                queue.add(i);
-                count++;
+    }
+    // int[] answer=new int[courses];
+
+
+        return integerStack.size()==courses;
+}
+
+    private static void dfs(int i, List<List<Integer>> adjList, boolean[] visited, Stack<Integer> integerStack) {
+        // Traverse on neighboring vertices
+        for (Integer neighbor : adjList.get(i)) {
+            if (visited[neighbor]!=true) {
+                dfs(neighbor, adjList, visited, integerStack);
             }
         }
 
-        while(queue.size() != 0){
-            int course = (int)queue.poll();
-            for(int i=0; i<graph[course].size();i++){
-                int pointer = (int)graph[course].get(i);
-                degree[pointer]--;
-                if(degree[pointer] == 0){
-                    queue.add(pointer);
-                    count++;
-                }
-            }
-        }
-        return count == numCourses;
+        if(visited[i]!=true)
+            integerStack.add(i);
+        visited[i]=true;
+
     }
 
     public static void main(String[] args) {
-        int[][] prereq={{1,2}};
+        int[][] prereq={{1,0}};
 
         System.out.println(new CourseSchedule().canFinish(2,prereq));
     }

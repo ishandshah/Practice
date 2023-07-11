@@ -6,10 +6,22 @@
  * Vestibulum commodo. Ut rhoncus gravida arcu.
  */
 
-package com.ishan.practice.tuple;
+package com.ishan.leetcode.company.atlassianpractice.ratelimiter;
 
-public class TwoTuple {
+import java.time.Instant;
 
-  //  Tuple
+public class Request {
+
+        String clientId;
+        int refillRate;
+
+        Instant lastRefillTime;
+    public Request(String clientId,int refillRate,Instant time) {
+        this.clientId = clientId;
+        this.refillRate=refillRate;
+        this.lastRefillTime=time;
+    }
+//  int tokensUsed;
+
 
 }

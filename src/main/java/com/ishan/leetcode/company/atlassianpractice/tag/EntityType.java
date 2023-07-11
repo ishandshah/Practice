@@ -6,10 +6,12 @@
  * Vestibulum commodo. Ut rhoncus gravida arcu.
  */
 
-package com.ishan.practice.tuple;
+package com.ishan.leetcode.company.atlassianpractice.tag;
 
-public class TwoTuple {
+public enum EntityType {
 
-  //  Tuple
-
+    DOCUMENT,
+    ARTICLES,
+    IMAGES,
+    JIRA
 }

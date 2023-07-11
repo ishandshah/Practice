@@ -6,10 +6,14 @@
  * Vestibulum commodo. Ut rhoncus gravida arcu.
  */
 
-package com.ishan.practice.tuple;
+package com.ishan.leetcode.company.atlassianpractice;
 
-public class TwoTuple {
+import java.util.Comparator;
 
-  //  Tuple
+public class LocalClassComparator implements Comparator<LocalClass> {
+    @Override
+    public int compare(LocalClass o1, LocalClass o2) {
+        return Long.compare(o1.getSize(), o2.getSize());
 
+    }
 }

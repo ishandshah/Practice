@@ -45,6 +45,6 @@ public class DisneyTest {
         //assertEquals(Boolean.TRUE,parkingGarage.park(vehicle));
         parkingGarage.park(vehicle);
         parkingGarage.exit(vehicle);
-        parkingGarage.hashMap.get(anyLong()).isNaN();
+//        parkingGarage.hashMap.get(anyLong()).isNaN();
     }
 }

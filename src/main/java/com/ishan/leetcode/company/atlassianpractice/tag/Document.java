@@ -6,10 +6,16 @@
  * Vestibulum commodo. Ut rhoncus gravida arcu.
  */
 
-package com.ishan.practice.tuple;
+package com.ishan.leetcode.company.atlassianpractice.tag;
 
-public class TwoTuple {
+import java.util.List;
 
-  //  Tuple
+public class Document extends Entity{
+
+    public Document(int entityId, String entityName) {
+        super(entityId, entityName, EntityType.DOCUMENT);
+    }
+
+
 
 }
