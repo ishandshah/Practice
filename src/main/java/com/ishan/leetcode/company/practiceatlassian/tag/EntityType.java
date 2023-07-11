@@ -6,22 +6,12 @@
  * Vestibulum commodo. Ut rhoncus gravida arcu.
  */
 
-package com.ishan.leetcode.company.atlassianpractice.ratelimiter;
+package com.ishan.leetcode.company.practiceatlassian.tag;
 
-import java.time.Instant;
+public enum EntityType {
 
-public class Request {
-
-    String clientId;
-    int refillRate;
-
-    Instant lastRefillTime;
-
-    public Request(String clientId, int refillRate, Instant time) {
-        this.clientId = clientId;
-        this.refillRate = refillRate;
-        this.lastRefillTime = time;
-    }
-
-
+    DOCUMENT,
+    ARTICLES,
+    IMAGES,
+    JIRA
 }

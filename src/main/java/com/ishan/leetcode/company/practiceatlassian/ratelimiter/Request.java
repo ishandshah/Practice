@@ -6,14 +6,22 @@
  * Vestibulum commodo. Ut rhoncus gravida arcu.
  */
 
-package com.ishan.leetcode.company.atlassianpractice;
+package com.ishan.leetcode.company.practiceatlassian.ratelimiter;
 
-import java.util.Comparator;
+import java.time.Instant;
 
-public class LocalClassComparator implements Comparator<LocalClass> {
-    @Override
-    public int compare(LocalClass o1, LocalClass o2) {
-        return Long.compare(o1.getSize(), o2.getSize());
+public class Request {
 
+    String clientId;
+    int refillRate;
+
+    Instant lastRefillTime;
+
+    public Request(String clientId, int refillRate, Instant time) {
+        this.clientId = clientId;
+        this.refillRate = refillRate;
+        this.lastRefillTime = time;
     }
+
+
 }

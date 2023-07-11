@@ -6,12 +6,7 @@
  * Vestibulum commodo. Ut rhoncus gravida arcu.
  */
 
-package com.ishan.leetcode.company.atlassianpractice.tag;
+package com.ishan.leetcode.company.atlassian;
 
-public enum EntityType {
-
-    DOCUMENT,
-    ARTICLES,
-    IMAGES,
-    JIRA
+public class Problem2 {
 }

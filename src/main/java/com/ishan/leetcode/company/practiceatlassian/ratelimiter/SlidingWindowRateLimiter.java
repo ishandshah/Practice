@@ -6,7 +6,7 @@
  * Vestibulum commodo. Ut rhoncus gravida arcu.
  */
 
-package com.ishan.leetcode.company.atlassianpractice.ratelimiter;
+package com.ishan.leetcode.company.practiceatlassian.ratelimiter;
 
 import java.time.Instant;
 import java.util.ArrayDeque;

@@ -6,7 +6,7 @@
  * Vestibulum commodo. Ut rhoncus gravida arcu.
  */
 
-package com.ishan.leetcode.company.atlassianpractice.tag;
+package com.ishan.leetcode.company.practiceatlassian.tag;
 
 public class Tag {
 

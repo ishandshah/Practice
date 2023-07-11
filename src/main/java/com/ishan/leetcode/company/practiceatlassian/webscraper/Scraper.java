@@ -6,7 +6,7 @@
  * Vestibulum commodo. Ut rhoncus gravida arcu.
  */
 
-package com.ishan.leetcode.company.atlassianpractice.webscraper;
+package com.ishan.leetcode.company.practiceatlassian.webscraper;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;

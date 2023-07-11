@@ -6,7 +6,7 @@
  * Vestibulum commodo. Ut rhoncus gravida arcu.
  */
 
-package com.ishan.leetcode.company.atlassianpractice;
+package com.ishan.leetcode.company.practiceatlassian;
 
 import java.io.File;
 import java.util.*;

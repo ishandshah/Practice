@@ -6,23 +6,14 @@
  * Vestibulum commodo. Ut rhoncus gravida arcu.
  */
 
-package com.ishan.leetcode.company.atlassianpractice;
+package com.ishan.leetcode.company.practiceatlassian;
 
-public class LocalClass {
+import java.util.Comparator;
 
+public class LocalClassComparator implements Comparator<LocalClass> {
+    @Override
+    public int compare(LocalClass o1, LocalClass o2) {
+        return Long.compare(o1.getSize(), o2.getSize());
 
-    long size;
-
-    public LocalClass(long size) {
-        this.size = size;
     }
-
-    public long getSize() {
-        return size;
-    }
-
-    public void setSize(long size) {
-        this.size = size;
-    }
-
 }
