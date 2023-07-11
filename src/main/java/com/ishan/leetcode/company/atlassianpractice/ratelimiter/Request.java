@@ -22,7 +22,6 @@ public class Request {
         this.refillRate = refillRate;
         this.lastRefillTime = time;
     }
-//  int tokensUsed;
 
 
 }

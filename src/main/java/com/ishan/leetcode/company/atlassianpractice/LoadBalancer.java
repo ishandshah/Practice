@@ -13,8 +13,8 @@ import java.util.List;
 
 public class LoadBalancer {
 
-    List<String> servers = new ArrayList<>();
-    int currentIndex = 0;
+    List<String> servers;
+    int currentIndex;
 
     public LoadBalancer() {
         this.servers = new ArrayList<>();

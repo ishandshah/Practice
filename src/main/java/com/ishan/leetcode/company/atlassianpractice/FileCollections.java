@@ -71,7 +71,9 @@ public class FileCollections {
 
             int finalI = i;
             totalSize += fileSizes[finalI];
-            collectionMap.compute(collectionNames[i], (k, collection) -> {
+
+            //collection.size += fileSizes[finalI];
+          collectionMap.compute(collectionNames[i], (k, collection) -> {
 
 
                         if (collection == null) {
