@@ -6,7 +6,7 @@
  * Vestibulum commodo. Ut rhoncus gravida arcu.
  */
 
-package com.ishan.leetcode.company.practiceatlassian.webscraper;
+package com.ishan.leetcode.company.practiceatlassian.scraper;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -21,42 +21,12 @@ import java.net.URL;
 import java.util.HashSet;
 import java.util.Set;
 
-public class Scraper {
+public class ImageScraper implements ScraperService {
 
-    private static Set<String> visitedUrls = new HashSet<>();
+    Set<String> visitedURLS;
 
-    public static void main(String[] args) {
-        String[] urls = {"https://www.google.com"};
-        for (String url : urls) {
-            scrapeImages(url);
-        }
-    }
-
-    private static void scrapeImages(String url) {
-        try {
-            if (!visitedUrls.contains(url)) {
-                visitedUrls.add(url);
-                System.out.println("Scraping images from: " + url);
-
-                Document doc = Jsoup.connect(url).get();
-
-                // Extract image links from the current page
-                Elements imgElements = doc.select("img[src]");
-                for (Element imgElement : imgElements) {
-                    String imgUrl = imgElement.absUrl("src");
-                    saveImage(imgUrl);
-                }
-
-                // Follow other links on the page and recursively scrape images
-                Elements linkElements = doc.select("a[href]");
-                for (Element linkElement : linkElements) {
-                    String linkUrl = linkElement.absUrl("href");
-                    scrapeImages(linkUrl);
-                }
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public ImageScraper() {
+        visitedURLS = new HashSet<>();
     }
 
     private static void saveImage(String imageUrl) {
@@ -75,5 +45,34 @@ public class Scraper {
 
     private static String getFileName(String url) {
         return url.substring(url.lastIndexOf("/") + 1);
+    }
+
+    @Override
+    public void scrape(String url) {
+        try {
+            if (!visitedURLS.contains(url)) {
+                //check for valid url
+                visitedURLS.add(url);
+                System.out.println("Scraping images from: " + url);
+
+                Document doc = Jsoup.connect(url).get();
+
+                // Extract image links from the current page
+                Elements imgElements = doc.select("img[src]");
+                for (Element imgElement : imgElements) {
+                    String imgUrl = imgElement.absUrl("src");
+                    saveImage(imgUrl);
+                }
+
+                // Follow other links on the page and recursively scrape images
+                Elements linkElements = doc.select("a[href]");
+                for (Element linkElement : linkElements) {
+                    String linkUrl = linkElement.absUrl("href");
+                    scrape(linkUrl);
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

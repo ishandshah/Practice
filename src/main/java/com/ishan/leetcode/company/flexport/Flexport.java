@@ -29,17 +29,7 @@ public class Flexport {
     Map<String, Map<String, Integer>> clientToContainerMap = new HashMap<>();
     Queue<Order> buyOrder = new LinkedList<>();
     List<Order> orderList = new ArrayList<>();
-    Map map = new TreeMap<>(new OrderComparator());    Queue<Order> sellOrder = new LinkedList<>() {
-        @Override
-        public boolean contains(Object o) {
-            for (Order k : sellOrder) {
-                if (k.isAvailable && k.price == ((Order) o).price) {
-                    return true;
-                }
-            }
-            return false;
-        }
-    };
+    Map map = new TreeMap<>(new OrderComparator());
 
     public static void main(String[] args) {
         String clientId = "Ishan";
@@ -66,7 +56,17 @@ public class Flexport {
         buildBidding();
 
 
-    }
+    }    Queue<Order> sellOrder = new LinkedList<>() {
+        @Override
+        public boolean contains(Object o) {
+            for (Order k : sellOrder) {
+                if (k.isAvailable && k.price == ((Order) o).price) {
+                    return true;
+                }
+            }
+            return false;
+        }
+    };
 
     private static void buildBidding() {
 
