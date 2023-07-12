@@ -10,7 +10,7 @@ package com.ishan.leetcode.company.practiceatlassian.FeatureFlag;
 
 import java.time.Instant;
 import java.util.Arrays;
-
+//TODO add some UNIT TESTS
 public class FeatureFlag {
 
     int id;
