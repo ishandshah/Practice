@@ -14,11 +14,34 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-import static java.lang.String.valueOf;
-
 public class FeatureFlagImpl implements FeatureFlagInterface {
 
     Map<String, FeatureFlag> stringFeatureFlagMap = new HashMap<>();
+
+    public static void main(String[] args) {
+        FeatureFlag ff1 = new FeatureFlag(1, "ishan", Boolean.TRUE, "name", new Environment[]{Environment.DEV, Environment.TEST},
+                System.currentTimeMillis(), System.currentTimeMillis() + 10000000);
+
+
+        FeatureFlag ff2 = new FeatureFlag(1, "ishan shah", Boolean.TRUE, "name with last name", new Environment[]{Environment.PROD, Environment.PREPROD},
+                System.currentTimeMillis(), System.currentTimeMillis() + 1);
+        FeatureFlagImpl featureFlag = new FeatureFlagImpl();
+        featureFlag.addFeatureFlag(ff1);
+        featureFlag.addFeatureFlag(ff2);
+
+        ff2.description = "su che";
+
+        featureFlag.updateFeatureFlag(ff2);
+
+        System.out.println("Active" + featureFlag.getActiveFlags());
+
+        System.out.println("ALL" + featureFlag.getAllFlags());
+
+        System.out.println("InActive" + featureFlag.getInActiveFlags());
+
+        System.out.println("BY ENV" + featureFlag.getFlagsbByEnv(Environment.PROD));
+
+    }
 
     @Override
     public void addFeatureFlag(FeatureFlag ff) {
@@ -79,9 +102,8 @@ public class FeatureFlagImpl implements FeatureFlagInterface {
                 filter(x -> (x.getValue().endTime < System.currentTimeMillis()) && (x.getValue().startTime > System.currentTimeMillis()))
                 .map(Map.Entry::getValue).
                 collect(Collectors.toList());
-    return collect;
+        return collect;
     }
-
 
     public List<FeatureFlag> getFlagsbByEnv(Environment environment) {
         List<FeatureFlag> collect = stringFeatureFlagMap.
@@ -92,32 +114,5 @@ public class FeatureFlagImpl implements FeatureFlagInterface {
                 .map(Map.Entry::getValue)
                 .collect(Collectors.toList());
         return collect;
-    }
-
-
-
-    public static void main(String[] args) {
-        FeatureFlag ff1 = new FeatureFlag(1, "ishan", Boolean.TRUE, "name", new Environment[]{Environment.DEV, Environment.TEST},
-                System.currentTimeMillis(), System.currentTimeMillis() + 10000000);
-
-
-        FeatureFlag ff2 = new FeatureFlag(1, "ishan shah", Boolean.TRUE, "name with last name", new Environment[]{Environment.PROD, Environment.PREPROD},
-                System.currentTimeMillis(), System.currentTimeMillis() + 1);
-        FeatureFlagImpl featureFlag = new FeatureFlagImpl();
-        featureFlag.addFeatureFlag(ff1);
-        featureFlag.addFeatureFlag(ff2);
-
-        ff2.description="su che";
-
-        featureFlag.updateFeatureFlag(ff2);
-
-        System.out.println("Active" + featureFlag.getActiveFlags());
-
-        System.out.println("ALL" + featureFlag.getAllFlags());
-
-        System.out.println("InActive" + featureFlag.getInActiveFlags());
-
-        System.out.println("BY ENV" + featureFlag.getFlagsbByEnv(Environment.PROD));
-
     }
 }

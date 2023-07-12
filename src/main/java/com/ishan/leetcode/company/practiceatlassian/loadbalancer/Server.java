@@ -13,6 +13,15 @@ import java.util.Objects;
 public class Server {
     private String name;
     private int weight;
+    private int activeConnections;
+    private int averageResponseTime;
+    private int bandwidthCurrentlyServed;
+
+    public Server(String name, int weight) {
+        this.name = name;
+        this.weight = weight;
+        this.activeConnections = 0;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -25,21 +34,6 @@ public class Server {
     @Override
     public int hashCode() {
         return Objects.hash(name);
-    }
-
-    private int activeConnections;
-
-    private int averageResponseTime;
-
-
-    private int bandwidthCurrentlyServed;
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setWeight(int weight) {
-        this.weight = weight;
     }
 
     public int getActiveConnections() {
@@ -66,17 +60,19 @@ public class Server {
         this.bandwidthCurrentlyServed = bandwidthCurrentlyServed;
     }
 
-    public Server(String name, int weight) {
-        this.name = name;
-        this.weight = weight;
-        this.activeConnections=0;
-    }
-
     public String getName() {
         return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public int getWeight() {
         return weight;
+    }
+
+    public void setWeight(int weight) {
+        this.weight = weight;
     }
 }

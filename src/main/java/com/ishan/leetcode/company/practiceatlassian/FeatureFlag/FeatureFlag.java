@@ -8,8 +8,8 @@
 
 package com.ishan.leetcode.company.practiceatlassian.FeatureFlag;
 
-import java.time.Instant;
 import java.util.Arrays;
+
 //TODO add some UNIT TESTS
 public class FeatureFlag {
 
@@ -23,6 +23,17 @@ public class FeatureFlag {
     Environment[] supportedEnvironments;
 
     Long startTime;
+    Long endTime;
+
+    public FeatureFlag(int id, String name, boolean isActive, String description, Environment[] supportedEnvironments, Long startTime, Long endTime) {
+        this.id = id;
+        this.name = name;
+        this.isActive = isActive;
+        this.description = description;
+        this.supportedEnvironments = supportedEnvironments;
+        this.startTime = startTime;
+        this.endTime = endTime;
+    }
 
     @Override
     public String toString() {
@@ -35,17 +46,5 @@ public class FeatureFlag {
                 ", startTime=" + startTime +
                 ", endTime=" + endTime +
                 '}';
-    }
-
-    Long endTime;
-
-    public FeatureFlag(int id, String name, boolean isActive, String description, Environment[] supportedEnvironments, Long startTime, Long endTime) {
-        this.id = id;
-        this.name = name;
-        this.isActive = isActive;
-        this.description = description;
-        this.supportedEnvironments = supportedEnvironments;
-        this.startTime = startTime;
-        this.endTime = endTime;
     }
 }

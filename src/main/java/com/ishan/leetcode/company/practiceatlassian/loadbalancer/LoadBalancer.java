@@ -15,10 +15,9 @@ import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.ServiceConfigurationError;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class LoadBalancer implements LoadBalancerInterface{
+public class LoadBalancer implements LoadBalancerInterface {
 
     private List<Server> servers;
     private AtomicInteger currentServerIndex;
@@ -27,34 +26,6 @@ public class LoadBalancer implements LoadBalancerInterface{
     public LoadBalancer() {
         servers = new ArrayList<>();
         currentServerIndex = new AtomicInteger(0);
-    }
-
-
-    @Override
-    public void addServer(Server server) {
-            if(!servers.contains(server)){
-                servers.add(server);
-            }
-    }
-
-    @Override
-    public Server getServers(String server) {
-        Optional<Server> first = servers.stream().filter(name -> name.getName().equalsIgnoreCase(server)).findFirst();
-        return first.isPresent()?first.get():null;
-    }
-
-    @Override
-    public void updateServers(Server server) {
-        Optional<Server> first = servers.stream().filter(name -> name.getName().equalsIgnoreCase(server.getName())).findFirst();
-
-        if(first.isPresent()){
-            Server server1 = first.get();
-            servers.remove(server1);
-            server1=server;
-            servers.add(server1);
-        }else{
-            servers.add(server);
-        }
     }
 
     public static void main(String[] args) {
@@ -67,7 +38,7 @@ public class LoadBalancer implements LoadBalancerInterface{
 
         // Perform Round Robin routing
         for (int i = 0; i < 6; i++) {
-            Server server = loadBalancer.serveRequest(new Request(i),LoadBalancerType.Round_Robin_Method);
+            Server server = loadBalancer.serveRequest(new Request(i), LoadBalancerType.Round_Robin_Method);
             System.out.println("Round Robin Routing: " + server.getName());
         }
 
@@ -77,70 +48,20 @@ public class LoadBalancer implements LoadBalancerInterface{
 
         // Perform Weighted Round Robin routing
         for (int i = 0; i < 9; i++) {
-            Server server = loadBalancer.serveRequest((new Request(i)),LoadBalancerType.Weighted_Round_Robin_Method);
+            Server server = loadBalancer.serveRequest((new Request(i)), LoadBalancerType.Weighted_Round_Robin_Method);
             System.out.println("Weighted Round Robin Routing: " + server.getName());
         }
 
 
         for (int i = 0; i < 9; i++) {
-            Server server = loadBalancer.serveRequest((new Request(i)),LoadBalancerType.IP_Hash);
+            Server server = loadBalancer.serveRequest((new Request(i)), LoadBalancerType.IP_Hash);
             System.out.println("IP_Hash Round Robin Routing: " + server.getName());
         }
 
         for (int i = 0; i < 9; i++) {
-            Server server = loadBalancer.serveRequest((new Request(i)),LoadBalancerType.Least_Bandwidth_Method);
+            Server server = loadBalancer.serveRequest((new Request(i)), LoadBalancerType.Least_Bandwidth_Method);
             System.out.println("Least_Bandwidth_Method Round Robin Routing: " + server.getName());
         }
-    }
-
-    @Override
-    public Server serveRequest(Request request, LoadBalancerType loadBalancerType) {
-        switch(loadBalancerType){
-            case Round_Robin_Method -> {
-                return roundRobinDistribution();
-            }
-            case IP_Hash ->{
-                return ipHash(request);
-            }
-            case Weighted_Round_Robin_Method -> {return weightedDistribution();}
-            default -> {
-                return dedault();
-            }
-        }
-
-    }
-
-    private Server dedault() {
-
-        System.out.println("default is round robin");
-        return roundRobinDistribution();
-    }
-
-    private Server weightedDistribution() {
-        int totalWeight = servers.stream().mapToInt(Server::getWeight).sum();
-        int currentIndex = currentServerIndex.getAndIncrement() % totalWeight;
-            // 100
-        //20
-
-        for (Server server : servers) {
-            currentIndex -= server.getWeight();
-            if (currentIndex < 0) {
-                return server;
-            }
-        }
-
-        return null;
-    }
-
-    private Server ipHash(Request request) {
-        Integer s = calculateMD5(String.valueOf(request.requestId));
-        int i= s % servers.size();
-        return servers.get(i);
-    }
-
-    private Server roundRobinDistribution() {
-        int index = currentServerIndex.getAndIncrement() % servers.size();
-        return servers.get(index);
     }
 
     public static Integer calculateMD5(String input) {
@@ -158,7 +79,7 @@ public class LoadBalancer implements LoadBalancerInterface{
             BigInteger hashBigInt = new BigInteger(1, hashBytes);
 
             // Obtain the integer hash code by taking the absolute value of the BigInteger
-            Integer hashCode =  Integer.valueOf(hashBigInt.abs().intValue());
+            Integer hashCode = Integer.valueOf(hashBigInt.abs().intValue());
 
             return Math.abs(hashCode);
         } catch (NoSuchAlgorithmException e) {
@@ -166,5 +87,84 @@ public class LoadBalancer implements LoadBalancerInterface{
             e.printStackTrace();
             return 0;
         }
+    }
+
+    @Override
+    public void addServer(Server server) {
+        if (!servers.contains(server)) {
+            servers.add(server);
+        }
+    }
+
+    @Override
+    public Server getServers(String server) {
+        Optional<Server> first = servers.stream().filter(name -> name.getName().equalsIgnoreCase(server)).findFirst();
+        return first.isPresent() ? first.get() : null;
+    }
+
+    @Override
+    public void updateServers(Server server) {
+        Optional<Server> first = servers.stream().filter(name -> name.getName().equalsIgnoreCase(server.getName())).findFirst();
+
+        if (first.isPresent()) {
+            Server server1 = first.get();
+            servers.remove(server1);
+            server1 = server;
+            servers.add(server1);
+        } else {
+            servers.add(server);
+        }
+    }
+
+    @Override
+    public Server serveRequest(Request request, LoadBalancerType loadBalancerType) {
+        switch (loadBalancerType) {
+            case Round_Robin_Method -> {
+                return roundRobinDistribution();
+            }
+            case IP_Hash -> {
+                return ipHash(request);
+            }
+            case Weighted_Round_Robin_Method -> {
+                return weightedDistribution();
+            }
+            default -> {
+                return dedault();
+            }
+        }
+
+    }
+
+    private Server dedault() {
+
+        System.out.println("default is round robin");
+        return roundRobinDistribution();
+    }
+
+    private Server weightedDistribution() {
+        int totalWeight = servers.stream().mapToInt(Server::getWeight).sum();
+        int currentIndex = currentServerIndex.getAndIncrement() % totalWeight;
+        // 100
+        //20
+
+        for (Server server : servers) {
+            currentIndex -= server.getWeight();
+            if (currentIndex < 0) {
+                return server;
+            }
+        }
+
+        return null;
+    }
+
+    private Server ipHash(Request request) {
+        Integer s = calculateMD5(String.valueOf(request.requestId));
+        int i = s % servers.size();
+        return servers.get(i);
+    }
+
+    private Server roundRobinDistribution() {
+        int index = currentServerIndex.getAndIncrement() % servers.size();
+        return servers.get(index);
     }
 }

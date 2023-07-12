@@ -12,7 +12,7 @@ import java.util.List;
 
 public interface FeatureFlagInterface {
 
-     void addFeatureFlag(FeatureFlag ff);
+    void addFeatureFlag(FeatureFlag ff);
 
     boolean removeFeatureFlag(String ff);
 
@@ -20,9 +20,10 @@ public interface FeatureFlagInterface {
 
     FeatureFlag getFeatureFlag(String name);
 
-     List<FeatureFlag> getAllFlags();
+    List<FeatureFlag> getAllFlags();
 
-     List<FeatureFlag> getActiveFlags();
+    List<FeatureFlag> getActiveFlags();
+
     List<FeatureFlag> getInActiveFlags();
 
 }

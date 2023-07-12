@@ -28,7 +28,8 @@ public class Flexport {
 
     Map<String, Map<String, Integer>> clientToContainerMap = new HashMap<>();
     Queue<Order> buyOrder = new LinkedList<>();
-    List<Order> orderList = new ArrayList<>();    Queue<Order> sellOrder = new LinkedList<>() {
+    List<Order> orderList = new ArrayList<>();
+    Map map = new TreeMap<>(new OrderComparator());    Queue<Order> sellOrder = new LinkedList<>() {
         @Override
         public boolean contains(Object o) {
             for (Order k : sellOrder) {
@@ -39,7 +40,6 @@ public class Flexport {
             return false;
         }
     };
-    Map map = new TreeMap<>(new OrderComparator());
 
     public static void main(String[] args) {
         String clientId = "Ishan";
@@ -155,6 +155,8 @@ public class Flexport {
             }
         }
     }
+
+
 
 
 }

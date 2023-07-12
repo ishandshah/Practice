@@ -6,17 +6,9 @@
  * Vestibulum commodo. Ut rhoncus gravida arcu.
  */
 
-package com.ishan.leetcode.company.practiceatlassian.loadbalancer;
+package com.ishan.leetcode.company.practiceatlassian.rateLimiterFactory;
 
-public interface LoadBalancerInterface {
-
-    public void addServer(Server server);
-
-    public Server getServers(String server);
-
-    public void updateServers(Server server);
-
-    public Server serveRequest(Request request, LoadBalancerType loadBalancerType);
-
+public interface RateLimiter {
+    boolean allowRequest();
 
 }

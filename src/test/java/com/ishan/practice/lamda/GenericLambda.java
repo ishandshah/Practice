@@ -90,6 +90,7 @@ class ApplyFilters {
         int age;
         char sex;
         int money;
+
         public People(String name, int age, char sex, int money) {
             this.name = name;
             this.age = age;

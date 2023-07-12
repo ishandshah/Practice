@@ -10,7 +10,6 @@ package com.ishan.leetcode.company.practiceatlassian;
 
 import java.io.File;
 import java.util.*;
-import java.util.stream.Collectors;
 
 //Todo Sort a Map of String and class by an integer value inside the class
 public class CalculateSize {
@@ -67,7 +66,7 @@ public class CalculateSize {
 
         List<Map.Entry<File, LocalClass>> entries = new ArrayList<>(map.entrySet());
 
-return  null;
+        return null;
 
 
     }

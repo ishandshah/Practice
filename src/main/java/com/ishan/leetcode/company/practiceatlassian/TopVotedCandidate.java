@@ -11,6 +11,7 @@ package com.ishan.leetcode.company.practiceatlassian;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
+
 /*
 
 
@@ -46,6 +47,7 @@ topVotedCandidate.q(8); // return 1
 class TopVotedCandidate {
     TreeMap<Integer, Integer> timedWinner;
     int lead;
+
     public TopVotedCandidate(int[] persons, int[] times) {
         int n = times.length;
         lead = -1;
@@ -53,10 +55,10 @@ class TopVotedCandidate {
 
         Map<Integer, Integer> votes = new HashMap();
 
-        for(int i=0; i<n; i++){
-            votes.put(persons[i], votes.getOrDefault(persons[i], 0)+1);
+        for (int i = 0; i < n; i++) {
+            votes.put(persons[i], votes.getOrDefault(persons[i], 0) + 1);
 
-            if(i==0 || votes.get(persons[i])>=votes.get(lead)){
+            if (i == 0 || votes.get(persons[i]) >= votes.get(lead)) {
                 lead = persons[i];
             }
 
@@ -64,18 +66,18 @@ class TopVotedCandidate {
         }
     }
 
-    public int q(int t) {
-        System.out.println(timedWinner.floorEntry(t).getValue());
-        return timedWinner.floorEntry(t).getValue();
-    }
-
     public static void main(String[] args) {
-        TopVotedCandidate topVotedCandidate=new TopVotedCandidate(new int[] {0, 1, 1, 0, 0, 1, 0}, new int[]{0, 5, 10, 15, 20, 25, 30});
+        TopVotedCandidate topVotedCandidate = new TopVotedCandidate(new int[]{0, 1, 1, 0, 0, 1, 0}, new int[]{0, 5, 10, 15, 20, 25, 30});
         topVotedCandidate.q(3); // return 0, At time 3, the votes are [0], and 0 is leading.
         topVotedCandidate.q(12); // return 1, At time 12, the votes are [0,1,1], and 1 is leading.
         topVotedCandidate.q(25); // return 1, At time 25, the votes are [0,1,1,0,0,1], and 1 is leading (as ties go to the most recent vote.)
         topVotedCandidate.q(15); // return 0
         topVotedCandidate.q(24); // return 0
         topVotedCandidate.q(8); // return 1
+    }
+
+    public int q(int t) {
+        System.out.println(timedWinner.floorEntry(t).getValue());
+        return timedWinner.floorEntry(t).getValue();
     }
 }

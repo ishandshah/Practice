@@ -25,6 +25,23 @@ public class TokenBucket {
         this.lastRefillTime = Instant.now();
     }
 
+    public static void main(String[] args) throws InterruptedException {
+        // Create a token bucket with a capacity of 10 tokens and a rate of 2 tokens per second
+        TokenBucket tokenBucket = new TokenBucket(10, 2);
+
+        // Consume tokens
+        for (int i = 0; i < 15; i++) {
+            if (tokenBucket.consume(1)) {
+                System.out.println("Token consumed");
+            } else {
+                System.out.println("Token not available");
+            }
+
+            // Sleep for 500 milliseconds
+            TimeUnit.MILLISECONDS.sleep(500);
+        }
+    }
+
     public synchronized boolean consume(int tokensRequested) {
         refillTokens();
 
@@ -46,21 +63,5 @@ public class TokenBucket {
             lastRefillTime = now;
         }
     }
-        public static void main(String[] args) throws InterruptedException {
-            // Create a token bucket with a capacity of 10 tokens and a rate of 2 tokens per second
-            TokenBucket tokenBucket = new TokenBucket(10, 2);
-
-            // Consume tokens
-            for (int i = 0; i < 15; i++) {
-                if (tokenBucket.consume(1)) {
-                    System.out.println("Token consumed");
-                } else {
-                    System.out.println("Token not available");
-                }
-
-                // Sleep for 500 milliseconds
-                TimeUnit.MILLISECONDS.sleep(500);
-            }
-        }
 
 }
