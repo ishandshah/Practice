@@ -8,10 +8,9 @@
 
 package com.ishan.leetcode.company.practiceatlassian;
 
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class SortBycount {
     static Map<Character, Integer> countMap = new HashMap<>();
@@ -39,11 +38,13 @@ public class SortBycount {
             });
         }
 
-        countMap.entrySet()
+        List<Character> sorted = countMap.entrySet()
                 .stream()
-                .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
-                .forEach(System.out::println);
+                .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder())).
+                map(Map.Entry::getKey).collect(Collectors.toList());
 
+
+        ;
     }
 
 
