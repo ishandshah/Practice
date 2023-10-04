@@ -39,7 +39,10 @@ public class Singleton implements Cloneable {
     @Override
     public Object clone() {
         System.out.println(("Singleton already created"));
-
-        return null;
+        try {
+            return this.getSingleton();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 }
