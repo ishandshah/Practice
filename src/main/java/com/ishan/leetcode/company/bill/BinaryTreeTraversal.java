@@ -8,5 +8,5 @@
 
 package com.ishan.leetcode.company.bill;
 
-public class DFS {
+public class BinaryTreeTraversal {
 }

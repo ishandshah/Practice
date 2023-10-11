@@ -48,27 +48,3 @@ public class Reversealinkedlist {
 
 }
 
-class Node {
-    int value;
-    Node next;
-
-    Node(int value) {
-        this.value = value;
-        //       this.next=next;
-
-    }
-
-    static void print(Node head) {
-
-        //Node current=head;
-
-
-        while (head != null) {
-            System.out.println(head.value);
-            head = head.next;
-            //reverse the connection/arros
-
-        }
-
-    }
-}

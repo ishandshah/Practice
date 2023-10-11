@@ -23,7 +23,7 @@ public class MergeTwoSorted {
         Node.print(l3);
     }
 
-    Node sortedMerge(Node l1, Node l2) {
+    com.ishan.leetcode.linkedlist.Node sortedMerge(com.ishan.leetcode.linkedlist.Node l1, com.ishan.leetcode.linkedlist.Node l2) {
 
         if (l1 == null) return l2;
         else if (l2 == null) return l1;
