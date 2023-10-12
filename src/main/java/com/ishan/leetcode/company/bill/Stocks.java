@@ -13,22 +13,22 @@ public class Stocks {
 
 
     public static void main(String[] args) {
-        int[] stocks={111,411,1,15,12,11,1,18};
+        int[] stocks = {111, 411, 1, 15, 12, 11, 1, 18};
 
         System.out.println(findProfit(stocks));
     }
 
     private static int findProfit(int[] stocks) {
 
-        int max=0,currentMax=0;
+        int max = 0, currentMax = 0;
 
-        int value=stocks[0];
-        for(int i=1;i<stocks.length;i++){
-            if(stocks[i]>value){
-                currentMax=stocks[i]-value;
-                max=Math.max(max,currentMax);
-            }else{
-                value=stocks[i];
+        int value = stocks[0];
+        for (int i = 1; i < stocks.length; i++) {
+            if (stocks[i] > value) {
+                currentMax = stocks[i] - value;
+                max = Math.max(max, currentMax);
+            } else {
+                value = stocks[i];
             }
 
 

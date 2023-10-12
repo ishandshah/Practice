@@ -14,23 +14,23 @@ import java.util.Comparator;
 import java.util.List;
 
 public class CustomComparator {
+    List<Person> personList = new ArrayList<>();
+
     public static void main(String[] args) {
-        CustomComparator cc=new CustomComparator();
+        CustomComparator cc = new CustomComparator();
         cc.Persons();
         //cc.sortPersonList();
         cc.customComparator();
 
     }
-    List<Person> personList=new ArrayList<>();
+
+    public void Persons() {
 
 
-    public void Persons(){
-
-
-        Person person=new Person("ishan",12.12,12,Boolean.TRUE);
-        Person person2=new Person("deval",13.12,14,Boolean.TRUE);
-        Person person3=new Person("Himani",130.12,10,Boolean.FALSE);
-        Person person4=new Person("Poojan",-12.12,0,Boolean.FALSE);
+        Person person = new Person("ishan", 12.12, 12, Boolean.TRUE);
+        Person person2 = new Person("deval", 13.12, 14, Boolean.TRUE);
+        Person person3 = new Person("Himani", 130.12, 10, Boolean.FALSE);
+        Person person4 = new Person("Poojan", -12.12, 0, Boolean.FALSE);
         personList.add(person);
         personList.add(person2);
         personList.add(person3);
@@ -39,19 +39,19 @@ public class CustomComparator {
     }
 
 
-    public void sortPersonList(){
+    public void sortPersonList() {
 
         Collections.sort(personList, Comparator.comparingDouble(Person::getBalance));
-        for(Person p:personList){
+        for (Person p : personList) {
             System.out.println(p);
         }
     }
 
 
-    public void customComparator(){
-        Collections.sort(personList,new IshanComparator().reversed());
+    public void customComparator() {
+        Collections.sort(personList, new IshanComparator().reversed());
 
-        for(Person p:personList){
+        for (Person p : personList) {
             System.out.println(p);
         }
     }
@@ -59,16 +59,14 @@ public class CustomComparator {
 
 }
 
-class IshanComparator implements Comparator<Person>
-{
+class IshanComparator implements Comparator<Person> {
     @Override
     public int compare(Person o1, Person o2) {
-        return Double.compare(o1.getBalance(),o2.getBalance());
+        return Double.compare(o1.getBalance(), o2.getBalance());
     }
 }
 
-class Person{
-
+class Person {
 
 
     String firstName;
@@ -79,7 +77,7 @@ class Person{
 
     boolean isMale;
 
-    public Person(String firstName,double balance, int age, boolean isMale) {
+    public Person(String firstName, double balance, int age, boolean isMale) {
         this.firstName = firstName;
 
         this.balance = balance;

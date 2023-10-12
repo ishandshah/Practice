@@ -9,7 +9,7 @@
 package com.ishan.leetcode.company.chewypractice.parkinglot;
 
 /*
-* ParkingSpot: Represents an individual parking spot in the parking lot.
+ * ParkingSpot: Represents an individual parking spot in the parking lot.
 
  * */
 public class ParkingSpot {
@@ -19,18 +19,18 @@ public class ParkingSpot {
 
     Vehicle vehicle;
 
-    public void occupy(Vehicle vehicle){
-        this.vehicle = vehicle;
-        this.isAvailable = false;
-    }
-
-
     public ParkingSpot(int spotNumber) {
         this.spotNumber = spotNumber;
         this.isAvailable = true;
         this.vehicle = null;
     }
-    public void vacate(){
+
+    public void occupy(Vehicle vehicle) {
+        this.vehicle = vehicle;
+        this.isAvailable = false;
+    }
+
+    public void vacate() {
         this.vehicle = null;
         this.isAvailable = true;
     }

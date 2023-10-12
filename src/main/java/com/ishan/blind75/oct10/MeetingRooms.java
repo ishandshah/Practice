@@ -12,28 +12,28 @@ import java.util.Arrays;
 import java.util.Comparator;
 
 /*
-*Given an array of meeting time
-* intervals consisting of start and end times
-* [[s1,e1],[s2,e2],...](si< ei), determine if a person could attend all meetings.
-* */
+ *Given an array of meeting time
+ * intervals consisting of start and end times
+ * [[s1,e1],[s2,e2],...](si< ei), determine if a person could attend all meetings.
+ * */
 public class MeetingRooms {
 
     public static void main(String[] args) {
-        int[][] meetingTimes2={{0,30},{5,10},{15,20}};
-        int[][] meetingTimes={{7,10},{2,4}};
+        int[][] meetingTimes2 = {{0, 30}, {5, 10}, {15, 20}};
+        int[][] meetingTimes = {{7, 10}, {2, 4}};
         // {{7,10},{2,4}}
 
 
         Arrays.sort(meetingTimes, Comparator.comparingInt(o -> o[0]));
-        boolean canAttend=true;
+        boolean canAttend = true;
 
-        int endingTime=meetingTimes[0][1];
-        for(int i=1;i<meetingTimes.length;i++){
-            if(meetingTimes[i][0]< endingTime){
-                canAttend=false;
+        int endingTime = meetingTimes[0][1];
+        for (int i = 1; i < meetingTimes.length; i++) {
+            if (meetingTimes[i][0] < endingTime) {
+                canAttend = false;
                 break;
-            }else{
-                endingTime=meetingTimes[i][1];
+            } else {
+                endingTime = meetingTimes[i][1];
             }
         }
 

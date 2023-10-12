@@ -13,22 +13,23 @@ import java.util.Map;
 
 public class TwoSum {
     public static void main(String[] args) {
-        int[] nums={2,7,11,15};
-        int target=9;
-        twoSum(nums,target);
+        int[] nums = {2, 7, 11, 15};
+        int target = 9;
+        twoSum(nums, target);
     }
-    public static int[] twoSum(int[] nums, int target) {
-        Map<Integer,Integer> hasMap=new HashMap<>();
-        for(int i=0;i<nums.length;i++){
 
-            hasMap.put(nums[i],i);
+    public static int[] twoSum(int[] nums, int target) {
+        Map<Integer, Integer> hasMap = new HashMap<>();
+        for (int i = 0; i < nums.length; i++) {
+
+            hasMap.put(nums[i], i);
         }
 
-        for(int i=0;i<nums.length;i++){
+        for (int i = 0; i < nums.length; i++) {
 
-            if(hasMap.containsKey(target-nums[i]) && i!=hasMap.get(target-nums[i])){
+            if (hasMap.containsKey(target - nums[i]) && i != hasMap.get(target - nums[i])) {
 
-                return new int[]{i,hasMap.get(target-nums[i])};
+                return new int[]{i, hasMap.get(target - nums[i])};
             }
         }
         return null;

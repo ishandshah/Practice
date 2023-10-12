@@ -45,8 +45,8 @@ router.withRoute("/bar/baz", "bar")
 public class Problem3 {
 
     public static void main(String[] args) {
-      // RouterBuilder rbr=RouterBuilder().
-       RouterImpl router=new RouterImpl();
+        // RouterBuilder rbr=RouterBuilder().
+        RouterImpl router = new RouterImpl();
         router.withRoute("/bar", "result");
 
 

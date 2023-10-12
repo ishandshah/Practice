@@ -12,10 +12,10 @@ public class CompressDecompressString {
 
 
     public static void main(String[] args) {
-        String input="ishanaaabbccddde";
+        String input = "ishanaaabbccddde";
 
 
-        String compressedString=compress(input);
+        String compressedString = compress(input);
         System.out.println(compressedString);
 
         decompress(compressedString);
@@ -23,7 +23,7 @@ public class CompressDecompressString {
 
     private static void decompress(String compressed) {
 
-        StringBuilder decompressed=new StringBuilder();
+        StringBuilder decompressed = new StringBuilder();
 
         int i = 0;
 
@@ -46,29 +46,29 @@ public class CompressDecompressString {
     }
 
     private static String compress(String input) {
-        if(input==null|| input.length()<2 ){
+        if (input == null || input.length() < 2) {
             return input;
         }
-        int j=0;
-        StringBuilder sb=new StringBuilder();
-        int count=1;
-        for(int i=1;i<input.length();i++){
+        int j = 0;
+        StringBuilder sb = new StringBuilder();
+        int count = 1;
+        for (int i = 1; i < input.length(); i++) {
 
-            if(input.charAt(j) == input.charAt(i)){
-                  count++;
+            if (input.charAt(j) == input.charAt(i)) {
+                count++;
 
-            }else{
+            } else {
 
                 sb.append(input.charAt(j));
                 sb.append(count);
-                j=i;
-                count=1;
+                j = i;
+                count = 1;
             }
         }
 
 
-            sb.append(input.charAt(j));
-            sb.append(count);
+        sb.append(input.charAt(j));
+        sb.append(count);
 
 
         return sb.toString();

@@ -18,33 +18,33 @@ public class ReturnTopKElements {
 
     public static void main(String[] args) {
 
-        int[] inputArray={1,2,3,4};
-        Person pp=new Person("ishan",33);
-        Person pp2=new Person("Himani",29);
-        Person pp4=new Person("Papa",69);
-        Person pp3=new Person("Mummy",59);
+        int[] inputArray = {1, 2, 3, 4};
+        Person pp = new Person("ishan", 33);
+        Person pp2 = new Person("Himani", 29);
+        Person pp4 = new Person("Papa", 69);
+        Person pp3 = new Person("Mummy", 59);
 
-        Person[] personArray={pp,pp2,pp4,pp3};
+        Person[] personArray = {pp, pp2, pp4, pp3};
 
-        topKElements(inputArray,2);
-        topKElementsObject(personArray,2);
-        topKElementsObjectReversed(personArray,2);
+        topKElements(inputArray, 2);
+        topKElementsObject(personArray, 2);
+        topKElementsObjectReversed(personArray, 2);
     }
 
     private static void topKElementsObjectReversed(Person[] personArray, int i) {
-        PriorityQueue<Person> pp1=new PriorityQueue<>(Comparator.comparingInt(Person::getAge).reversed());
-        returnTopK(pp1,personArray,i);
+        PriorityQueue<Person> pp1 = new PriorityQueue<>(Comparator.comparingInt(Person::getAge).reversed());
+        returnTopK(pp1, personArray, i);
 
     }
 
     private static void returnTopK(PriorityQueue<Person> pp1, Person[] personArray, int i) {
 
-        for(Person person:personArray){
-                 pp1.offer(person);
+        for (Person person : personArray) {
+            pp1.offer(person);
 
         }
 
-        while(pp1.size()>i){
+        while (pp1.size() > i) {
             pp1.remove();
         }
         // Print the elements in the PriorityQueue
@@ -55,16 +55,16 @@ public class ReturnTopKElements {
     }
 
     private static void topKElementsObject(Person[] personArray, int i) {
-        PriorityQueue<Person> pp1=new PriorityQueue<>(Comparator.comparingInt(Person::getAge));
-        returnTopK(pp1,personArray,i);
+        PriorityQueue<Person> pp1 = new PriorityQueue<>(Comparator.comparingInt(Person::getAge));
+        returnTopK(pp1, personArray, i);
 
     }
 
     private static void topKElements(int[] inputArray, int i) {
-        PriorityQueue<Integer> pp1=new PriorityQueue<>();
-        for(Integer person:inputArray){
+        PriorityQueue<Integer> pp1 = new PriorityQueue<>();
+        for (Integer person : inputArray) {
 
-            while(pp1.size()>=i){
+            while (pp1.size() >= i) {
                 pp1.remove();
             }
 
@@ -85,6 +85,11 @@ public class ReturnTopKElements {
 
         int age;
 
+        public Person(String name, int age) {
+            this.name = name;
+            this.age = age;
+        }
+
         public String getName() {
             return name;
         }
@@ -98,11 +103,6 @@ public class ReturnTopKElements {
         }
 
         public void setAge(int age) {
-            this.age = age;
-        }
-
-        public Person(String name, int age) {
-            this.name = name;
             this.age = age;
         }
 

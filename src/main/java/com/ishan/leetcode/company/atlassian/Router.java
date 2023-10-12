@@ -10,7 +10,7 @@ package com.ishan.leetcode.company.atlassian;
 
 public interface Router {
 
-    void withRoute(String path,String result);
+    void withRoute(String path, String result);
 
     String route(String path);
 }

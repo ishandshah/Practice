@@ -17,18 +17,18 @@ public class Duplicates {
 
 
     public static void main(String[] args) {
-        String testString="hi ishan hi Ishan";
+        String testString = "hi ishan hi Ishan";
 
         findDuplicates(testString);
     }
 
     private static void findDuplicates(String testString) {
-        Set<String> checkSet=new HashSet<>();
+        Set<String> checkSet = new HashSet<>();
 
 
         Arrays.stream(testString.split("\\s+")).
                 map(String::toLowerCase).
-                forEach(x->checkSet.contains(x));
+                forEach(x -> checkSet.contains(x));
 
         Arrays.stream(testString.split("\\s+")).
                 map(String::toLowerCase).

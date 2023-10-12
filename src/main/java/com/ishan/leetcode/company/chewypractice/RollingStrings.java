@@ -19,28 +19,28 @@ public class RollingStrings {
 
     public static void main(String[] args) {
 
-    String input="ishanzA";
-    int[] roll={1,2,3,4,5,6};
+        String input = "ishanzA";
+        int[] roll = {1, 2, 3, 4, 5, 6};
         StringBuilder stringBuilder = null;
-        for(int rol:roll){
-            stringBuilder=new StringBuilder();
-        for(int i=0;i<rol;i++){
-                int ascii=input.charAt(i);
-                if(ascii==122){
-                    ascii=97;
-                }else if(ascii==96){
-                        // reset to A
-                }else{
+        for (int rol : roll) {
+            stringBuilder = new StringBuilder();
+            for (int i = 0; i < rol; i++) {
+                int ascii = input.charAt(i);
+                if (ascii == 122) {
+                    ascii = 97;
+                } else if (ascii == 96) {
+                    // reset to A
+                } else {
                     ascii++;
                 }
 
-          //  System.out.println(ascii);
-            char c= (char) ascii;
-            stringBuilder.append(c);
-        }
-            stringBuilder.append(input.substring(rol,input.length()-1));
+                //  System.out.println(ascii);
+                char c = (char) ascii;
+                stringBuilder.append(c);
+            }
+            stringBuilder.append(input.substring(rol, input.length() - 1));
             System.out.println(stringBuilder.toString());
-    }
+        }
 
     }
 }

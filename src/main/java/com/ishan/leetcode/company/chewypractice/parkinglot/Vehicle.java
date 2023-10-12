@@ -8,12 +8,11 @@
 
 package com.ishan.leetcode.company.chewypractice.parkinglot;
 
-import java.time.Instant;
 import java.util.Objects;
 
 /*
-* Vehicle: Represents a vehicle and its attributes.
-*/
+ * Vehicle: Represents a vehicle and its attributes.
+ */
 public class Vehicle {
     String licensePlateNumber;
 

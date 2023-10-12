@@ -12,9 +12,23 @@ import java.util.Arrays;
 
 public class BinarySearch {
 
+    // Driver code
+    public static void main(String args[]) {
+        BinarySearch ob = new BinarySearch();
+        int arr[] = {2, 3, 4, 10, 40};
+        int n = arr.length;
+        int x = 10;
+        int result = ob.binarySearch(arr, x);
+        if (result == -1)
+            System.out.println(
+                    "Element is not present in array");
+        else
+            System.out.println("Element is present at "
+                    + "index " + result);
+    }
+
     // Returns index of x if it is present in arr[].
-    int binarySearch(int arr[], int x)
-    {
+    int binarySearch(int arr[], int x) {
 
         Arrays.stream(arr).findFirst();
         int l = 0, r = arr.length - 1;
@@ -37,22 +51,6 @@ public class BinarySearch {
         // If we reach here, then element was
         // not present
         return -1;
-    }
-
-    // Driver code
-    public static void main(String args[])
-    {
-        BinarySearch ob = new BinarySearch();
-        int arr[] = { 2, 3, 4, 10, 40 };
-        int n = arr.length;
-        int x = 10;
-        int result = ob.binarySearch(arr, x);
-        if (result == -1)
-            System.out.println(
-                    "Element is not present in array");
-        else
-            System.out.println("Element is present at "
-                    + "index " + result);
     }
 }
 

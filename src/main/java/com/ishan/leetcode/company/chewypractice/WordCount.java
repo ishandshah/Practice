@@ -17,35 +17,35 @@ public class WordCount {
 
     public static void main(String[] args) {
 
-        List<String> sentenceList=List.of(" Ishan shah", " ishan majama"," shah kemnu",
+        List<String> sentenceList = List.of(" Ishan shah", " ishan majama", " shah kemnu",
                 " jay shree krishna");
-        
-        
+
+
         calculateWordOccurence(sentenceList);
 
     }
 
     private static void calculateWordOccurence(List<String> sentenceList) {
 
-        Map<String,Integer> wordCount=new HashMap<>();
-        Map<String,List<Integer>> sentenceNoOccurenceMap=new HashMap<>();
-        for(int i=0;i<sentenceList.size();i++){
-            String[] wordArray=sentenceList.get(i).split("\\s+");
+        Map<String, Integer> wordCount = new HashMap<>();
+        Map<String, List<Integer>> sentenceNoOccurenceMap = new HashMap<>();
+        for (int i = 0; i < sentenceList.size(); i++) {
+            String[] wordArray = sentenceList.get(i).split("\\s+");
 
-            for(String word:wordArray){
+            for (String word : wordArray) {
               /*  if(word==""){
                     continue;
                 }*/
 
-               if(wordCount.containsKey(word)){
-                   wordCount.put(word,wordCount.get(word)+1);
-                   sentenceNoOccurenceMap.get(word).add(i);
-               }else{
-                   wordCount.put(word,1);
-                   List<Integer> arrList=new ArrayList<>();
-                   arrList.add(i);
-                   sentenceNoOccurenceMap.put(word,arrList);
-               }
+                if (wordCount.containsKey(word)) {
+                    wordCount.put(word, wordCount.get(word) + 1);
+                    sentenceNoOccurenceMap.get(word).add(i);
+                } else {
+                    wordCount.put(word, 1);
+                    List<Integer> arrList = new ArrayList<>();
+                    arrList.add(i);
+                    sentenceNoOccurenceMap.put(word, arrList);
+                }
             }
 
 

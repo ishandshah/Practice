@@ -8,9 +8,10 @@
 
 package com.ishan.leetcode.company.bill;
 
-import java.util.*;
-
-import static com.ishan.leetcode.company.chewypractice.Anagram.isAnagram;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 // Find Resultant Array After Removing Anagrams
 //https://leetcode.com/problems/find-resultant-array-after-removing-anagrams/
@@ -18,20 +19,20 @@ public class removeAnagrams {
 
     public static void main(String[] args) {
 
-        String[] words = {"abba","baba","bbaa","cd","cd"};
+        String[] words = {"abba", "baba", "bbaa", "cd", "cd"};
 
 
         System.out.println(removeAnagramFaster(words));
     }
 
     private static List<String> removeAnagramFaster(String[] words) {
-        Map<String,String> hashSet=new HashMap<>();
-        for(String word:words){
-            
+        Map<String, String> hashSet = new HashMap<>();
+        for (String word : words) {
+
 
             char[] chars = word.toCharArray();
             Arrays.sort(chars);
-            hashSet.put(new String(chars),word);
+            hashSet.put(new String(chars), word);
 
         }
 

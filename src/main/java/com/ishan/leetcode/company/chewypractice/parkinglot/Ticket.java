@@ -8,8 +8,6 @@
 
 package com.ishan.leetcode.company.chewypractice.parkinglot;
 
-import java.time.Instant;
-
 /*
 Ticket: Represents a parking ticket issued to a vehicle upon entry.
 

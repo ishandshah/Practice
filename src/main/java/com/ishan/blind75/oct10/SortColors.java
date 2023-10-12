@@ -14,19 +14,19 @@ import java.util.Arrays;
 public class SortColors {
     // doing it for 2 integers first
     public static void main(String[] args) {
-       //sortTwoColors();
+        //sortTwoColors();
 
-       sortThreeColors();
+        sortThreeColors();
     }
 
     private static void sortThreeColors() {
-        int[]  nums = {0,1,1,0,2,2,1,1,0,2,1};
+        int[] nums = {0, 1, 1, 0, 2, 2, 1, 1, 0, 2, 1};
 
 
         int l = 0;
         int r = nums.length - 1;
 
-        for (int i = 0; i <= r;)
+        for (int i = 0; i <= r; )
             if (nums[i] == 0)
                 swap(nums, i++, l++);
             else if (nums[i] == 1)
@@ -45,20 +45,20 @@ public class SortColors {
     }
 
     private static void sortTwoColors() {
-        int[]  nums = {0,1,1,0};
+        int[] nums = {0, 1, 1, 0};
 
-        int j=nums.length -1;
-        int i=0;
-        for(int k=0;k<nums.length;k++){
-            if(i!=j){
-                if(nums[i]==1 && nums[j]==0){
-                    nums[i]=0;
-                    nums[j]=1;
+        int j = nums.length - 1;
+        int i = 0;
+        for (int k = 0; k < nums.length; k++) {
+            if (i != j) {
+                if (nums[i] == 1 && nums[j] == 0) {
+                    nums[i] = 0;
+                    nums[j] = 1;
                     i++;
                     j--;
-                }else if (nums[i]==0 ){
+                } else if (nums[i] == 0) {
                     i++;
-                }else if(nums[j]==1){
+                } else if (nums[j] == 1) {
                     j--;
                 }
             }

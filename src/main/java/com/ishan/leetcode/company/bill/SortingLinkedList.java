@@ -29,22 +29,22 @@ public class SortingLinkedList {
     private static void sort(Node head) {
 
 
-        int[] count={0,0,0};
-        Node curre=head;
+        int[] count = {0, 0, 0};
+        Node curre = head;
 
 
-        while(curre!=null){
+        while (curre != null) {
 
             count[curre.value]++;
-            curre=curre.next;
+            curre = curre.next;
         }
-        curre=head;
+        curre = head;
 
-        for(int i=0;i<count.length;i++){
-            while(count[i]>0){
-                curre.value=i;
+        for (int i = 0; i < count.length; i++) {
+            while (count[i] > 0) {
+                curre.value = i;
                 count[i]--;
-                curre=curre.next;
+                curre = curre.next;
             }
         }
         print(head);

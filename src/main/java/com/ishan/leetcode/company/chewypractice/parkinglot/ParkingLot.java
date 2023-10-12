@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /*
-* ParkingLot: Represents the parking lot itself and manages the availability of parking spots.
+ * ParkingLot: Represents the parking lot itself and manages the availability of parking spots.
  */
 public class ParkingLot {
     int capacity;
@@ -30,7 +30,7 @@ public class ParkingLot {
         }
     }
 
-    public boolean park(Vehicle vehicle){
+    public boolean park(Vehicle vehicle) {
         if (isFull()) {
             return false; // Parking lot is full
         }
@@ -44,7 +44,7 @@ public class ParkingLot {
         return false; // No available spots
     }
 
-    public void unpark(Vehicle vehicle){
+    public void unpark(Vehicle vehicle) {
         // Find the spot occupied by the vehicle
         for (ParkingSpot spot : parkingSpots) {
             if (spot.vehicle == vehicle) {
@@ -54,8 +54,8 @@ public class ParkingLot {
         }
     }
 
-    public List<ParkingSpot> getParkingSpotList(){
-        List<ParkingSpot> returnList=new ArrayList<>();
+    public List<ParkingSpot> getParkingSpotList() {
+        List<ParkingSpot> returnList = new ArrayList<>();
         int count = 0;
         for (ParkingSpot spot : parkingSpots) {
             if (spot.isAvailable) {
@@ -65,7 +65,7 @@ public class ParkingLot {
         return returnList;
     }
 
-    public boolean isFull(){
+    public boolean isFull() {
         // Check if all spots are occupied
         for (ParkingSpot spot : parkingSpots) {
             if (spot.isAvailable) {

@@ -56,6 +56,11 @@ public class Flexport {
         buildBidding();
 
 
+    }
+
+    private static void buildBidding() {
+
+
     }    Queue<Order> sellOrder = new LinkedList<>() {
         @Override
         public boolean contains(Object o) {
@@ -67,11 +72,6 @@ public class Flexport {
             return false;
         }
     };
-
-    private static void buildBidding() {
-
-
-    }
 
     public boolean addContainer(String clientId, String containerId, int quantity) {
         BiFunction<Integer, Integer, Integer> powFunction = (x1, x2) -> Math.addExact(x1, x2);

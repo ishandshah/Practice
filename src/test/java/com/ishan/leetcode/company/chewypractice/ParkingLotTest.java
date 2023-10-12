@@ -23,13 +23,13 @@ public class ParkingLotTest {
     private Vehicle car3;
 
     private Ticket ticket;
+
     @BeforeEach
     public void setup() {
         parkingLot = new ParkingLot(2);
         car1 = new Vehicle("ABC123", "Car");
         car2 = new Vehicle("XYZ789", "Car");
         car3 = new Vehicle("DEF456", "Car");
-
 
 
     }
@@ -72,7 +72,7 @@ public class ParkingLotTest {
     @Test
     public void testTicketGeneration() {
         Assertions.assertTrue(parkingLot.park(car1));
-       // Ticket ticket = generateTicket(car1);
+        // Ticket ticket = generateTicket(car1);
         //Assertions.assertEquals(ticket, car1.getTicket());
     }
 

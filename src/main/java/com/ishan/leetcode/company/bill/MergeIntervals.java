@@ -22,11 +22,12 @@ public class MergeIntervals {
 
 
     public static void main(String[] args) {
-        int[][] intervals = {{1,3},{2,6},{8,10},{15,18}};
+        int[][] intervals = {{1, 3}, {2, 6}, {8, 10}, {15, 18}};
         merge(intervals);
     }
+
     public static int[][] merge(int[][] intervals) {
-        if(intervals.length<2){
+        if (intervals.length < 2) {
             return intervals;
         }
 

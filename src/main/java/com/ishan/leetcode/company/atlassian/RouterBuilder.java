@@ -15,18 +15,18 @@ public class RouterBuilder {
 
     RouterImpl router;
 
-    private RouterBuilder(){
-        router =new RouterImpl();
+    private RouterBuilder() {
+        router = new RouterImpl();
     }
 
     //public s
 
-    public RouterBuilder withMap(Map<Pattern,String> map){
-            router.setRouterPath(map);
-            return this;
+    public RouterBuilder withMap(Map<Pattern, String> map) {
+        router.setRouterPath(map);
+        return this;
     }
 
-    public RouterImpl build(){
+    public RouterImpl build() {
         return router;
     }
 }

@@ -13,17 +13,17 @@ public class SynchronizedSingleton {
 
     SynchronizedSingleton synchronizedSingleton;
 
-    private SynchronizedSingleton(){
-        if(synchronizedSingleton!=null){
+    private SynchronizedSingleton() {
+        if (synchronizedSingleton != null) {
             System.out.println(("Singleton already created"));
         }
     }
 
 
-    public SynchronizedSingleton getSynchronizedSingleton(){
-        if(synchronizedSingleton==null){
-            synchronized (SynchronizedSingleton.class){
-                synchronizedSingleton=new SynchronizedSingleton();
+    public SynchronizedSingleton getSynchronizedSingleton() {
+        if (synchronizedSingleton == null) {
+            synchronized (SynchronizedSingleton.class) {
+                synchronizedSingleton = new SynchronizedSingleton();
             }
         }
         return synchronizedSingleton;

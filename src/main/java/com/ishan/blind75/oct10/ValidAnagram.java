@@ -12,7 +12,7 @@ import java.util.Arrays;
 
 public class ValidAnagram {
     public static void main(String[] args) {
-        System.out.println(isAnagram("ishan","nashi"));
+        System.out.println(isAnagram("ishan", "nashi"));
     }
 
     private static boolean isAnagram(String s, String t) {
@@ -24,12 +24,12 @@ public class ValidAnagram {
     }
 
     public static boolean isAnagram2(String s, String t) {
-        char[] a=s.toCharArray();
-        char[] b=t.toCharArray();
+        char[] a = s.toCharArray();
+        char[] b = t.toCharArray();
 
         Arrays.sort(a);
         Arrays.sort(b);
 
-        return Arrays.equals(a,b);
+        return Arrays.equals(a, b);
     }
 }

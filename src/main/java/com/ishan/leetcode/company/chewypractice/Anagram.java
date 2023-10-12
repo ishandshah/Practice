@@ -55,9 +55,9 @@ public class Anagram {
                 }
             });
 
-        if(map1.equals(map2)){
-            return true;
-        }
+            if (map1.equals(map2)) {
+                return true;
+            }
 
         }
         return false;

@@ -14,7 +14,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 
-public class RouterImpl implements Router{
+public class RouterImpl implements Router {
+
+    Map<Pattern, String> routerPath = new HashMap<>();
 
     public Map<Pattern, String> getRouterPath() {
         return routerPath;
@@ -24,60 +26,56 @@ public class RouterImpl implements Router{
         this.routerPath = routerPath;
     }
 
-    Map<Pattern,String> routerPath=new HashMap<>();
-
-
-
     @Override
     public void withRoute(String path, String result) {
-            if(routerPath.containsKey(path)){
-                // Not to worry on updates
-            }
+        if (routerPath.containsKey(path)) {
+            // Not to worry on updates
+        }
 
-            String convertedPath;
-            Pattern patternInstance;
-            if(path.contains("{id}"))    {
-                convertedPath=convertPathWithId(path);
-            }else {
-                convertedPath = convertPathToRegex(path);
-            }
+        String convertedPath;
+        Pattern patternInstance;
+        if (path.contains("{id}")) {
+            convertedPath = convertPathWithId(path);
+        } else {
+            convertedPath = convertPathToRegex(path);
+        }
         patternInstance = Pattern.compile(convertedPath);
 
-        routerPath.put(patternInstance,result);
+        routerPath.put(patternInstance, result);
     }
 
     private String convertPathWithId(String pathRoute) {
-            String[] pathArray=pathRoute.split("\\/");
-            StringBuilder sb=new StringBuilder();
+        String[] pathArray = pathRoute.split("\\/");
+        StringBuilder sb = new StringBuilder();
         // foo/{}id/bar
         // / - foo id bar
         // foo/{regex}/bar
-            for(String path:pathArray){
-                if(path==""){
-                    continue;
-                }
-                sb.append("/");
-                if(path.equalsIgnoreCase("{id}")){
-                    sb.append("^[0-9a-fA-F]{8}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{12}$");
-                }else{
-                    sb.append(path);
-                }
+        for (String path : pathArray) {
+            if (path == "") {
+                continue;
             }
-           return sb.toString();
+            sb.append("/");
+            if (path.equalsIgnoreCase("{id}")) {
+                sb.append("^[0-9a-fA-F]{8}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{12}$");
+            } else {
+                sb.append(path);
+            }
+        }
+        return sb.toString();
     }
 
     private String convertPathToRegex(String path) {
-        String regex=path.replaceAll("\\*",".*");
+        String regex = path.replaceAll("\\*", ".*");
         return "^" + regex + "$";
 
     }
 
     @Override
     public String route(String path) {
-        for(Map.Entry<Pattern,String> patternStringEntry:routerPath.entrySet()){
-            Pattern pattern=patternStringEntry.getKey();
-            Matcher matches=pattern.matcher(path);
-            if(matches.find()){
+        for (Map.Entry<Pattern, String> patternStringEntry : routerPath.entrySet()) {
+            Pattern pattern = patternStringEntry.getKey();
+            Matcher matches = pattern.matcher(path);
+            if (matches.find()) {
                 return patternStringEntry.getValue();
             }
         }
