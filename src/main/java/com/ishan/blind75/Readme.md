@@ -17,3 +17,6 @@ https://leetcode.com/problems/two-sum/
 
 **FindMaxPoints in Tree**
 **https://leetcode.com/problems/climbing-stairs**
+**https://leetcode.com/problems/valid-palindrome**
+
+## Oct 13
