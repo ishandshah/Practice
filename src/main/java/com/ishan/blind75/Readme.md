@@ -20,3 +20,9 @@ https://leetcode.com/problems/two-sum/
 **https://leetcode.com/problems/valid-palindrome**
 
 ## Oct 13
+
+**https://leetcode.com/problems/flood-fill/**
+**https://leetcode.com/problems/binary-search/**
+**https://leetcode.com/problems/maximum-subarray/**
+**https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/**
+**https://leetcode.com/problems/insert-interval/**
