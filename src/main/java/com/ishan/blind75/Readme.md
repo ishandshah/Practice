@@ -26,3 +26,5 @@ https://leetcode.com/problems/two-sum/
 **https://leetcode.com/problems/maximum-subarray/**
 **https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/**
 **https://leetcode.com/problems/insert-interval/**
+**https://leetcode.com/problems/valid-parentheses/**
+**https://leetcode.com/problems/linked-list-cycle/**
