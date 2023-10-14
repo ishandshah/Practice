@@ -8,12 +8,29 @@
 
 package com.ishan.leetcode.linkedlist;
 
+import java.util.Random;
+
 public class Node {
     public int value;
     public Node next;
 
     public Node(int value) {
         this.value = value;
+
+    }
+
+    public static Node populateLinkedList(int value){
+        Node head=new Node(value);
+        head.next=new Node(new Random().nextInt(0,100));
+        head.next.next=new Node(new Random().nextInt(0,100));;
+        head.next.next.next=new Node(new Random().nextInt(0,100));
+        head.next.next.next.next=new Node(new Random().nextInt(0,100));
+        head.next.next.next.next.next=new Node(new Random().nextInt(0,100));
+        head.next.next.next.next.next.next=new Node(new Random().nextInt(0,100));
+        head.next.next.next.next.next.next.next=new Node(new Random().nextInt(0,100));
+
+
+        return head;
 
     }
 
@@ -25,7 +42,7 @@ public class Node {
         while (head != null) {
             System.out.println(head.value);
             head = head.next;
-            //reverse the connection/arros
+            //reverse the connection/arrows
 
         }
 

@@ -28,3 +28,10 @@ https://leetcode.com/problems/two-sum/
 **https://leetcode.com/problems/insert-interval/**
 **https://leetcode.com/problems/valid-parentheses/**
 **https://leetcode.com/problems/linked-list-cycle/**
+
+
+## Oct 14
+
+**https://leetcode.com/problems/merge-two-sorted-lists/description/**
+**https://leetcode.com/problems/best-time-to-buy-and-sell-stock/**
+**https://leetcode.com/problems/implement-queue-using-stacks/**
