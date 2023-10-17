@@ -34,4 +34,14 @@ https://leetcode.com/problems/two-sum/
 
 **https://leetcode.com/problems/merge-two-sorted-lists/description/**
 **https://leetcode.com/problems/best-time-to-buy-and-sell-stock/**
-**https://leetcode.com/problems/implement-queue-using-stacks/**
+
+## Oct 15
+
+**TODO https://leetcode.com/problems/implement-queue-using-stacks/**
+**https://leetcode.com/problems/01-matrix/**
+**TODO https://leetcode.com/problems/01-matrix/solutions/741319/java-bfs-solution/ **
+
+## Oct 16
+
+**https://leetcode.com/problems/ransom-note/**
+

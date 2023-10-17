@@ -6,19 +6,8 @@
  * Vestibulum commodo. Ut rhoncus gravida arcu.
  */
 
-package com.ishan.blind75.oct14;
-
-import java.util.Stack;
-
-//https://leetcode.com/problems/implement-queue-using-stacks/
-public class QueueUsingStack {
-    Stack<Integer> stack1;
-    Stack<Integer> stack2;
-
-    public QueueUsingStack() {
-        stack1=new Stack<>();
-        stack2=new Stack<>();
-    }
-
-
+package com.ishan.blind75.oct15;
+//todo
+//https://leetcode.com/problems/01-matrix/solutions/741319/java-bfs-solution/
+public class Matrix01BFS {
 }

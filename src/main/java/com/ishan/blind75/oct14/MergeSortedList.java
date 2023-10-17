@@ -17,7 +17,7 @@ public class MergeSortedList {
     public static void main(String[] args) {
         Node head1=Node.populateLinkedList(10);
         Node.print(head1);
-        System.out.println("new list");
+        System.out.println("New list");
         Node head2=Node.populateLinkedList(12);
         Node.print(head2);
         Node node = mergeTwoLists(head1, head2);
