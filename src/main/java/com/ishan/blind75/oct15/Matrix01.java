@@ -17,27 +17,24 @@ package com.ishan.blind75.oct15;
 //todo fari
 public class Matrix01 {
     public static void main(String[] args) {
-         int[][] input={{0,0,0},{0,1,0},{0,0,0}};
+        int[][] input = {{0, 0, 0}, {0, 1, 0}, {0, 0, 0}};
         int[][] ints = zeroOne(input);
-
-
-
 
 
     }
 
 
     public static int[][] zeroOne(int[][] mat) {
-        int[][] output=new int[mat.length][mat[0].length];
-        int row=mat.length;
-        int column=mat[0].length;
+        int[][] output = new int[mat.length][mat[0].length];
+        int row = mat.length;
+        int column = mat[0].length;
 
-        for(int i=0;i<row;i++){
-            for(int j=0;j<column;j++){
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < column; j++) {
 
 
-                if(mat[i][j]==0){
-                    output[i][j]=0;
+                if (mat[i][j] == 0) {
+                    output[i][j] = 0;
                 }
                 if (i > 0) {
                     output[i][j] = Math.min(output[i][j], output[i - 1][j] + 1);

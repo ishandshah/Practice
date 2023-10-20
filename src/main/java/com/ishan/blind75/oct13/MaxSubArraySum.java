@@ -11,12 +11,9 @@ package com.ishan.blind75.oct13;
 public class MaxSubArraySum {
 
 
-
-
     public static void main(String[] args) {
-        int[] nums = {5,4,-1,7,8};
+        int[] nums = {5, 4, -1, 7, 8};
         System.out.println(maxSubArray(nums));
-
 
 
     }
@@ -24,16 +21,15 @@ public class MaxSubArraySum {
     public static int maxSubArray(int[] nums) {
 
 
-
-        if(nums==null || nums.length<1)
+        if (nums == null || nums.length < 1)
             return 0;
-        if(nums.length<2)
+        if (nums.length < 2)
             return nums[0];
-        int  maxSum=nums[0];
-        int currentSum=nums[0];
-        for(int i=1;i<nums.length;i++){
-            currentSum=Math.max(currentSum + nums[i],nums[i]);
-            maxSum=Math.max(currentSum,maxSum);
+        int maxSum = nums[0];
+        int currentSum = nums[0];
+        for (int i = 1; i < nums.length; i++) {
+            currentSum = Math.max(currentSum + nums[i], nums[i]);
+            maxSum = Math.max(currentSum, maxSum);
         }
         return maxSum;
     }

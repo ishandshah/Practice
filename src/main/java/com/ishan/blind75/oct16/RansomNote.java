@@ -12,18 +12,18 @@ package com.ishan.blind75.oct16;
 public class RansomNote {
 
     public boolean canConstruct(String ransomNote, String magazine) {
-        int[] count=new int[26];
-        char[] magaine=magazine.toCharArray();
-        for(Character c: magaine){
-            int x=c-'a';
+        int[] count = new int[26];
+        char[] magaine = magazine.toCharArray();
+        for (Character c : magaine) {
+            int x = c - 'a';
             count[x]++;
         }
-        for(int i=0;i<ransomNote.length();i++){
-            int x=ransomNote.charAt(i)-'a';
-            if(count[x]<=0){
+        for (int i = 0; i < ransomNote.length(); i++) {
+            int x = ransomNote.charAt(i) - 'a';
+            if (count[x] <= 0) {
                 System.out.println(false);
                 return false;
-            }else{
+            } else {
                 count[x]--;
             }
         }

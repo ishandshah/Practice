@@ -1,6 +1,7 @@
 https://www.techinterviewhandbook.org/grind75
 
-https://www.techinterviewhandbook.org/grind75?weeks=14&hours=11&grouping=topics&mode=all
+https://www.techinterviewhandbook.org/grind75?weeks=14&hours=11&mode=all&grouping=weeks&order=all_rounded
+**WEEK ONE**
 
 ## Oct 10
 
@@ -29,7 +30,6 @@ https://leetcode.com/problems/two-sum/
 **https://leetcode.com/problems/valid-parentheses/**
 **https://leetcode.com/problems/linked-list-cycle/**
 
-
 ## Oct 14
 
 **https://leetcode.com/problems/merge-two-sorted-lists/description/**
@@ -45,3 +45,18 @@ https://leetcode.com/problems/two-sum/
 
 **https://leetcode.com/problems/ransom-note/**
 
+**WEEK TWO**
+
+## Oct 17
+
+**https://leetcode.com/problems/longest-substring-without-repeating-characters/**
+**https://leetcode.com/problems/k-closest-points-to-origin/description/**
+
+## Oct 18
+
+**https://leetcode.com/problems/longest-palindrome/**
+
+## Oct 19
+
+**https://leetcode.com/problems/balanced-binary-tree/**
+**https://leetcode.com/problems/invert-binary-tree/**

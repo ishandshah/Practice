@@ -18,12 +18,12 @@ public class FindPath {
     public static void main(String[] args) {
         TreeNode treeNode = new TreeNode().populateTree();
 
-        System.out.println(findPath(treeNode,new ArrayList<>(),new TreeNode(13)));
+        System.out.println(findPath(treeNode, new ArrayList<>(), new TreeNode(13)));
     }
 
 
-    public static boolean findPath(TreeNode node, List<TreeNode> arr, TreeNode target){
-        if(node==null)
+    public static boolean findPath(TreeNode node, List<TreeNode> arr, TreeNode target) {
+        if (node == null)
             return false;
 
         arr.add(node);
@@ -31,10 +31,10 @@ public class FindPath {
         // return true
         if (node.val == target.val)
             return true;
-        if(findPath(node.left,arr,target) || findPath(node.right,arr,target))
-                return true;
+        if (findPath(node.left, arr, target) || findPath(node.right, arr, target))
+            return true;
 
-        arr.remove(arr.size() -1 );
+        arr.remove(arr.size() - 1);
         return false;
     }
 }

@@ -12,14 +12,14 @@ import com.ishan.leetcode.linkedlist.Node;
 
 public class LinkedListCycle {
     public boolean hasCycle(Node head) {
-        if(head==null || head.next==null)
+        if (head == null || head.next == null)
             return false;
-        Node curr=head;
-        Node fast=head;
-        while(fast!=null && fast.next!=null){
-            curr=curr.next;
-            fast=fast.next.next;
-            if(curr==fast)
+        Node curr = head;
+        Node fast = head;
+        while (fast != null && fast.next != null) {
+            curr = curr.next;
+            fast = fast.next.next;
+            if (curr == fast)
                 return true;
         }
         return false;

@@ -16,9 +16,9 @@ import java.util.List;
 public class InsertIntervals {
 
     public static void main(String[] args) {
-        int[][] intervals = {{1,3},{5,9}};
+        int[][] intervals = {{1, 3}, {5, 9}};
         // expected output 1,9
-        int[] newInterval = {2,5};
+        int[] newInterval = {2, 5};
         insert(intervals, newInterval);
     }
 
@@ -26,7 +26,7 @@ public class InsertIntervals {
         List<int[]> result = new LinkedList<>();
         int i = 0;
         // add all the intervals ending before newInterval starts
-        while (i < intervals.length && intervals[i][1] < newInterval[0]){
+        while (i < intervals.length && intervals[i][1] < newInterval[0]) {
             result.add(intervals[i]);
             i++;
         }
@@ -43,7 +43,7 @@ public class InsertIntervals {
         result.add(newInterval);
 
         // add all the rest
-        while (i < intervals.length){
+        while (i < intervals.length) {
             result.add(intervals[i]);
             i++;
         }

@@ -61,17 +61,7 @@ public class Flexport {
     private static void buildBidding() {
 
 
-    }    Queue<Order> sellOrder = new LinkedList<>() {
-        @Override
-        public boolean contains(Object o) {
-            for (Order k : sellOrder) {
-                if (k.isAvailable && k.price == ((Order) o).price) {
-                    return true;
-                }
-            }
-            return false;
-        }
-    };
+    }
 
     public boolean addContainer(String clientId, String containerId, int quantity) {
         BiFunction<Integer, Integer, Integer> powFunction = (x1, x2) -> Math.addExact(x1, x2);
@@ -86,7 +76,17 @@ public class Flexport {
 
 
         return false;
-    }
+    }    Queue<Order> sellOrder = new LinkedList<>() {
+        @Override
+        public boolean contains(Object o) {
+            for (Order k : sellOrder) {
+                if (k.isAvailable && k.price == ((Order) o).price) {
+                    return true;
+                }
+            }
+            return false;
+        }
+    };
 
     public boolean removeContainerQuantity(String clientId, String containerId, int quantity) {
         //BiFunction<Integer, Integer, Integer> powFunction = (x1, x2) -> Math.subtractExact(x2, x1);

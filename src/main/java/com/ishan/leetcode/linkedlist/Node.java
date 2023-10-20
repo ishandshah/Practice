@@ -19,15 +19,16 @@ public class Node {
 
     }
 
-    public static Node populateLinkedList(int value){
-        Node head=new Node(value);
-        head.next=new Node(new Random().nextInt(0,100));
-        head.next.next=new Node(new Random().nextInt(0,100));;
-        head.next.next.next=new Node(new Random().nextInt(0,100));
-        head.next.next.next.next=new Node(new Random().nextInt(0,100));
-        head.next.next.next.next.next=new Node(new Random().nextInt(0,100));
-        head.next.next.next.next.next.next=new Node(new Random().nextInt(0,100));
-        head.next.next.next.next.next.next.next=new Node(new Random().nextInt(0,100));
+    public static Node populateLinkedList(int value) {
+        Node head = new Node(value);
+        head.next = new Node(new Random().nextInt(0, 100));
+        head.next.next = new Node(new Random().nextInt(0, 100));
+        ;
+        head.next.next.next = new Node(new Random().nextInt(0, 100));
+        head.next.next.next.next = new Node(new Random().nextInt(0, 100));
+        head.next.next.next.next.next = new Node(new Random().nextInt(0, 100));
+        head.next.next.next.next.next.next = new Node(new Random().nextInt(0, 100));
+        head.next.next.next.next.next.next.next = new Node(new Random().nextInt(0, 100));
 
 
         return head;

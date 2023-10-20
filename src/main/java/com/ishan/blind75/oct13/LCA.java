@@ -18,10 +18,9 @@ import java.util.List;
 //TODO better recursive way to solve this
 public class LCA {
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-        List<TreeNode> route1=new LinkedList<>();
-        List<TreeNode> route2=new LinkedList<>();
-        if(findPath(root,route1,p) && findPath(root,route2,q))
-        {
+        List<TreeNode> route1 = new LinkedList<>();
+        List<TreeNode> route2 = new LinkedList<>();
+        if (findPath(root, route1, p) && findPath(root, route2, q)) {
             int i;
             for (i = 0; i < route1.size() && i < route2.size();
                  i++) {
@@ -37,11 +36,10 @@ public class LCA {
         return null;
     }
 
-    public boolean findPath(TreeNode root, List<TreeNode> arr, TreeNode x)
-    {
+    public boolean findPath(TreeNode root, List<TreeNode> arr, TreeNode x) {
         // if root is NULL
         // there is no path
-        if (root==null)
+        if (root == null)
             return false;
 
         // push the node's value in 'arr'
@@ -63,7 +61,7 @@ public class LCA {
         // left or right subtree of the current node
         // Thus, remove current node's value from
         // 'arr'and then return false
-        arr.remove(arr.size()-1);
+        arr.remove(arr.size() - 1);
         return false;
     }
 

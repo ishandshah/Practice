@@ -16,8 +16,8 @@ public class QueueUsingStack {
     Stack<Integer> stack2;
 
     public QueueUsingStack() {
-        stack1=new Stack<>();
-        stack2=new Stack<>();
+        stack1 = new Stack<>();
+        stack2 = new Stack<>();
     }
 
 
