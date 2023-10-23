@@ -8,9 +8,9 @@
 
 package com.ishan.leetcode.company.chewypractice;
 
-import com.ishan.leetcode.company.chewypractice.parkinglot.ParkingLot;
-import com.ishan.leetcode.company.chewypractice.parkinglot.Ticket;
-import com.ishan.leetcode.company.chewypractice.parkinglot.Vehicle;
+import com.ishan.practice.company.chewypractice.parkinglot.ParkingLot;
+import com.ishan.practice.company.chewypractice.parkinglot.Ticket;
+import com.ishan.practice.company.chewypractice.parkinglot.Vehicle;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
