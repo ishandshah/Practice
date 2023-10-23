@@ -70,4 +70,10 @@ https://leetcode.com/problems/two-sum/
 **https://leetcode.com/problems/evaluate-reverse-polish-notation/**
 
 ## Oct 22
-https://leetcode.com/problems/binary-tree-level-order-traversal/
+**https://leetcode.com/problems/binary-tree-inorder-traversal/**
+**https://leetcode.com/problems/binary-tree-preorder-traversal/**
+
+## Oct 23
+
+**https://leetcode.com/problems/binary-tree-postorder-traversal/**
+**https://leetcode.com/problems/binary-tree-level-order-traversal/**
