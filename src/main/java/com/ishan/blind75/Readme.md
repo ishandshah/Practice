@@ -74,6 +74,15 @@ https://leetcode.com/problems/two-sum/
 **https://leetcode.com/problems/binary-tree-preorder-traversal/**
 
 ## Oct 23
+**https://leetcode.com/problems/middle-of-the-linked-list/description/**
 
+## Oct 24
+
+**SKIPPED :(**
+
+## Oct 25
+**https://leetcode.com/problems/word-search/**
+
+## Oct 26
 **https://leetcode.com/problems/binary-tree-postorder-traversal/**
 **https://leetcode.com/problems/binary-tree-level-order-traversal/**
