@@ -84,5 +84,26 @@ https://leetcode.com/problems/two-sum/
 **https://leetcode.com/problems/word-search/**
 
 ## Oct 26
+**SKIPPED :(**
+
+## Oct 27
+
+**SKIPPED :(**
+
+## Oct 28
+
+**https://leetcode.com/problems/remove-colored-pieces-if-both-neighbors-are-the-same-color/**
+
+## Oct 29
+
+**https://leetcode.com/problems/break-a-palindrome/**
+
+## Oct 30
+
+**https://leetcode.com/problems/spiral-matrix/**
+
+
+## TBD
+
 **https://leetcode.com/problems/binary-tree-postorder-traversal/**
 **https://leetcode.com/problems/binary-tree-level-order-traversal/**
