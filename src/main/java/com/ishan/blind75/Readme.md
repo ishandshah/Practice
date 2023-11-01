@@ -102,6 +102,10 @@ https://leetcode.com/problems/two-sum/
 
 **https://leetcode.com/problems/spiral-matrix/**
 
+## Oct 31
+
+**https://leetcode.com/problems/maximum-profit-from-trading-stocks/**
+**https://leetcode.com/problems/maximum-number-of-non-overlapping-palindrome-substrings**
 
 ## TBD
 
