@@ -107,6 +107,13 @@ https://leetcode.com/problems/two-sum/
 **https://leetcode.com/problems/maximum-profit-from-trading-stocks/**
 **https://leetcode.com/problems/maximum-number-of-non-overlapping-palindrome-substrings**
 
+
+## Nov 1
+
+**https://leetcode.com/problems/lru-cache/**
+
+## Nov 2
+
 ## TBD
 
 **https://leetcode.com/problems/binary-tree-postorder-traversal/**
