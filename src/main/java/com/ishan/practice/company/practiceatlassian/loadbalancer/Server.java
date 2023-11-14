@@ -29,6 +29,7 @@ public class Server {
         if (o == null || getClass() != o.getClass()) return false;
         Server server = (Server) o;
         return name.equals(server.name);
+
     }
 
     @Override

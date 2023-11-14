@@ -114,7 +114,37 @@ https://leetcode.com/problems/two-sum/
 
 ## Nov 2
 
+**https://leetcode.com/problems/longest-substring-without-repeating-characters/**
+
+## Nov 3
+
+**https://leetcode.com/problems/random-pick-with-weight/ Interview Q**
+
+## Nov 4
+
+**SKIPPED :(**
+
+## Nov 5
+
+**https://leetcode.com/problems/max-stack/**
+
+
+## Nov 6 to 13
+
+**BIG BREAK :)**
+
+
+## Nov 14
+
+**https://leetcode.com/problems/integer-to-roman/**
+
 ## TBD
 
 **https://leetcode.com/problems/binary-tree-postorder-traversal/**
 **https://leetcode.com/problems/binary-tree-level-order-traversal/**
+
+
+Subsegment sort
+Rate limiting using 3 queues
+
+FACTORY DESIGN IMPLEMENTATION
