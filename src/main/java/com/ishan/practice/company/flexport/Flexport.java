@@ -76,17 +76,7 @@ public class Flexport {
 
 
         return false;
-    }    Queue<Order> sellOrder = new LinkedList<>() {
-        @Override
-        public boolean contains(Object o) {
-            for (Order k : sellOrder) {
-                if (k.isAvailable && k.price == ((Order) o).price) {
-                    return true;
-                }
-            }
-            return false;
-        }
-    };
+    }
 
     public boolean removeContainerQuantity(String clientId, String containerId, int quantity) {
         //BiFunction<Integer, Integer, Integer> powFunction = (x1, x2) -> Math.subtractExact(x2, x1);
@@ -107,7 +97,17 @@ public class Flexport {
             return true;
         }
         return false;
-    }
+    }    Queue<Order> sellOrder = new LinkedList<>() {
+        @Override
+        public boolean contains(Object o) {
+            for (Order k : sellOrder) {
+                if (k.isAvailable && k.price == ((Order) o).price) {
+                    return true;
+                }
+            }
+            return false;
+        }
+    };
 
     public boolean buyOrder(Order order1) {
         orderList.add(order1);
