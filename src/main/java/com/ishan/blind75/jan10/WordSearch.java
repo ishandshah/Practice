@@ -13,6 +13,9 @@ public class WordSearch {
     static int n=0;
     public static void main(String[] args) {
         char[][] board={{'A','B','C','E'},{'S','F','C','S'},{'A','D','E','E'}};
+        // 'A','B','C','E'
+        // 'S','F','C','S'
+        // 'A','D','E','E'
         String word="ABCCED";
 
         boolean exist = exist(board, word);

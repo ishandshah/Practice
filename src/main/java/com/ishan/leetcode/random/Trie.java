@@ -109,7 +109,6 @@ public class Trie {
 
 
         for (TrieNode child : crawl.children) {
-            // suggestionLimit--;
             if (child != null)
                 suggestedWords.add(thaw + child.c);
         }

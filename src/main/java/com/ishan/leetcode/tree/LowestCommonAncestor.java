@@ -33,8 +33,22 @@ public class LowestCommonAncestor {
 
     public static void main(String[] args) {
         TreeNode node = new TreeNode().populateTree();
+
+        long start=System.currentTimeMillis();
         TreeNode treeNode = new LowestCommonAncestor().lowestCommonAncestor(node, new TreeNode(8), new TreeNode(14));
+
+
         System.out.println(treeNode.val);
+        System.out.println("Iter" + (System.currentTimeMillis()-start));
+
+        long start2=System.currentTimeMillis();
+        TreeNode node2 = new TreeNode().populateTree();
+        TreeNode treeNode2 = new LowestCommonAncestor().lowestCommonAncestorRe(node2, new TreeNode(8), new TreeNode(14));
+
+
+        System.out.println(treeNode2.val);
+
+        System.out.println("Recur" + (System.currentTimeMillis()-start2));
     }
 
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
@@ -53,5 +67,22 @@ public class LowestCommonAncestor {
         }
         TreeNode lca = path1.get(i - 1);
         return lca;
+    }
+
+    public TreeNode lowestCommonAncestorRe(TreeNode root, TreeNode p, TreeNode q) {
+
+        if(root == null || root.val==p.val || root.val==q.val)
+            return root;
+
+
+        TreeNode leftSub = lowestCommonAncestorRe(root.left,p,q);
+        TreeNode rightSub= lowestCommonAncestorRe(root.right,p,q);
+
+        if(leftSub != null && rightSub != null){
+            return root;
+        }
+
+        return leftSub != null ? leftSub:rightSub;
+
     }
 }

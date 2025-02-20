@@ -9,6 +9,7 @@
 package com.ishan.practice.company.chewypractice;
 
 
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.Objects;
 import java.util.PriorityQueue;
@@ -45,6 +46,8 @@ public class ReturnTopKElements {
         }
 
         while (pp1.size() > i) {
+            Person peek = pp1.peek();
+            System.out.println(peek);
             pp1.remove();
         }
         // Print the elements in the PriorityQueue
@@ -61,15 +64,13 @@ public class ReturnTopKElements {
     }
 
     private static void topKElements(int[] inputArray, int i) {
-        PriorityQueue<Integer> pp1 = new PriorityQueue<>();
+        PriorityQueue<Integer> pp1 = new PriorityQueue<>(Collections.reverseOrder());
         for (Integer person : inputArray) {
-
-            while (pp1.size() >= i) {
-                pp1.remove();
-            }
-
             pp1.offer(person);
+        }
 
+        while (pp1.size() > i) {
+            pp1.remove();
         }
 
         // Print the elements in the PriorityQueue

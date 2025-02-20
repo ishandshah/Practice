@@ -38,7 +38,7 @@ public class TreeNode {
         root.left.right = new TreeNode(4);
         root.right.right = new TreeNode(13);
         root.right.left = new TreeNode(14);
-        root.right.left.left = new TreeNode(14);
+        root.right.left.left = new TreeNode(15);
 
         return root;
     }
